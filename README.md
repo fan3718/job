@@ -1,94 +1,37 @@
-# 云测练
-yunzuoye web applications
+# 拓维信息
+---
 
-# 本地打包及部署流程
+##productShow
+产品展示页面 
+由首页、作业、资源、题库后台、关于我们五个tab组成。
 
-## Linux/Mac环境
+运用vueJs前端框架、css3动画、ajax接口登录。
 
 ---
 
-先决条件
+##channel_manage
+渠道管理
+由数据统计、渠道管理、账号管理三部分组成。
+数据统计功能：根据相应条件导出后台数据；
+渠道管理功能：学校、账号、渠道管理、删除及创建；
+账号管理功能：创建删除渠道账号，搜索、重置密码。
 
-1. 安装[maven] (https://maven.apache.org/download.cgi)
-2. 安装[MySQL] (http://dev.mysql.com/downloads/)
-3. 安装[docker] (https://www.docker.com/)
-4. 安装[memcached] (https://memcached.org/)
-5. 安装[apache-tomcat] (http://tomcat.apache.org/)
-6. [注册内网docker账号] (https://docker-auth.zuoyetong.com.cn/)
-7. 联系管理员添加内网docker权限
-8. 登录docker
-
-    ```bash
-       $docker login docker.zuoyetong.com.cn
-       $Username: xxxxxxxx
-       $Password: xxxxxxxx
-       $Login Succeeded
-    ```
-
-9. 如果本地部署
-    * 运行`build/build-war.sh`打包
-    * 把打包好的war文件重命名为ROOT.war, 复制到tomcat的webapps目录下部署
-10. 如果远程部署
-    * 联系管理员开通相应服务器权限
-    * 根据部署环境, 运行`deploy-test.sh`, `deploy-inner-release.sh`或`deploy.sh`打包上传
-    * 登录到相应服务器, 定位到对应tomcat的webapps/ROOT/目录, 执行`server-deploy.sh`
-    * 重启tomcat
-
-## Windows环境
+运用vueJs前端框架
 
 ---
 
-### 方案一
+##zixue
+自学页面
+学生做试卷
 
-1. 安装VirtualBox, 在VirtualBox里安装Ubuntu虚拟机
-2. 在虚拟机里操作同`Linux/Mac环境`
+运用reactJs前端框架
 
-### 方案二
+---
 
-1. 安装[maven] (https://maven.apache.org/download.cgi)
-2. 打开项目根目录下的pom.xml文件, 找到这一行:
-```xml        
-        <testFailureIgnore>false</testFailureIgnore>
-```        
-改为:
-```xml        
-        <testFailureIgnore>true</testFailureIgnore>
-```        
-   - **<font color="red">注意, 此修改不可提交</font>**
-   - **<font color="red">注意, 此修改不可提交</font>**
-   - **<font color="red">注意, 此修改不可提交</font>**
- 
+##yuncelianPC
+云测练PC端
+由老师、学生、家长三端组成，老师端功能有首页、布置作业、班级管理、徐鞥生报告、教学资源、入学测评、个人中心等；学生端功能有首页、做作业、成绩报告、错题笔记、自主学习等；家长端有首页、学生联系报告、成绩报告、错题等
 
-3. 执行
-        
-        测试包:mvn -Ptest clean compile install
-        
-        预发布包:mvn -Pinner clean compile install
-        
-        正式包：mvn -Prelease clean compile install
-        
-4. 找到打包好的war文件, 用于本地部署, 或手动上传至服务器相应的tomcat进行远程部署
+运用angularJs前端框架
 
-##JS打包流程
-
-1.安装[nodejs] (https://nodejs.org/en/)
-
-2.进入js源码目录
-
-    ```bash
-    cd ${projectDir}/com.techyou.eclass.web/src/test/webapp/yuncelian-pc/angular-app
-    ```bash        
-
-3.执行(初始化依赖)
-
-    ```bash
-    npm install
-    ```bash
-
-4.执行打包命令
-
-    ```bash
-    npm run dist
-    ```bash
-
-输出到 ${projectDir}/com.techyou.eclass.web/src/main/webapp/static目录
+---
