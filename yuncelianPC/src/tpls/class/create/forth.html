@@ -1,0 +1,45 @@
+<div class="class-create">
+                    <div class="grade-title">
+                            <span class='school-dir' ng-if="form.stage==1">小学</span>
+                            <span class='school-dir' ng-if="form.stage==2">初中</span>
+                            <span class='school-dir' ng-if="form.stage==3">高中</span>
+                            <span class='grade-dir'>{{form.grade.name}}</span>                      
+                        </div>
+                        
+                        <div class="classes">
+                            <div class="create-success" ng-if="createResult.classes.length>0">
+                                <p class='text-p text-success'>以下班级创建成功</p>
+                                <div class="class-chosen">
+                                    <span class="checkbox-class" ng-repeat="clazz in createResult.classes">
+                                        <input type="checkbox" name="classId" id="class-id-{{clazz.id}}" disabled="disabled" checked="checked"><label for="class-id-{{clazz.id}}">{{clazz.shortName}}</label>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="class-exist" ng-if="createResult.existing.length>0">
+                                <p class='text-p text-exist'>以下班级已存在，点击加入</p>
+                                <div class="class-boxes class-box-min" ng-repeat="clazz in createResult.existing">
+                                    <input type="checkbox" name="class-exist" id="class-exist-{{clazz.id}}" ng-model="clazz.selected"  ng-change="changeClass(clazz,true)"/>
+                                    <label for="class-exist-{{clazz.id}}">
+                                        <div class="class-boxes-title">
+                                            <p class='class-name'>{{clazz.name}}</p>
+                                            <p class='class-num'>{{clazz.classNumber}}</p>
+                                            <span class='icon-class-check'></span>
+                                        </div>
+                                        <div class="box-content">
+                                            <div class="box-teacher">
+                                                <p>老师</p>
+                                                <p><span ng-repeat="teacher in clazz.teachers">{{teacher.nickName}} </span></p>
+                                            </div>
+                                            <div class="box-stu">
+                                                <p>学生：{{clazz.studentSize}}人</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="class-btn class-join-btn" ng-class="{'disabled':existing.length<=0}">
+                                <a href="javascript:void(0);" ng-click="joinClass(2)">加入班级</a>
+                            </div>
+
+                        </div>
+                    </div>

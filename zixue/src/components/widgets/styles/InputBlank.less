@@ -1,0 +1,95 @@
+.fill-blank{
+  width: 2.0833333333333335rem;
+  border-radius: 0.1388888888888889rem;
+  margin-top: 0.1388888888888889rem;
+  margin-left: 0.1388888888888889rem;
+  border:#ccc solid 1px;
+  position: relative;
+  display: inline-flex;
+  justify-content:center;
+  align-items:center;
+  background-color: #fff;
+  color: #feb86c;
+  //
+  .input{
+    display: inline-flex;
+    flex:3;
+    width: 1.6666666666666667rem;
+    height: auto;
+    border: none;
+    padding-right: 0;
+    padding-left: 0;
+    color: #feb86c;
+    font-size: 0.4166666666666667rem;
+    text-align: center;
+  }
+  .input:focus{
+    width:1.6666666666666667rem;
+    height:auto;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    text-align: left;
+  }
+  .input[type='text']{
+    background-color: #ffffff;
+    color:#feb86c;
+    font-size: 0.4166666666666667rem;
+    text-align: center;
+    padding: 0;
+  }
+  [readonly="readonly"]{
+    all:inherit;
+    text-indent: -0.1388888888888889rem;
+    display: inline-flex;
+    flex:3;
+    width:1.6666666666666667rem;
+    height: auto;
+    border: none;
+    text-align: center;
+    color: #feb86c;
+  }
+  .input::-webkit-input-placeholder{
+    text-align: center;
+    color:#ccc;
+  }
+  .input::-moz-placeholder{
+    text-align: center;
+    color:#ccc;
+  }
+  .input[type='text']:focus{
+      text-align:left;
+      color: #84aff9;
+  }
+  [readonly="readonly"]:focus{
+    border: 1px solid #84aff9;
+  }
+  [readonly="readonly"]::-webkit-input-placeholder{
+    text-align: center;
+    color:#ccc;
+  }
+  [readonly="readonly"]::-moz-placeholder{
+    text-align: center;
+    color:#ccc;
+  }
+  [readonly]:focus{
+      text-align:left;
+      color: #84aff9;
+  }
+}
+.fill-blank:focus{
+  border:2px solid #84aff9;
+  color: #84aff9;
+}
+
+.clear-button{
+  display: inline-flex;
+  background-image: url(/img/zixue/clear-icon.png);
+  background-size: cover;
+  background-color: #fff;
+  flex:1;
+  align-items: center;
+  width:0.7638888888888888rem;
+  height:0.625rem;
+  border-radius: 0.1388888888888889rem;
+}

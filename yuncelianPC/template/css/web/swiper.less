@@ -1,0 +1,174 @@
+@import url("var.less");
+@import url("lib.less");
+
+.swiper-exers{
+    margin: 35px 20px 0 20px;
+    min-height: 500px;
+    position: relative;
+    .content-area{
+        position: absolute;
+        height:64px;
+        bottom: 0px;
+        margin: 0px;  
+        width: 100%;     
+        .radius-all(0,0,6px,6px); 
+    }
+}
+.swiper-pag{
+    position: relative;
+    height: 60px;
+    margin: 35px 19px 0 19px;
+}
+
+//pagination
+.swiper-title{
+    .font-color(14px,@txtColor);
+    height: 14px;
+    line-height: 14px;
+    margin: 15px 0 0px 20px;
+}
+.wrapper-pag{
+    height: 0px;
+//  width: 50px;
+//  margin-left: 45px;
+//  .swiper-slide{
+//      margin-right: 30px;
+//  }
+//  .swiper-slide-active{
+//      padding: 0;
+//      margin: 0;
+//      margin-right: 30px;
+//  }
+
+}
+.pagination-box{
+    min-width: 880px;
+    height: 60px;
+    margin-left: 40px;
+    overflow: hidden;
+    text-overflow:ellipsis; 
+    white-space:nowrap;
+}
+.swiper-container-horizontal .swiper-pagination{
+    top: 0px;
+    text-align: initial;
+    left: 40px;
+    padding-left: 5px;
+    height: 60px;
+    min-width: 880px;
+//  overflow: hidden;
+}
+
+.swiper-container-horizontal .swiper-pagination .swiper-pagination-bullet{
+    margin: 0px 30px 0 0;  
+    opacity: 1;
+    background-color: #FFFFFF;
+    line-height: 50px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    border: 1px solid #FFAC47;
+    font-size: 14px;
+    color:#FFAC47; 
+}
+.swiper-container-horizontal .swiper-pagination .swiper-pagination-bullet-active{
+    margin: 0px 25px 0 -5px; 
+    width: 60px;
+    height: 60px;
+    background: #7BDE7B;
+    line-height: 60px;
+    text-align: center;
+    border: none;
+    font-size: 24px;
+    color:#FFFFFF;  
+}
+.swiper-content{
+    position: absolute;
+    border:1px solid #EEEEEE;
+    height:100%;
+    width: 938px;
+    .radius(6px);
+    
+}
+.swiper-tool-right{
+    position: absolute;
+    top: -4px;
+    right: 20px;
+    width: 104px;
+    height: 30px;
+    background-image: url(../../img/web/tobe-correct-box.png);
+    .font-color(14px,#FFFFFF);
+    line-height: 30px;
+    text-align: center;
+}
+
+.swiper-wrapper{
+    max-width: 786px;
+    margin: 35px 75px 30px 75px;
+}
+.swiper-slide{
+    p{
+        .font-color(12px,@textColor);
+        margin-bottom: 30px;
+    }   
+}
+
+.swiper-slide-active{
+//  margin-left: 75px;
+//  padding-right: 150px;
+}
+
+.swiper-button-prev{
+    width: 60px;
+    height: 60px;
+    left: 0;
+    background-image: url(../../img/web/content-left-click.png);
+    background-size: auto;
+}
+.swiper-button-next{
+    width: 60px;
+    height: 60px;
+    right: 0;
+    background-image: url(../../img/web/content-right-click.png);
+    background-size: auto;
+}
+
+.swiper-pag-prev{
+    cursor: pointer;
+    position: absolute;
+    width: 15px;
+    height: 60px;
+    left: 0;
+    top:0px;
+    background: url(../../img/web/question-left-click.png) 0 16px no-repeat;
+    background-color: #FFFFFF;
+    background-size: auto;
+    z-index: 15;
+}
+.swiper-pag-next{
+    cursor: pointer;
+    position: absolute;
+    width: 15px;
+    height: 60px;
+    right: 0;
+    top:0px;
+    background: url(../../img/web/question-right-click.png) 0 16px no-repeat;
+    background-color: #FFFFFF;
+    background-size: auto;
+    z-index: 15;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

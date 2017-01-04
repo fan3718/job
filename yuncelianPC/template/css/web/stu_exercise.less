@@ -1,0 +1,356 @@
+
+.clearfix{
+  clear: both;
+
+}
+
+.term-box{
+  margin-top: 60px;
+  width: 160px;
+  float: left;
+  position: fixed;
+  li{
+    border-left-width: 4px;
+    padding-left: 6px;
+    color: #999999;
+    border-left-style: solid;
+    border-left-color: #999999;
+    margin-top: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    .active{
+      border-left-color: #3c7ae3;
+      color:#3c7ae3;
+    }
+  }
+  .active{
+    border-left-color: #3c7ae3;
+    color:#3c7ae3;
+  }
+
+}
+.work-trail-box{
+  float: right;
+  width: 778px;
+  .info{
+    text-align: center;
+    height:35px;
+    background: #FFF4CC;
+    line-height: 35px;
+    color:#ff8a71;
+    font-size:14px;
+    padding:solid 1px #ccc;
+    .icon{
+      width: 15px;
+      height:15px;
+      margin-right: 5px;
+      background-image: url(../../img/web/hint-orange.png) ;
+    }
+  }
+}
+.fliter-box{
+  margin-top: 20px;
+  margin-bottom:20px;
+  margin-left:56px;
+  .active{
+    background: #6a9cf0;
+    color:#ffffff;
+  }
+  .active:hover{
+    color: #ffffff;
+  }
+}
+
+
+
+.radio-class:first-child > label {
+  margin-left: 0px;
+}
+
+
+.radio-class{
+
+    label:hover {
+    color: #3c7ae3;
+    border: 1px solid #3c7ae3;
+    }
+    label {
+      margin-top: 10px;
+      height: 30px;
+      margin-right: 20px;
+      color: #6a9cf0;
+      border-radius: 14px;
+      -webkit-border-radius: 14px;
+      -ms-border-radius: 14px;
+      -moz-border-radius: 14px;
+      -o-border-radius: 14px;
+      border: 1px solid #6a9cf0;
+      cursor: pointer;
+      text-align: center;
+      min-width: 90px;
+      line-height: 30px;
+      display: inline-block;
+      padding: 0 20px;
+      font-size: 14px;
+    }
+
+    input{
+      display: none;
+    }
+}
+
+.fliter-result-box{
+  .fliter-item:first-child{
+    background-position: 23px 7px;
+  }
+  .fliter-item{
+    position: relative;
+    background-image: url(../../img/web/gray-line.png);
+    background-repeat: repeat-y;
+    background-position: 23px 0px;
+    padding-bottom: 20px;
+    .calendar-in-time{
+      background-image: url(../../img/web/calendar-orange.png);
+      color: #ffc08c;
+
+    }
+    .calendar-out-time{
+      background-image: url(../../img/web/calendar-blue.png);
+      color: #b3cbff;
+
+    }
+    .calendar-box{
+      display: inline-block;
+      width: 46px;
+      height: 51px;
+      text-align: center;
+      top: 0;
+      position: absolute;
+      left: 0;
+      padding-top: 6px;
+      .calendar-week{
+        color:#ffffff;
+        font-size:13px;
+      }
+      .calendar-date{
+        height:25px;
+        line-height:25px;
+        font-size: 16px;
+      }
+    }
+    .exer-card{
+      width: 720px;
+      border: 1px solid #eeeeee;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -o-border-radius: 5px;
+      height: 128px;
+      background-color: #e9efff;
+      margin-left: 56px;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+      -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+      -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+      -o-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+      -ms-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+    .exer-result{
+      width: 120px;
+      height: 127px;
+      border-top-left-radius: 5px;
+      background-color: #b2cfff;
+      position: absolute;
+      left: 0;
+      top: 0;
+      text-align: center;
+      .exer-chart{
+        width: 72px;
+        height: 72px;
+        margin:15px auto;
+        background-repeat:no-repeat;
+        background-size: 100% 100%;
+      }
+      .status-nowrite{
+        background-image: url('../../img/web/no-done.png');
+        &.exer-micro{
+            background-image: url("../../img/web/status-stu-unvisit.png")!important;
+        }
+      }
+      .status-nosubmit{
+        background-image: url("../../img/web/no-submit.png");
+      }
+      .status-allcorrect{
+        background-image: url("../../img/web/all-conrrect.png");
+        &.exer-micro{
+            background-image: url("../../img/web/status-stu-visited.png")!important;
+        }
+      }
+      .status-uncheck{
+        background-image: url("../../img/web/wait-correct.png");
+      }
+      .status-fullmark{
+        background-image: url("../../img/web/fullmark.png");
+      }
+      .status-notfullmark{
+        background-image: url("../../img/web/notfullmark.png");
+      }
+
+      .exer-chart-desc{
+        text-align: center;
+        font-size: 14px;
+        color: #3c7ae3;
+        &.error-ques{
+          color: #fff;
+        }
+      }
+
+
+
+    }
+    .exer-info{
+      margin-left: 120px;
+      height: 126px;
+      .exer-top{
+        height: 36px;
+        line-height: 36px;
+        border-bottom: 1px solid #c4e0ff;
+        padding-left: 13px;
+        vertical-align: middle;
+        .exer-class{
+          font-size: 14px;
+          color: #4a5c7a;
+        }
+        .exer-subject{
+          font-size: 12px;
+          color: #ffffff;
+          background-color: #6a9cf0;
+          display: inline-block;
+          padding-left: 10px;
+          padding-right: 10px;
+          line-height: 20px;
+          height: 20px;
+          margin-left: 10px;
+          vertical-align: middle;
+          margin-top: -2px;
+        }
+        .exer-prompt{
+          width: 87px;
+          height: 36px;
+          right:30px;
+          top: 0;
+          position: absolute;
+
+          background-image: url("../../img/web/teacher-prompt.png");
+        }
+      }
+      .exer-bottom{
+        height: 90px;
+        padding-left: 13px;
+        position: relative;
+        .exer-title{
+          font-size: 18px;
+          color: #4a5c7a;
+          margin-right: 100px;
+          width: 430px;
+          display: table-cell;
+          vertical-align: middle;
+          height: 60px;
+        }
+        .exer-ext-info{
+          position: absolute;
+          height: 20px;
+          bottom: 5px;
+          .exer-out-time{
+            color: #CCCCCC;
+            font-size: 14px;
+          }
+          .exer-time{
+            font-size: 14px;
+            color:#3c7ae3;
+          }
+        }
+      }
+      .exer-status{
+        width: 97px;
+        height: 83px;
+        position: absolute;
+        bottom: 2px;
+        right: 25px;
+        -webkit-background-size:cover;
+        background-size:cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      .exer-call{
+        width: 100px;
+        height: 30px;
+        position: absolute;
+        right: 35px;
+        top: 50%;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+
+        font-size: 14px;
+        border-radius: 14px;
+        color: #ffffff;
+        background: #FFAC47;
+
+      }
+      .exer-call:hover{
+        font-size: 14px;
+        border-radius: 14px;
+        color: #ffffff;
+        background: #ff6000;
+
+      }
+      .status-outtime{
+        
+        background-image: url('../../img/web/outofdate.png');
+        background-image: none\9;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+                src='/img/web/outofdate.png',
+                sizingMethod='scale');
+      }
+      .status-complete{
+        
+        background-image: url("../../img/web/welldone.png");
+        background-image: none\9;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+                src='/img/web/welldone.png',
+                sizingMethod='scale');
+      }
+      .status-alarm{
+        
+        background-image: url("../../img/web/hard-working.png");
+        background-image: none\9;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+                src='/img/web/hard-working.png',
+                sizingMethod='scale');
+      }
+      .status-watch-analyse{
+        
+        background-image: url("../../img/web/watch-analyse.png");
+        background-image: none\9;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+                src='/img/web/watch-analyse.png',
+                sizingMethod='scale');
+      }
+      .status-phone-answer{
+       
+        background-image: url("../../img/web/phone-answer.png");
+        background-image: none\9;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+                src='/img/web/phone-answer.png',
+                sizingMethod='scale');
+      }
+    }
+
+
+  }
+}
+
+
+

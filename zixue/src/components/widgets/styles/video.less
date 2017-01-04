@@ -1,0 +1,40 @@
+@model:video-bar;
+.@{model}{
+	margin-left: 0.5555555555555556rem;
+	display: flex;
+	flex-direction:row;
+	align-items: center;
+}
+.@{model}-play-icon{
+	height: 0.8333333333333334rem;
+	width:0.8333333333333334rem;
+	margin-top: 0.4166666666666667rem;
+	margin-bottom: 0.4722222222222222rem;
+	margin-right: 0.5555555555555556rem;
+	background-image: url(/img/zixue/icon-play.png);
+	background-size: cover;
+	vertical-align: middle;
+}
+.@{model}-progressbar{
+	height:0.19444444444444445rem;
+	border-radius: 0.2777777777777778rem;
+	flex-grow: 1;
+	background-color: #f0f0f0;
+	align-self:center;
+  position: relative;
+}
+.@{model}-progressbar-complete{
+	border-radius: 0.2777777777777778rem;
+  height:inherit;
+  position: absolute;
+  left:0;
+  top:0;
+  background-color:#feb86c;
+}
+.@{model}-time-info{
+	margin-right: 0.3888888888888889rem;
+	margin-left: 0.3888888888888889rem;
+	font-size: 0.4166666666666667rem;
+	color: #999;
+	align-self:center;
+}

@@ -1,0 +1,8 @@
+<div class="exam-filter-pagination">
+	<ul>
+		<li class="prev" ng-click="prev()" ng-hide="hidePrev">上一页</li>
+		<li ng-repeat="item in pageItems" ng-click="setPage(item)"
+			ng-class="{'active':item.code == ngPage,'none':item.type==2}">{{item.code}}</li>
+		<li class="next" ng-click="next()" ng-hide="hideNext">下一页</li>
+	</ul>
+</div>

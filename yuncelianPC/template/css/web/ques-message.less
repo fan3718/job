@@ -1,0 +1,146 @@
+@import "public";
+div.ques-message{
+  width: 100%;
+  min-width: 980px;
+  div.ques-list-box{
+    width: 980px;
+    margin:0 auto;
+    position: relative;
+    div.float-box{
+      width: 243px;
+      border: 1px solid #eeeeee;
+      position: fixed;
+      margin-left: 720px;
+      background-color: #fff;
+      div.float-box-title{
+        height:auto;
+        background-color: #e9f0ff;
+        text-align: center;
+        font-size: 14px;
+        color: @color1;
+        width: 100%;
+        padding: 10px;
+        border-bottom: 1px solid #eeeeee;
+        .title-content{
+          line-height: 25px;
+        }
+      }
+      ul.ques-info{
+        width: 100%;
+        height: 180px;
+        overflow-y: auto;
+        padding-bottom: 20px;
+        &.height-auto{
+          height: auto;
+        }
+        &>li{
+          width: 30px;
+          height: 30px;
+          border: 1px solid #999999;
+          font-size: 12px;
+          line-height: 28px;
+          text-align: center;
+          float: left;
+          margin: 15px 0px 0px 15px;
+          border-radius: 50%;
+          cursor: pointer;
+          color: #999999;
+          &.active{
+            border: 1px solid @color1;
+            background: #e9f0ff;
+            color: @color1;
+          }
+        }
+      }
+      div.float-hr{
+        width: 223px;
+        height: 1px;
+        background-color: #eeeeee;
+        margin: 0 auto;
+      }
+      div.exercise-time-box{
+        width: 100%;
+        padding: 30px;
+        background: #fff;
+        &>div.exercise-time{
+          padding-top: 85px;
+          color: @color6;
+          font-size: 18px;
+          background:url("../../img/web/use-time.png") no-repeat center top;
+          text-align: center;
+        }
+      }
+      div.action-box{
+        display: block;
+        margin-left: 0px;
+        float: none;
+        width: 100%;
+        padding: 20px;
+        &>span{
+          display: inline-block;
+          width: 90px;
+          height: 30px;
+          background: @color1;
+          color: #fff;
+          font-size: 14px;
+          text-align: center;
+          line-height: 30px;
+          cursor: pointer;
+        }
+        span.save-answer{
+          margin-right: 10px;
+        }
+      }
+    }
+    ul.ques-list{
+      width: 720px;
+      &>li{
+        padding:15px 25px 0px 15px;
+        width: 100%;
+        border: 1px solid #eeeeee ;
+        background-color: #ffffff;
+        .border-radius(6px);
+        margin-bottom: 15px;
+        div.ques-item{
+          width: 100%;
+          span.que-num{
+            float: initial;
+            float: none;
+            font-size: 14px;
+            width: 20px;
+            color: @color6;
+          }
+          span.que-item-content{
+            float: initial;
+            float: none;
+            width: 650px;
+            font-size: 14px;
+            color: @color6;
+          }
+        }
+        ul.options-list{
+          width: 100%;
+          padding-top: 20px;
+          &>li{
+            font-size: 14px;
+            color: @color6;
+            margin-bottom: 15px;
+            padding-left: 24px;
+            background: url("../../img/web/single-check.png") no-repeat left center;
+            cursor: pointer;
+            &:hover{
+              background: url("../../img/web/single-check-hover.png") no-repeat left center;
+              color: @color1;
+              font-size: 14px;
+            }
+            &.active{
+              background: url("../../img/web/single-check-active.png") no-repeat left center;
+              color: @color1;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

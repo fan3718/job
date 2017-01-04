@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="keywords" content="云测练，在线练习，家校互动平台，yunzuoye" />
+   	 <meta name="description" content="云测练是面向老师、学生和家长的智能在线练习平台，云测练拥有一千万的优质练习资源，与各大教辅运营商合作，覆盖小初高全部学科。家长一键关注云测练微信，同步了解学生学习进展" />
+                    
+	<title>消息通知</title>
+	<link rel="stylesheet" href="css/web/index.css" />
+</head>
+<body ng-controller="TeacherController">
+	<div class="header">
+		<div class="w980">
+			<a href="http://www.zuoyezhushou.com/" title="云测练">
+				<span class="logo"></span>
+			</a>
+			
+			<!--
+				ul>(a[href="javascript:void(0);"]>li.nav{老师备课})*8
+			-->
+			<ul>
+				<a href="javascript:void(0);">
+					<li class="nav">首页</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav">老师备课</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav selected">在线练习</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav">套卷测试</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav">消息通知</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav">班级</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav">学生报告</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav">入学测评</li>
+				</a>
+			</ul>
+			
+			<!--
+			div.account-box>(span.icon.icon-account+span{杨晓歪老师}+a.logout{退出})
+			-->
+			<div class="account-box">
+				<span class="icon icon-account"></span>
+				<a href="/account/center" ng-bind="teacherName">未登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="/account/logout" class="logout">退出</a>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="w980 message">
+			<div class="filter-box">
+						<!--
+							(span.radio-class>(input[type="radio"][name="classId"][id="filter-class-id-$"]+label[for="filter-class-id-$"]{四年$班}))*4
+						-->
+				<span class="radio-class">
+					<input type="radio" name="classId" id="filter-class-id-0" checked="checked">
+					<label for="filter-class-id-0">全部</label>
+				</span>
+				<span class="radio-class">
+					<input type="radio" name="classId" id="filter-class-id-1">
+					<label for="filter-class-id-1">四年1班</label>
+				</span>
+				<span class="radio-class">
+					<input type="radio" name="classId" id="filter-class-id-2">
+					<label for="filter-class-id-2">四年2班</label>
+				</span>
+				<span class="radio-class">
+					<input type="radio" name="classId" id="filter-class-id-3">
+					<label for="filter-class-id-3">四年3班</label>
+				</span>
+				<span class="radio-class">
+					<input type="radio" name="classId" id="filter-class-id-4">
+					<label for="filter-class-id-4">四年4班</label>
+				</span>
+			</div>
+
+			<div class="message-edit-box">
+				<div class="control-title">选择要发送消息的班级</div>
+				<div class="chose-class-box">
+					<span class="checkbox-class">
+						<input type="checkbox" name="classId" id="class-id-1" />
+						<label for="class-id-1">四年1班</label>
+					</span>
+					<span class="checkbox-class">
+						<input type="checkbox" name="classId" id="class-id-2" />
+						<label for="class-id-2">四年2班</label>
+					</span>
+					<span class="checkbox-class">
+						<input type="checkbox" name="classId" id="class-id-3" disabled="disabled" />
+						<label for="class-id-3">四年3班</label>
+					</span>
+					<span class="checkbox-class">
+						<input type="checkbox" name="classId" id="class-id-4" />
+						<label for="class-id-4">四年4班</label>
+					</span>
+
+
+				</div>
+				<div class="message-edit-center">
+					<textarea class="message-edit-area" placeholder="请在此输入你要发送的消息..."></textarea>
+
+
+
+					<div class="message-edit-alarm">
+						<span>发布时间</span> 
+						<span class="select">
+							<span class="select-arrow"></span>
+							<span class="select-value">2015/11/21</span>
+							<select name="" id="">
+								<option value="1">2015/11/21</option>
+								<option value="2">2015/11/22</option>
+								<option value="3">2015/11/23</option>
+								<option value="4">2015/11/24</option>
+								<option value="5">2015/11/25</option>
+								<option value="6">2015/11/26</option>
+								<option value="7">2015/11/27</option>
+								<option value="8">2015/11/28</option>
+								<option value="9">2015/11/29</option>
+							</select>
+						</span>
+						<span class="select  select-hour">
+							<span class="select-arrow"></span>
+							<span class="select-value">00</span>
+							<select name="" id="">
+								<option value="24">00</option>
+								<option value="01">01</option>
+								<option value="02">02</option>
+								<option value="03">03</option>
+								<option value="04">04</option>
+								<option value="05">05</option>
+								<option value="06">06</option>
+								<option value="07">07</option>
+								<option value="08">08</option>
+								<option value="09">09</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+								<option value="12">12</option>
+								<option value="13">13</option>
+								<option value="14">14</option>
+								<option value="15">15</option>
+								<option value="16">16</option>
+								<option value="17">17</option>
+								<option value="18">18</option>
+								<option value="19">19</option>
+								<option value="20">20</option>
+								<option value="21">21</option>
+								<option value="22">22</option>
+								<option value="23">23</option>
+							</select>
+						</span>
+						<span>时</span> 
+
+						<span class="select select-minus">
+							<span class="select-arrow select-expand"></span>
+							<span class="select-value">00</span>
+							<select name="" id="">
+						<!--
+						(option[value="$$"]{$$})*60
+						-->
+								<option value="60">00</option>
+								<option value="01">01</option>
+								<option value="02">02</option>
+								<option value="03">03</option>
+								<option value="04">04</option>
+								<option value="05">05</option>
+								<option value="06">06</option>
+								<option value="07">07</option>
+								<option value="08">08</option>
+								<option value="09">09</option>
+								<option value="10">10</option>
+								<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+							<option value="32">32</option>
+							<option value="33">33</option>
+							<option value="34">34</option>
+							<option value="35">35</option>
+							<option value="36">36</option>
+							<option value="37">37</option>
+							<option value="38">38</option>
+							<option value="39">39</option>
+							<option value="40">40</option>
+							<option value="41">41</option>
+							<option value="42">42</option>
+							<option value="43">43</option>
+							<option value="44">44</option>
+							<option value="45">45</option>
+							<option value="46">46</option>
+							<option value="47">47</option>
+							<option value="48">48</option>
+							<option value="49">49</option>
+							<option value="50">50</option>
+							<option value="51">51</option>
+							<option value="52">52</option>
+							<option value="53">53</option>
+							<option value="54">54</option>
+							<option value="55">55</option>
+							<option value="56">56</option>
+							<option value="57">57</option>
+							<option value="58">58</option>
+							<option value="59">59</option>
+							
+							</select>
+						</span>
+						<span>分</span>
+					</div>
+					<div class="message message-edit-pic" style="display:none;">
+						<div class="pic-box">
+							<span class="pic-delete"></span>
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+						</div>
+						<div class="pic-box">
+							<span class="pic-delete"></span>
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+						</div>
+						<div class="pic-box">
+							<span class="pic-delete"></span>
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+						</div>
+						<div class="pic-box">
+							<span class="pic-delete"></span>
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+						</div>
+						<div class="pic-box">
+							<span class="pic-delete"></span>
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+						</div>
+						<div class="pic-add">
+							
+						</div>
+					</div>
+
+				</div>
+				<div class="message-edit-toolbar">
+					<span class="btn-group">
+						<span class="icon icon-pic"></span>
+						<span class="label-text">图片</span>
+					</span>
+					<span class="btn-group selected">
+						<span class="icon icon-alarm"></span>
+						<span class="label-text">定时发送</span>
+					</span>
+					<span class="right-box">
+						<span class="label-text">在线提交</span>
+						<span class="switch-button">
+							<input type="checkbox" id="switch-button" checked="checked" />
+							<label for="switch-button"></label>
+						</span>
+						<span class="btn-publish">发布</span>
+					</span>
+					
+				</div>
+				
+			</div>
+			<div class="message-tips-bar">
+				开启在线提交需要学生用智能笔在线解答，如不需要，请关闭
+			</div>
+
+			<div class="empty-container">
+						<div class="empty-icon empty-icon-message"></div>
+						<div class="empty-text">您还没有给学生发送消息通知哦~</div>
+					</div>
+
+			<div class="filter-result">
+				<div class="filter-item">
+					<span class="msg-tips tips-uncomplete">300/300未查阅</span>
+					<span class="msg-status status-completed"></span>
+					<div class="msg-item">
+						<div class="msg-top">
+							<span class="msg-class">四年3班</span>
+							<span class="msg-subject">数学</span>
+						</div>
+						<div class="msg-abstract">
+							这是一条消息，消息的内容最多可放500个字吧，不过睡会写这么长呢，也许复制黏贴也说不定，不过在首页，只展示两行应该就足够了，更多的话，点击查看吧更多的话，点击查看吧
+						</div>
+						<div class="msg-speech">
+							<div class="speech-item">
+								<span class="speech-arrow"></span>
+								<span class="speech-text">1″</span>
+								<span class="speech-icon"></span>
+							</div>
+							<div class="speech-item">
+								<span class="speech-arrow"></span>
+								<span class="speech-text">1″</span>
+								<span class="speech-icon"></span>
+							</div>
+							<div class="speech-item">
+								<span class="speech-arrow"></span>
+								<span class="speech-text">1″</span>
+								<span class="speech-icon"></span>
+							</div>
+							<div class="speech-item">
+								<span class="speech-arrow"></span>
+								<span class="speech-text">1″</span>
+								<span class="speech-icon"></span>
+							</div>
+							<div class="speech-item">
+								<span class="speech-arrow"></span>
+								<span class="speech-text">1″</span>
+								<span class="speech-icon"></span>
+							</div>
+						</div>
+						<div class="msg-image">
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+						</div>
+						<div class="msg-time">8/10 周六 16:00</div>
+					</div>
+				</div>
+
+
+				<div class="filter-item">
+					<span class="msg-tips tips-uncomplete">300/300未查阅</span>
+					<span class="msg-status status-unvisit"></span>
+					<div class="msg-item">
+						<div class="msg-top">
+							<span class="msg-class">四年3班</span>
+							<span class="msg-subject">数学</span>
+						</div>
+						<div class="msg-abstract">
+							这是一条消息，消息的内容最多可放500个字吧，不过睡会写这么长呢，也许复制黏贴也说不定，不过在首页，只展示两行应该就足够了，更多的话，点击查看吧更多的话，点击查看吧
+						</div>
+						<div class="msg-speech">
+							<div class="speech-item">
+								<span class="speech-arrow"></span>
+								<span class="speech-text">1″</span>
+								<span class="speech-icon"></span>
+							</div>
+							<div class="speech-item">
+								<span class="speech-arrow"></span>
+								<span class="speech-text">1″</span>
+								<span class="speech-icon"></span>
+							</div>
+							<div class="speech-item">
+								<span class="speech-arrow"></span>
+								<span class="speech-text">1″</span>
+								<span class="speech-icon"></span>
+							</div>
+							<div class="speech-item">
+								<span class="speech-arrow"></span>
+								<span class="speech-text">1″</span>
+								<span class="speech-icon"></span>
+							</div>
+							<div class="speech-item">
+								<span class="speech-arrow"></span>
+								<span class="speech-text">1″</span>
+								<span class="speech-icon"></span>
+							</div>
+						</div>
+						<div class="msg-image one-mode">
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+						</div>
+						<div class="msg-time">8/10 周六 16:00</div>
+					</div>
+				</div>
+
+
+				
+				<div class="filter-item">
+					<span class="msg-tips tips-waiting">300/300未查阅</span>
+					<span class="msg-status status-waiting"></span>
+					<div class="msg-item">
+						<div class="msg-top">
+							<span class="msg-class">四年3班</span>
+							<span class="msg-subject">数学</span>
+						</div>
+						<div class="msg-abstract">
+							这是一条消息，消息的内容最多可放500个字吧，不过睡会写这么长呢，也许复制黏贴也说不定，不过在首页，只展示两行应该就足够了，更多的话，点击查看吧更多的话，点击查看吧
+						</div>
+						
+						<div class="msg-image one-mode">
+							<img src="http://zuoyezhushou.com/img/pc-home/section1.png" alt="" />
+						</div>
+						<div class="msg-time">8/10 周六 16:00</div>
+					</div>
+				</div>
+
+			<div class="filter-item">
+					<span class="msg-tips tips-waiting">300/300未查阅</span>
+					<span class="msg-status status-waiting"></span>
+					<div class="msg-item">
+						<div class="msg-top">
+							<span class="msg-class">四年3班</span>
+							<span class="msg-subject">数学</span>
+						</div>
+						<div class="msg-abstract">
+							这是一条消息，消息的内容最多可放500个字吧，不过睡会写这么长呢，也许复制黏贴也说不定，不过在首页，只展示两行应该就足够了，更多的话，点击查看吧更多的话，点击查看吧
+						</div>
+						<div class="msg-time">8/10 周六 16:00</div>
+					</div>
+				</div>
+
+
+			</div>
+
+		</div>
+	</div>
+	<div class="footer">
+		<div class="w980">
+			 <p class="about-us">
+			 	<span><a href="/helpGuide/aboutUs" class="link">关于我们</a></span>|<span><a href="/helpGuide/aboutUs#contact"  class="link">联系我们</a></span>|<span><a href="http://www.lagou.com/gongsi/64333.html"  class="link">加入我们</a></span>
+			 </p>
+  		<p class="copyright">&copy;&nbsp;2015 JingYouMath Team | 增值电信业务经营许可证：湘B2-20100081 | 邮箱地址： <a href="mailto:jingyou@talkweb.com.cn">jingyou@talkweb.com.cn</a>
+  		</p>
+		</div>
+	</div>
+</body>
+</html>

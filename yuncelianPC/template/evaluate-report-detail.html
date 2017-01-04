@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="keywords" content="云测练，在线练习，家校互动平台，yunzuoye" />
+		<meta name="description" content="云测练是面向老师、学生和家长的智能在线练习平台，云测练拥有一千万的优质练习资源，与各大教辅运营商合作，覆盖小初高全部学科。家长一键关注云测练微信，同步了解学生学习进展" />
+
+		<title>学能评测</title>
+		<link rel="stylesheet" href="css/web/evaluate.css" />
+		<script type="text/javascript" src="js/jspdf.js"></script>
+	</head>
+
+	<body ng-controller="TeacherController">
+		<div class="header">
+			<div class="w980">
+				<a href="http://www.zuoyezhushou.com/" title="云测练">
+					<span class="logo"></span>
+				</a>
+
+				<!--
+				ul>(a[href="javascript:void(0);"]>li.nav{老师备课})*8
+			-->
+				<ul>
+					<a href="javascript:void(0);">
+						<li class="nav">首页</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">老师备课</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav ">在线练习</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">套卷测试</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">消息通知</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">班级</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">学生报告</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav selected">入学测评</li>
+					</a>
+				</ul>
+
+				<!--
+			div.account-box>(span.icon.icon-account+span{杨晓歪老师}+a.logout{退出})
+			-->
+				<div class="account-box">
+					<span class="icon icon-account"></span>
+					<a href="/account/center" ng-bind="teacherName">未登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="/account/logout" class="logout">退出</a>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<div class="w980 eval">
+				
+				<div class="eval-left">
+					<ul>
+						<li>学能测评</li>
+						<li>知识测评</li>
+						<li class="selected">测评报告</li>
+					</ul>
+				</div>
+				
+				<div class="eval-right">
+					<div class="diagnosis-head">
+						<div class="diagnosis-title">
+							<span>学能测评诊断报告书</span>
+							<a href="javascript:void(0);" class="diagnosis-download">下载</a>
+						</div>
+						<div class="diagnosis-info">
+							<span>测试学生：杨小歪</span>
+							<span>电话：15901005062</span>
+							<span>年级：五年级</span>
+							<span>年龄：12岁</span>
+							<span>测试时间:2015/11/10 13:00</span>
+						</div>
+
+					</div>
+
+					<div class="diagnosis-body">
+						<div class="diagnosis-chart-title">
+							学能测评报告
+						</div>
+						<div class="diagnosis-chart">
+							
+						</div>
+						<div class="diagnosis-chart-abstra">
+							学生阅读能力和逻辑思维能力优秀，但是学习积极行和注意力需要提升。同时学生记忆能力也需要继续强化。
+						</div>
+
+					</div>
+					
+					<div class="diagnosis-body">
+						<div class="diagnosis-chart-title">
+							详细报告
+						</div>
+						<div class="diagnosis-content">
+							<div class="diagnosis-cate">
+							学习积极性
+							</div>
+							<div class="diagnosis-cate-detail">
+								你缺乏学习积极性。你基本不会做课前预习，课下巩固、课后复习就更别提了，甚至老师布置的作业有时你也不能完成；学习时非常容易受干扰，特别容易分心；成绩差也不以为意，没有学习乐趣，从不独立思考问题，学习积极性急需提升。
+							</div>
+
+
+							<div class="diagnosis-cate">
+							学习积极性
+							</div>
+							<div class="diagnosis-cate-detail">
+								你缺乏学习积极性。你基本不会做课前预习，课下巩固、课后复习就更别提了，甚至老师布置的作业有时你也不能完成；学习时非常容易受干扰，特别容易分心；成绩差也不以为意，没有学习乐趣，从不独立思考问题，学习积极性急需提升。
+							</div>
+
+
+
+							<div class="diagnosis-cate">
+							学习积极性
+							</div>
+							<div class="diagnosis-cate-detail">
+								你缺乏学习积极性。你基本不会做课前预习，课下巩固、课后复习就更别提了，甚至老师布置的作业有时你也不能完成；学习时非常容易受干扰，特别容易分心；成绩差也不以为意，没有学习乐趣，从不独立思考问题，学习积极性急需提升。
+							</div>
+
+
+
+							<div class="diagnosis-cate">
+							学习积极性
+							</div>
+							<div class="diagnosis-cate-detail">
+								你缺乏学习积极性。你基本不会做课前预习，课下巩固、课后复习就更别提了，甚至老师布置的作业有时你也不能完成；学习时非常容易受干扰，特别容易分心；成绩差也不以为意，没有学习乐趣，从不独立思考问题，学习积极性急需提升。
+							</div>
+
+
+
+							<div class="diagnosis-cate">
+							学习积极性
+							</div>
+							<div class="diagnosis-cate-detail">
+								你缺乏学习积极性。你基本不会做课前预习，课下巩固、课后复习就更别提了，甚至老师布置的作业有时你也不能完成；学习时非常容易受干扰，特别容易分心；成绩差也不以为意，没有学习乐趣，从不独立思考问题，学习积极性急需提升。
+							</div>
+
+
+							<div class="diagnosis-cate">
+							学习积极性
+							</div>
+							<div class="diagnosis-cate-detail">
+								你缺乏学习积极性。你基本不会做课前预习，课下巩固、课后复习就更别提了，甚至老师布置的作业有时你也不能完成；学习时非常容易受干扰，特别容易分心；成绩差也不以为意，没有学习乐趣，从不独立思考问题，学习积极性急需提升。
+							</div>
+						</div>
+
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+</html>

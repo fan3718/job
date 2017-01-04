@@ -1,0 +1,209 @@
+@import url('lib.less');
+@import url('var.less');
+
+
+
+.ui-calendar{
+
+
+	*{
+		box-sizing: border-box;
+	}
+
+	position: absolute;
+	z-index: 100000;
+	background-color: #ffffff;
+	.radius(6px);
+	font-size: 12px;
+	width: 290px;
+	height: 297px;
+	.box-shadow(1px,1px,1px,rgba(0,0,0,0.08));
+	overflow: hidden;
+	display: none;
+	&-header{
+		height: 52px;
+		background-color: #3c7ae3;
+		color: #ffffff;
+		text-align: center;
+		position: relative;
+		font-size: 14px;
+	}
+
+	&-title{
+		height: 30px;
+		line-height: 30px;
+		background-color: #3c7ae3;
+		width: 100%;
+		text-align: center;
+		
+		vertical-align: middle;
+		padding-top: 5px;
+		&-month{
+			height: 52px;
+			line-height: 52px;
+
+
+			.btn-calendar-prev,.btn-calendar-next{
+				top: 8px;
+			}
+		}
+	}
+
+	&-large-title{
+		width: 100%;
+		height: 52px;
+		line-height: 52px;
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		text-align:center;
+
+	}
+
+	&-week{
+		width: 270px;
+		margin: 0 auto;
+		height: 22px;
+		font-size: 12px;
+		table{
+			width: 100%;
+			height: 22px;
+			vertical-align: middle;
+		}
+	}
+
+	&-content{
+		height: 245px;
+		overflow: hidden;
+	}
+
+	.comp-month,.comp-year{
+		display: inline-block;
+		cursor: pointer;
+		vertical-align: middle;
+	}
+
+
+	.enabled { position: absolute; width: 290px; height: 208px; float: left; padding: 10px;}
+	.reserve { position: absolute; width: 290px; height: 208px; float: left; padding: 10px;}
+
+
+	
+	table,tr,td{
+		margin: 0;
+		padding: 0;
+	} 
+	table{
+		border: 0;
+		border-spacing: 0;
+		border-collapse: collapse;
+
+
+
+		span{
+			display: inline-block;
+			cursor: pointer;
+			vertical-align: middle;
+		}
+	}
+	thead{
+		height: 22px;
+		background-color: #3c7ae3;
+		line-height: 22px;
+		color: #ffffff;
+
+	}
+
+	.current{
+			color: #ffffff!important;
+			background-color: #3c7ae3;
+	}
+
+	.table-date{
+
+		width: 270px;
+		text-align: center;
+		color:#4a5c7a;
+		margin: 0 auto;
+		margin-top: 1px;
+		span{
+			width: 30px;
+			height: 30px;
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 30px;
+		}
+		tbody td{
+			width: 30px;
+			height: 39px;
+			vertical-align: top;
+		}
+
+		
+
+		.prev-date,.next-date{
+			color: #aaaaaa;
+		}
+	}
+
+	.btn-calendar-prev{
+		display: inline-block;
+		cursor: pointer;
+		width: 60px;
+		height: 40px;
+		background-image: url('../../img/web/btn-calendar-prev.png');
+		background-repeat: no-repeat;
+		position: absolute;
+		left: 0;
+		z-index: 10;
+	}
+
+	.btn-calendar-next{
+		display: inline-block;
+		cursor: pointer;
+		width: 60px;
+		height: 40px;
+		background-image: url('../../img/web/btn-calendar-next.png');
+		background-repeat: no-repeat;
+		position: absolute;
+		right: 0;
+		z-index: 10;
+	}
+
+	.table-month,.table-year,.table-year-range{
+		width: 100%;
+		text-align: center;
+		margin-top: 18px;
+		tbody  td{
+			width: 60px;
+			height: 65px;
+			vertical-align: middle;
+			vertical-align: top;
+		}
+
+
+		span{
+			width: 60px;
+			height: 60px;
+			line-height: 60px;
+		}
+	}
+	.table-year-range span{
+		text-align: left;
+		line-height: 1.2;
+		padding-left: 16px;
+		padding-top: 18px;
+		vertical-align: middle;
+		overflow: hidden;
+		word-break: break-all;
+		padding-right: 12px;
+	}
+	.year-range{
+		cursor: pointer;
+	}
+}
+
+
+
+@import url('timepick.less');

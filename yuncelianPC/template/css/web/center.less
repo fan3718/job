@@ -1,0 +1,372 @@
+@import url('lib.less'); 
+@import url('var.less'); 
+.center{
+    margin-top: 20px;
+    &-right{
+        width: 820px;
+        float: right;
+        background-color: #FFFFFF;
+        .radius(6px);
+        .border(#eeeeee);
+       
+    }
+}
+.info-title{
+    position: relative;
+    font-size: 0;
+    height: 48px;
+    margin: 0 10px;
+    line-height: 48px;
+    vertical-align: middle;
+    .border-bottom(@txtColor,2px);
+    &-text{
+        .font-color(18px,@txtColor);
+    }
+    .info-edit{
+        cursor: pointer;
+        float: right;
+        margin-right: 20px;
+        .font-color(14px,#ffac47);
+    }
+    .icon-info{
+        top: -8px;
+        margin: 0 10px;
+        width: 20px;
+        height: 20px;
+        
+        &-user{
+            background-image: url(../../img/web/icon-user-info.png);
+        }
+        &-account{
+            background-image: url(../../img/web/security-account.png);
+        }
+    }
+    .icon-modify-account{
+        height: 22px;
+        background-image: url(../../img/web/modify-account.png);
+    }
+    .icon-modify-psw{
+        background-image: url(../../img/web/icon-psw-change.png);
+    }
+    
+}
+
+.info-teacher{
+    height: 200px;
+    padding-top: 35px;
+    .info-image{
+        height: 140px;
+        float:left;
+        padding: 0 60px;
+        .border-right(#c4e0ff);
+    }   
+    .info-pic{
+        position: absolute;
+        top:0;
+        left: 0;          
+        cursor: pointer;
+        .font-color(14px,#FFFFFF);
+        margin-top: 0;
+        width: 140px;
+        height: 140px;
+        line-height: 140px;
+        text-align: center;
+        border: none;
+        background-color: rgba(0,0,0,0.4);
+        .border(6px,#c4e0ff);
+        .radius(71px);
+        overflow: hidden;
+    }
+    .info-avatar{
+      position: relative;
+      width: 140px;
+      height: 140px;
+    }
+    .info-text{
+        float: left;
+        margin-left: 60px;
+        line-height: 12px;
+        .font-color(12px,@textColor);
+        div{
+            margin-bottom: 18px;
+        }
+        .info-name{
+            margin-bottom: 15px;
+            input{
+                display: inline-block;
+                padding-left: 10px;
+                height: 24px;
+                width: 120px;
+                .font-color(12px,@textColor);
+                &:focus{
+                    outline: none;
+                }
+            }      
+        }
+        .info-sex{
+            margin-bottom: 12px;
+        }
+        
+    }
+    .info-sex{
+        
+        input{
+            display: none;
+        }
+        .radio-sex{
+            font-size: 0;
+            label{
+                height: 12px;
+            }
+        }
+        
+        .icon-sex{
+            display: inline-block;
+            top: -4px;
+            width: 18px;
+            height: 18px;
+            .radius(9px);
+            .border(@textColor,2px);
+            margin-right: 10px;
+        }
+        .radio-sex input:checked + label {
+            .icon-sex{
+                border: none;
+                background-image: url(../../img/web/icon-sex-chosen.png);
+            }
+            .sex-text{
+                color: @txtColor;
+            }
+        }
+        
+        .radio-sex-male{
+            margin-right: 40px;
+        }
+        .sex-text{
+            .font-color(12px,@textColor);
+        }
+    }
+}
+
+.info-account{  
+    margin: 45px 0 0 210px;
+    height: 200px; 
+    
+}
+.login-account{  
+    width: 290px; 
+    height: 14px;
+    line-height: 14px;
+    font-size: 0;
+    padding-bottom: 39px;
+     position: relative;
+    .border-bottom(#c4e0ff);
+    
+    .account-num{
+        padding-left: 15px;
+        .font-color(16px,@textColor);
+    }
+    
+}
+.login-text{
+    .font-color(14px,@textColor);
+}
+.icon-account-edit{
+    position: absolute;
+    cursor: pointer;
+    height: 14px;
+    width: 14px;
+    top: 0px;
+    right: 20px;
+    background-image: url(../../img/web/modify-default.png);
+    &:hover{
+        background-image: url(../../img/web/modify-hover.png);
+    }
+}
+.login-psw{
+    width: 290px;
+    height: 14px;
+    line-height: 14px;
+    position: relative;
+    margin-top: 25px;
+    .psw-num{
+        position: absolute;
+        top: 1px;
+        left: 85px;
+        font-size: 0;
+        
+        span{            
+            margin-right: 6px;
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            .radius(6px);
+            background-color: #68ACFF;
+        }
+    }
+}
+
+
+.center-account{
+    height: 385px;
+}
+
+.info-account-edit{
+    margin: 45px 0 0 210px;
+    
+    .login-text,.account-num{
+        color: @txtColor;
+    }
+}
+.account-new{
+    font-size: 0;
+    span{
+        .font-color(12px,@textColor);
+    }
+    .account-input{
+        position: relative;
+        height: 30px;
+        input{
+            position: absolute;
+            left: 100px;
+            top: -5px;
+            display: inline-block;
+            width: 180px;
+            height: 30px;
+            line-height:30px;
+            padding-left: 10px;
+            .font-color(14px,@textColor);
+            &:focus{
+                outline: none;
+            }
+        }
+        .identify-code{
+            cursor: pointer;
+            position: absolute;
+            top: -2px;
+            left: 295px;
+            display: inline-block;
+            min-width: 80px;
+            height: 24px;
+            line-height: 24px;
+            .radius(6px);
+            background-color: #CCCCCC;
+//          background-color: #6A9CF0;
+            .font-color(12px,#FFFFFF);
+            text-align: center;
+        }
+    }
+    .account-new-phone{
+        
+        margin: 25px 0 15px 0;
+    }
+    .account-cur-psw{
+        margin: 15px 0 30px 0;
+    }
+}
+
+.account-btn{
+    margin: 0 20px;
+    .border-top(#eeeeee);
+    padding: 20px 0;
+    text-align:center;
+    span{
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 auto;
+        width: 140px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        .font-color(14px,#FFFFFF);
+        background-color: @txtColor;
+        &:hover{
+            background-color: #1E60CF;
+        }
+    };
+    a{
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 auto;
+        width: 140px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        margin-right:40px;
+        .font-color(14px,@txtColor);
+        border:1px solid @txtColor;
+    }
+}
+
+.account-input-psw{
+    margin:50px 0 15px 0;
+}
+.account-psw-again{
+    margin: 15px 0 30px 0;
+}
+
+.icon-psw-check{
+    left: 206px;
+    top: -3px;
+    background-image: url(../../img/web/icon-right-psw.png);
+}
+.icon-psw-wrong{
+    background-image: url(../../img/web/icon-wrong-psw.png);
+}
+
+.psw-point{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    .radius(6px);
+    color:#68ACFF;
+    margin-right: 6px;
+}
+
+
+.center-collect{
+    background-color: transparent;
+    border: none;
+    .exam-filter-item{
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    .exam-filter-pagination{
+        margin-top: 20px;
+    }
+    .exam-msg{
+        margin-top: 6px;
+        &-text{
+            margin-left: 5px;
+            margin-right: 40px;
+        }
+        .diff-text{
+            .font-color(12px,#ffac47);
+            margin-right: 8px;
+        }
+    }
+    .exam-top{
+        position: relative;
+    }
+    .collect-tool{
+        position: absolute;
+        top: 35px;
+        right: 20px;
+        .font-color(14px,#ffac47);
+        &:hover{
+            color:#FF6000;
+        }
+    }
+}
+.icon-paper-exers{
+    background-image: url(../../img/web/icon-paper-exers.png);
+}
+
+
+
+
+
+
+
+
+

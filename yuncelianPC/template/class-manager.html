@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="keywords" content="云测练，在线练习，家校互动平台，yunzuoye" />
+        <meta name="description" content="云测练是面向老师、学生和家长的智能在线练习平台，云测练拥有一千万的优质练习资源，与各大教辅运营商合作，覆盖小初高全部学科。家长一键关注云测练微信，同步了解学生学习进展" />
+
+        <title>班级管理</title>
+
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+        <!--<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">-->
+        <!--<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>-->
+        <link rel="stylesheet" href="css/web/class.css" />
+         <link rel="stylesheet" href="css/web/exercise-assign.css" />
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+            	    
+            	    $('.re-cancel-btn').click(function(){
+            	        $(this).css({
+                            'color': '#ffffff',
+                            'background-color': '#3c7ae3'
+                        });
+            	    });
+            	    $('.re-confirm-btn').click(function(){
+                        $(this).css({
+                            'color': '#3c7ae3',
+                            'background-color': '#2F65C0'
+                        });
+                    });
+                                 
+            	    $('.icon-name-rewrite').click(function(){        	        
+            	        $('#rename').focus();
+            	    });
+            	    
+            	    
+            	    $('.delete-stu').click(function(){
+            	        var height = $(document).height();
+                        var h = $('.delete-dialog').height();
+                        
+                        var margin_top = $(window).height() * 0.5 - h * 0.5;
+            	        $('.alert-bg').css({
+            	            'display':'block',
+            	            'height': height
+            	        });
+            	        $('.delete-dialog').css('margin-top', margin_top);
+            	    })
+            	});
+        </script>
+
+    </head>
+
+    <body ng-controller="TeacherController">
+        <div class="header">
+            <div class="w980">
+                <a href="http://www.zuoyezhushou.com/" title="云测练">
+                    <span class="logo"></span>
+                </a>
+
+                <!--
+                ul>(a[href="javascript:void(0);"]>li.nav{老师备课})*8
+            -->
+                <ul>
+                    <a href="javascript:void(0);">
+                        <li class="nav">首页</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">老师备课</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">在线练习</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">套卷测试</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">消息通知</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav selected">班级</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">学生报告</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">入学测评</li>
+                    </a>
+                </ul>
+
+                <!--
+            div.account-box>(span.icon.icon-account+span{杨晓歪老师}+a.logout{退出})
+            -->
+                <div class="account-box">
+                    <span class="icon icon-account"></span>
+                    <a href="/account/center" ng-bind="teacherName">未登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="/account/logout" class="logout">退出</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="w980 online">
+
+                <div class="stu-manager-title">
+                    <a class="title-text-a" href="javascript:void(0);">班级</a>
+                    <span class="icon-current-position"></span>
+                    <a class="title-text-a" href="javascript:void(0);">2011级4年3班</a>
+                    <span class="icon-current-position"></span>
+                    <a class="title-text-a" href="javascript:void(0);">管理</a>
+                </div>
+                <div class="class-title">
+                    <span class='icon icon-manager-class'></span>
+                    <span class='class-title-text'>2011级4年3班</span>
+
+                </div>
+                <div class="stu-manager">
+                    <div class="stu-caption">
+                        <span class='icon icon-stu-num'></span>
+                        <span class='text-stu-num'>共31人</span>
+                        <span class="stu-tool">
+                            <span class='icon icon-download'></span>
+                        <span class='label-text text-download'>下载学生账号</span>
+                        <span class="label-text">允许学生加入</span>
+                        <span class="switch-button">
+                                <input type="checkbox" id="switch-button" checked="checked" />
+                                <label for="switch-button"></label>
+                            </span>
+
+                        </span>
+
+                    </div>
+
+                    <table class="table table-bordered stu-table">
+
+                        <thead>
+                            <tr>
+                                <th class='width195 head-name'>姓名</th>
+                                <th class='width156 head-account'>账号</th>
+                                <th class='width156 head-phone'>家长手机</th>
+                                <th class='width156 head-security-phone'>密保手机</th>
+                                <th class='width155 head-operate'>操作</th>
+                                <th class='width155 head-delete'>
+                                    <span class='message-btn'>                                  
+                                        <input class="checkbox-select" type="checkbox" name="select" id="check-all">
+                                        <label for="check-all"></label>                                
+                                    </span>
+                                    <span class='text-delete'>批量删除</span>
+                                    <span class='chosen-num'>89</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class='stu-name'>
+                                    <span class='point8px'></span>
+                                    <span class='icon-name-rewrite'></span>
+                                    <span>张三三</span>
+                                </td>
+                                <td>S10038933</td>
+                                <td>13888888888</td>
+                                <td>未绑定</td>
+                                <td class='delete-stu'>
+                                    <span class='icon-delete-stu'></span>
+                                    <span class='text-del'>删除</span>
+                                </td>
+                                <td class='message-btn'>
+                                    <input class="checkbox-select" type="checkbox" name="select" id="check-2">
+                                    <label for="check-2"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class='stu-name'>
+                                    <span class='icon-name-rewrite'></span>
+                                    <span>张三三</span>
+                                </td>
+                                <td>S10038933</td>
+                                <td>13888888888</td>
+                                <td>未绑定</td>
+                                <td class='delete-stu'>
+                                    <span class='icon-delete-stu'></span>
+                                    <span class='text-del'>删除</span>
+                                </td>
+                                <td class='message-btn'>
+                                    <input class="checkbox-select" type="checkbox" name="select" id="check-3">
+                                    <label for="check-3"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class='stu-name'>
+                                    <span class='icon-name-rewrite'></span>
+                                    <span>张三三</span>
+                                </td>
+                                <td>S10038933</td>
+                                <td>13888888888</td>
+                                <td>未绑定</td>
+                                <td class='delete-stu'>
+                                    <span class='icon-delete-stu'></span>
+                                    <span class='text-del'>删除</span>
+                                </td>
+                                <td class='message-btn'>
+                                    <input class="checkbox-select" type="checkbox" name="select" id="check-4">
+                                    <label for="check-4"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class='stu-name'>
+                                    <span class='icon-name-rewrite'></span>
+                                    <span>张三三</span>
+                                </td>
+                                <td>S10038933</td>
+                                <td>13888888888</td>
+                                <td>未绑定</td>
+                                <td class='delete-stu'>
+                                    <span class='icon-delete-stu'></span>
+                                    <span class='text-del'>删除</span>
+                                </td>
+                                <td class='message-btn'>
+                                    <input class="checkbox-select" type="checkbox" name="select" id="check-5">
+                                    <label for="check-5"></label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class='stu-name'>
+                                    <span class='icon-name-rewrite'></span>
+                                    <span>张三三</span>
+                                </td>
+                                <td>S10038933</td>
+                                <td>13888888888</td>
+                                <td>未绑定</td>
+                                <td class='delete-stu'>
+                                    <span class='icon-delete-stu'></span>
+                                    <span class='text-del'>删除</span>
+                                </td>
+                                <td class='message-btn'>
+                                    <input class="checkbox-select" type="checkbox" name="select" id="check-6">
+                                    <label for="check-6"></label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="rewrite-name">
+                    <input type="text" name="rename" id="rename" maxlength="5" />
+
+                    <span class='re-cancel-btn'>取消</span>
+                    <span class='re-confirm-btn'>确定</span>
+
+                </div>
+
+                <div class="stu-manager">
+                    <div class="stu-caption">
+                        <span class='icon icon-stu-num'></span>
+                        <span class='text-stu-num'>共31人</span>
+                        <span class="stu-tool">
+                            <span class='icon icon-download'></span>
+                        <span class='label-text text-download tea-download'>下载学生账号</span>
+                        </span>
+
+                    </div>
+
+                    <table class="table table-bordered stu-table">
+
+                        <thead>
+                            <tr>
+                                <th class='width244 head-name'>姓名</th>
+                                <th class='width244 head-account'>账号</th>
+                                <th class='width244 head-phone'>家长手机</th>
+                                <th class='width244 head-security-phone'>密保手机</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class='stu-name'>
+                                    <span class='point8px'></span>
+
+                                    <span>张三三</span>
+                                </td>
+                                <td>S10038933</td>
+                                <td>13888888888</td>
+                                <td>未绑定</td>
+
+                            </tr>
+                            <tr>
+                                <td class='stu-name'>
+
+                                    <span>张三三</span>
+                                </td>
+                                <td>S10038933</td>
+                                <td>13888888888</td>
+                                <td>未绑定</td>
+
+                            </tr>
+                            <tr>
+                                <td class='stu-name'>
+
+                                    <span>张三三</span>
+                                </td>
+                                <td>S10038933</td>
+                                <td>13888888888</td>
+                                <td>未绑定</td>
+
+                            </tr>
+                            <tr>
+                                <td class='stu-name'>
+
+                                    <span>张三三</span>
+                                </td>
+                                <td>S10038933</td>
+                                <td>13888888888</td>
+                                <td>未绑定</td>
+
+                            </tr>
+                            <tr>
+                                <td class='stu-name'>
+
+                                    <span>张三三</span>
+                                </td>
+                                <td>S10038933</td>
+                                <td>13888888888</td>
+                                <td>未绑定</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="w980">
+                <p class="about-us">
+                    <span><a href="/helpGuide/aboutUs" class="link">关于我们</a></span>|<span><a href="/helpGuide/aboutUs#contact"  class="link">联系我们</a></span>|<span><a href="http://www.lagou.com/gongsi/64333.html"  class="link">加入我们</a></span>
+                </p>
+                <p class="copyright">&copy;&nbsp;1 9 9 7 - 2 0 1 5 北京拓欣菁优 . 中国&nbsp;&nbsp;|&nbsp;&nbsp;自豪地采用 W o r d P r e s s
+                </p>
+            </div>
+        </div>
+        
+        
+
+        <div class="alert-bg">
+            <div class="alert-dialog delete-dialog">
+                <p>确定要删除？删除后，学生不再参与班级。</p>
+                <div class="alert-btn">
+                    <span class='box-btn cancel-btn'>取消</span>
+                    <span class='box-btn ensure-btn'>确定</span>
+                </div>
+            </div>
+        </div>
+        
+        
+
+    </body>
+
+</html>

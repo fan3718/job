@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="keywords" content="云测练，在线练习，家校互动平台，yunzuoye" />
+		<meta name="description" content="云测练是面向老师、学生和家长的智能在线练习平台，云测练拥有一千万的优质练习资源，与各大教辅运营商合作，覆盖小初高全部学科。家长一键关注云测练微信，同步了解学生学习进展" />
+
+		<title>学能评测</title>
+		<link rel="stylesheet" href="css/web/index.css" />
+		<link rel="stylesheet" href="css/web/evaluate.css" />
+	</head>
+
+	<body ng-controller="TeacherController">
+		<div class="header">
+			<div class="w980">
+				<a href="http://www.zuoyezhushou.com/" title="云测练">
+					<span class="logo"></span>
+				</a>
+
+				<!--
+				ul>(a[href="javascript:void(0);"]>li.nav{老师备课})*8
+			-->
+				<ul>
+					<a href="javascript:void(0);">
+						<li class="nav">首页</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">老师备课</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav ">在线练习</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">套卷测试</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">消息通知</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">班级</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">学生报告</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav selected">入学测评</li>
+					</a>
+				</ul>
+
+				<!--
+			div.account-box>(span.icon.icon-account+span{杨晓歪老师}+a.logout{退出})
+			-->
+				<div class="account-box">
+					<span class="icon icon-account"></span>
+					<a href="/account/center" ng-bind="teacherName">未登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="/account/logout" class="logout">退出</a>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<div class="w980 eval">
+				
+				<div class="eval-left">
+					<ul>
+						<li >学能测评</li>
+						<li class="selected">知识测评</li>
+						<li>测评报告</li>
+					</ul>
+				</div>
+				
+				<div class="eval-right">
+
+					<div class="eval-knowledge-subject">
+						初一 · 英语 
+					</div>
+
+					<div class="eval-desc eval-knowledge-box">
+						<div class="eval-difficult-box">
+							<span>难度级别</span>
+							<div>
+								<span class="icon-difficulty fill"></span>
+								<span class="icon-difficulty fill"></span>
+								<span class="icon-difficulty fill"></span>
+								<span class="icon-difficulty"></span>
+								<span class="icon-difficulty"></span>
+							</div>
+						</div>
+						<div class="eval-progress">
+							<div class="eval-progress-bar">
+								<div class="eval-progress-inner" style="width:50%;">
+									<span class="eval-progress-number">3</span>
+								</div>
+							</div>
+							<div class="eval-progress-text">共20题</div>
+						</div>
+						
+						<div class="eval-content">
+							<div class="eval-title"><span class="eval-number">1、</span>听录音，圈出听到的图片。</div>
+							<div class="eval-speech playing">
+								<span class="eval-speech-icon"></span>
+								<span>00:00:35</span>
+							</div>
+							<div class="eval-options">
+								<div class="eval-option">
+									<span class="eval-option-code">A</span>
+									<span><img src="http://www.baidu.com/img/bd_logo1.png"/></span>
+								</div>
+								
+								<div class="eval-option selected">
+									<span class="eval-option-code">B</span>
+									<span><img src="http://www.baidu.com/img/bd_logo1.png"/></span>
+								</div>
+
+								<div class="eval-option">
+									<span class="eval-option-code">C</span>
+									<span><img src="http://www.baidu.com/img/bd_logo1.png"/></span>
+								</div>
+
+								<div class="eval-option">
+									<span class="eval-option-code">D</span>
+									<span><img src="http://www.baidu.com/img/bd_logo1.png"/></span>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="eval-knowledge-toolbar">
+							<span class="btn-start-evalute">上一题</span>
+							<span class="btn-start-evalute btn-eval-next">下一题</span>
+						</div>
+
+					</div>
+					
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,295 @@
+.container{
+	position: relative;;
+}
+.col-left{
+	display: inline-block;
+	width: 654px;
+	min-height: 600px;
+	margin-right: 5px;
+	.reminder-box{
+		position:relative;
+		margin-top: 10px;
+		background: #fff;
+		width: 100%;
+		padding: 0 10px;
+		.reminder-box-header{
+			.reminder-icon{
+				display:inline-block;
+				margin-left: 15px;
+				margin-right: 5px;
+				width: 20px;
+				height: 20px;
+				background-image: url(../../img/web/index-icon-remind.png);
+			}
+
+			height: 60px;
+		    font-size: 18px;
+		    line-height: 60px;
+		    color: #3c7ae3;
+		    border-bottom: 2px solid #3c7ae3;
+		}
+		.reminder-table{
+			width: 100%;
+			tr{
+				height:40px;
+				line-height: 40px;
+				text-align: center;
+				font-size: 12px;
+				color:#4a5c7a;
+				a{
+					color:#4a5c7a;
+				}
+
+			}
+			tr:first-child{
+				font-size: 14px;
+
+			}
+			tr:nth-child(odd){
+				background: #f7f8fa;
+
+			}
+			
+		}
+		.message-broadcast{
+			.index-message-icon{
+				margin-right: 5px;
+				width: 16px;
+				height: 16px;
+				display:inline-block;
+				background-image: url(../../img/web/index-icon-broadcast.png);
+				background-position: 50% 100%;
+			}
+			position:absolute;
+			bottom:0;
+			line-height: 38px;
+			padding-left: 12px;
+			width: 100%;
+			height: 38px;
+			background: #d8e4f9;
+			color:#3c7ae3;
+			font-size: 12px;
+			margin-left: -10px;
+
+		}
+
+			
+	}
+	.class-box{
+		margin-top: 20px;
+		background: #fff;
+		width: 100%;
+		overflow: hidden;
+		padding: 5px 10px;
+		.class-box-header{
+			.class-box-icon{
+				display:inline-block;
+				margin-left: 15px;
+				margin-right: 2px;
+				width: 20px;
+				height: 20px;
+				background-image: url(../../img/web/index-icon-myclass.png);
+			}
+			height: 60px;
+		    font-size: 18px;
+		    line-height: 60px;
+		    color: #3c7ae3;
+		    border-bottom: 2px solid #3c7ae3;
+		}
+		.class-group{
+			margin-top: 10px;
+			margin-bottom: 20px;
+			.class-group-item{
+				.item-header{
+					padding-left: 20px;
+					width: 100%;
+					background: #f7f8fa;
+					height: 40px;
+					font-size: 14px;
+					color:#4a5c7a;
+					line-height: 40px;
+				}
+				.teacher-list:after{
+					content: "."; 
+				    display: block;
+				    height: 0; 
+				    clear: both; 
+				    visibility: hidden;		
+				}
+				.teacher-list{
+					margin-top: 14px;
+					margin-left: 33px;					
+					.teacher-item{
+						float: left;
+						margin-right: 40px;
+						margin-bottom: 20px;
+						text-align: center;
+						font-size: 14px;
+						color:#4a5c7a;
+						.teacher-icon{
+							margin: 0 auto;
+							margin-bottom: 14px;
+							width: 64px;
+							height: 64px;
+							border-radius: 32px;
+							text-align: center;
+							color:#3c7ae3;
+							background: #e9f0ff;
+						}
+						.icon-teacher-en {
+						  background-image: url(../../img/web/teacher-icon-eng.png);
+						}
+						.icon-teacher-math {
+						  background-image: url(../../img/web/teacher-icon-mat.png);
+						}
+						.icon-teacher-ch {
+						  background-image: url(../../img/web/teacher-icon-chi.png);
+						}
+					 	.icon-teacher-geo {
+						  background-image: url(../../img/web/teacher-icon-geo.png);
+						}
+						.icon-teacher-chemi {
+						  background-image: url(../../img/web/teacher-icon-che.png);
+						}
+						.icon-teacher-bio {
+						  background-image: url(../../img/web/teacher-icon-bio.png);
+						}
+						.icon-teacher-phy {
+						  background-image: url(../../img/web/teacher-icon-phy.png);
+						}
+						.icon-teacher-gov {
+						  background-image: url(../../img/web/teacher-icon-gov.png);
+						}
+						.icon-teacher-his {
+						  background-image: url(../../img/web/teacher-icon-his.png);
+						}
+
+					}
+
+				}
+				.show-class-detail{
+					display:block;
+					width: 116px;
+					height: 30px;
+					color:#fff;
+					cursor: pointer;
+					background: #3c7ae3;
+					padding-left: 10px;
+					line-height: 30px;
+					font-size: 14px;
+					margin-left: 33px;
+					margin-bottom: 20px;
+					.open{
+						margin-left: 5px;
+						display:inline-block;
+						height: 100%;
+						width: 15px;
+						height: 15px;
+						background-repeat: no-repeat;
+						background-image: url(../../img/web/index-icon-pull.png);
+						background-position: 50% 50%;
+
+					}
+					.close{
+						margin-left: 5px;
+						height: 100%;
+						display:inline-block;
+						width: 15px;
+						height: 15px;
+						background-repeat: no-repeat;
+						background-image: url(../../img/web/index-icon-close.png) ;
+						background-position: 50% 50%;
+					}
+				}
+				.classmates{
+					display:inline-block;
+					border-collapse: collapse;
+					float: left;
+					margin-left: 5px;
+					tr{
+						height:38px;
+						line-height: 38px;
+						text-align: center;
+						font-size: 14px;
+						color:#4a5c7a;
+						td{
+							width: 154px;
+							border:1px solid #eee ;
+							max-width: 400px;
+							overflow: hidden;
+							span{
+								overflow: hidden;
+								white-space: nowrap;
+								text-overflow: ellipsis;
+							}
+
+
+						
+						}
+					}
+					tr:first-child{
+						background: #f7f8fa;
+					}
+				}
+			}
+		}
+	}		
+
+}
+	
+.col-right{
+	display:inline-block;
+	width: 304px;
+	position:absolute;
+	top:10px;
+
+	.user-box{
+		background-image: url('../../img/web/userinfo-bg.png');
+		position:relative;
+		height:116px;
+		.user-avatar{
+			position:absolute;
+			top:50%;
+			margin-top: -32px;
+			display:inline-block;
+			width: 64px;
+			height: 64px;
+			margin-left: 22px;
+			margin-right: 20px;
+			img{
+				border-radius: 32px;
+				width: 100%;
+				height:100%;
+			}
+		}
+		.userinfo{
+			margin-left: 140px;
+			color:#fff;
+			display:inline-block;
+			height: 116px;
+			line-height: 20px;
+			position:absolute;
+			top:50%;
+			margin-left: 95px;
+			margin-top:-42px;
+			h4{
+				font-size: 18px;
+				
+			}
+			p{
+				font-size: 12px;
+			}
+		}
+
+
+	}
+	.advertisement{
+		margin-top: 12px;
+		width: 100%;
+		img{
+			width: 100%;
+		}
+	}
+
+
+}

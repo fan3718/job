@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="keywords" content="云测练，在线练习，家校互动平台，yunzuoye" />
+   	 <meta name="description" content="云测练是面向老师、学生和家长的智能在线练习平台，云测练拥有一千万的优质练习资源，与各大教辅运营商合作，覆盖小初高全部学科。家长一键关注云测练微信，同步了解学生学习进展" />
+                    
+	<title>老师首页</title>
+	<link rel="stylesheet" href="css/web/index.css" />
+	<link rel="stylesheet" href="css/web/supply-info.css" />
+	<script src="http://cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var bar = $('.notice-bar');
+			var container=$('.notice-bar ul');
+			var height=container.height();
+
+			if(height>bar.height()){
+
+				//Copy And Append
+
+				var cp  = container.find('li').eq(0).clone();
+				cp.addClass('copy');
+				container.append(cp);
+
+
+				var initTop = container.css("margin-top");
+				var lineHeight = 30;
+				console.log(initTop);
+				var marginTop=parseInt(initTop);
+				setInterval(function(){
+					
+					marginTop=parseInt(container.css("margin-top"));
+					container.animate({"margin-top":"-="+lineHeight+"px"},function(){
+						if(marginTop+height==(lineHeight+parseInt(initTop))){
+							container.css({"margin-top":initTop});
+						}else{
+
+						}
+					});
+
+					//Last Line
+					
+					console.log(marginTop+" "+height+"   "+(marginTop+height));
+
+
+				},1500);
+
+
+			}
+
+			
+		});
+	</script>
+</head>
+<body>
+	<!--Teacher supply-info -->
+	<div class="supply" >
+		<div class="supply-box">
+			<div class="supply-title">核对信息</div>
+			<div class="supply-body">
+				<div class="supply-row">
+					<span class="supply-label">姓名 : </span>
+					<span>杨宇辉</span>
+					<span class="supply-edit"></span>
+				</div>
+				<div class="supply-row">
+					<span class="supply-label">手机 :  </span>
+					<span>15901005062</span>
+					<span class="supply-edit"></span>
+				</div>
+				<div class="supply-row row-group">
+					<div style="padding:5px 0;">
+						<div style="margin-bottom:5px;">
+							<span class="supply-label label-format">手<span style="visibility:hidden;display:inline-block;width:16px;"></span>机 : </span>
+							<span >
+								<input class="supply-input supply-input-large" placeholder="请输入新手机号码"/>
+							</span>
+						</div>
+						<div>
+							<span class="supply-label label-format">验证码 : </span>
+							<span >
+								<input class="supply-input status-error" placeholder="请输入验证码"/>
+								<img src="https://www.yuncelian.com/wap/account/getVerifyImage" class="supply-verify-img" />
+							</span>
+							<span class="icon icon-ok"></span>
+						</div>
+						<div>
+							<span class="supply-label label-format"></span>
+							<span  class="supply-warn inline">
+								请输入验证码
+							</span>
+						</div>
+						<div>
+							<span class="supply-label label-format">手机验证码 : </span>
+							<span >
+								<input class="supply-input status-error" placeholder="请输入手机验证码"/>
+								<span class="supply-send-code disabled">获取证码</span>
+							</span>
+							<span class="icon icon-ok"></span>
+						</div>
+					</div>
+					
+				</div>
+				<div class="supply-row">
+					<span class="supply-label">学科 : </span>
+					<span>数学</span>
+				</div>
+				<div class="supply-warn">
+					如果学科错误,请联系云测练运营人员
+				</div>
+				<div class="supply-row row-class">
+					<span class="supply-label label-float">班级 : </span>
+					<span class="supply-class">初二一班</span>
+					<span class="supply-class">初二二十班</span>
+					<span class="supply-class">初一三班</span>
+					<span class="supply-class">初二一班</span>
+					<span class="supply-class">初二二十班</span>
+					<span class="supply-class">初一三班</span>
+					<span class="supply-class">初二一班</span>
+					<span class="supply-class">初二二十班</span>
+					<span class="supply-class">初一三班</span>
+				</div>
+				<div class="supply-warn">
+					登陆云测练APP,可退出或加入班级
+				</div>
+				<div class="supply-toolbar">
+					<span class="supply-confirm">确认信息</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="supply supply-show">
+		<div class="supply-box">
+			<div class="supply-title">为保证正常使用,请确认个人信息</div>
+			<div class="supply-body">
+				<div class="supply-row  row-group">
+					<span class="supply-label label-format">姓名 : </span>
+					<span>杨宇辉</span>
+					<span class="supply-edit"></span>
+				</div>
+				<div class="supply-row  row-group">
+					<span class="supply-label label-format">班级 :  </span>
+					<span>初二一班</span>
+				</div>
+				<div class="supply-row  row-group">
+					<span class="supply-label label-format">密保手机 :  </span>
+					<span class="supply-bind">绑定手机号</span>
+				</div>
+				<div class="supply-row row-group">
+					<div style="padding:5px 0;">
+						<div style="margin-bottom:5px;">
+							<span class="supply-label label-format">手<span style="visibility:hidden;display:inline-block;width:16px;"></span>机 : </span>
+							<span >
+								<input class="supply-input supply-input-large" placeholder="请输入新手机号码"/>
+							</span>
+						</div>
+						<div>
+							<span class="supply-label label-format">验证码 : </span>
+							<span >
+								<input class="supply-input status-error" placeholder="请输入验证码"/>
+								<img src="https://www.yuncelian.com/wap/account/getVerifyImage" class="supply-verify-img" />
+							</span>
+							<span class="icon icon-ok"></span>
+						</div>
+						<div>
+							<span class="supply-label label-format"></span>
+							<span  class="supply-warn inline">
+								请输入验证码
+							</span>
+						</div>
+						<div>
+							<span class="supply-label label-format">手机验证码 : </span>
+							<span >
+								<input class="supply-input status-error" placeholder="请输入手机验证码"/>
+								<span class="supply-send-code disabled">获取证码</span>
+							</span>
+							<span class="icon icon-ok"></span>
+						</div>
+					</div>
+					
+				</div>
+				<div class="supply-warn">
+					绑定自己或者家长手机,方便找回密码
+				</div>
+				<div class="supply-toolbar">
+					<span class="supply-confirm">确认信息</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="header">
+		<div class="w980">
+			<a href="http://www.zuoyezhushou.com/" title="云测练">
+				<span class="logo"></span>
+			</a>
+			
+			<!--
+				ul>(a[href="javascript:void(0);"]>li.nav{老师备课})*8
+			-->
+			<ul>
+				<a href="javascript:void(0);">
+					<li class="nav selected">首页</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav">老师备课</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav">在线练习</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav">套卷测试</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav">消息通知</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav">班级</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav">学生报告</li>
+				</a>
+				<a href="javascript:void(0);">
+					<li class="nav">入学测评</li>
+				</a>
+			</ul>
+			
+			<!--
+			div.account-box>(span.icon.icon-account+span{杨晓歪老师}+a.logout{退出})
+			-->
+			<div class="account-box">
+				<span class="icon icon-account"></span>
+				<a>杨晓歪老师</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+				<a href="/account/logout" class="logout" onclick="window.sessionStorage.removeItem('user-info');" >退出</a>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="w980">
+			<div class="box-top">
+				<div class="assign-box">
+					<div class="action-box">
+						<div class="action action-exercise">
+							
+						</div>
+						<div class="action-text">
+							布置作业
+						</div>
+					</div>
+					<div class="action-box">
+						<div class="action action-exam">
+							
+						</div>
+						<div class="action-text">
+							安排测试
+						</div>
+					</div>
+					<div class="action-box">
+						<div class="action action-message">
+							
+						</div>
+						<div class="action-text">
+							发消息
+						</div>
+					</div>
+					<div class="notice-bar">
+						<span class="icon icon-notice"></span>
+						<!--
+							ul>(li>span{11月3日不值得2013级三年3班 物理作业还有一个小时截止})*3
+						-->
+						<ul>
+							<li><span>11月1日不值得2013级三年1班 物理作业还有一个小时截止</span></li>
+							<li><span>11月2日不值得2013级三年2班 物理作业还有一个小时截止</span></li>
+							<li><span>11月3日不值得2013级三年3班 物理作业还有一个小时截止</span></li>
+							<li><span>11月4日不值得2013级三年4班 物理作业还有一个小时截止</span></li>
+							<li><span>11月5日不值得2013级三年5班 物理作业还有一个小时截止</span></li>
+							<li><span>11月6日不值得2013级三年6班 物理作业还有一个小时截止</span></li>
+							<li><span>11月7日不值得2013级三年7班 物理作业还有一个小时截止</span></li>
+							<li><span>11月8日不值得2013级三年8班 物理作业还有一个小时截止</span></li>
+							<li><span>11月9日不值得2013级三年9班 物理作业还有一个小时截止</span></li>
+							<li><span>11月10日不值得2013级三年10班 物理作业还有一个小时截止</span></li>
+							<li><span>11月11日不值得2013级三年11班 物理作业还有一个小时截止</span></li>
+							<li><span>11月12日不值得2013级三年12班 物理作业还有一个小时截止</span></li>
+						</ul>
+						
+					</div>
+				</div>
+				<div class="account-box">
+					<div class="userinfo-box">
+						<div class="avatar default">
+							<img src="img/web/default-avatar.png" alt="" />
+						</div>
+						<div class="user-box">
+							<div class="user-info">
+								<span class="icon icon-user"></span>
+								<span class="user-name">杨晓歪</span>
+							</div>
+							<div>
+								<span class="subject">物理</span>
+								<span class="divider">|</span>
+								<span class="school">北京师范大学</span>
+							</div>
+						</div>
+						
+					</div>
+					<div class="class-box">
+						<div class="class-info">
+							<span class="icon icon-class"></span>
+							<span class="class-desc">我的班级</span>
+						</div>
+						<div class="class-list "> <!-- 为空时追加 class-empty -->
+							<a class="class-item" href="javascript:void(0);">2013级三年1班</a>
+							<a class="class-item" href="javascript:void(0);">2013级三年2班</a>
+							<a class="class-item" href="javascript:void(0);">2013级三年3班</a>
+							<a class="class-item" href="javascript:void(0);">2013级三年4班</a>
+							<a class="class-item" href="javascript:void(0);">2013级三年5班</a>
+							<a class="class-item add-class" href="javascript:void(0);"><span class="icon-add"></span>添加班级</a>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+
+
+			<div class="box-bottom">
+
+				<div class="left-box">
+					
+					<div class="schedule-header">
+						<span class="icon icon-schedule"></span>
+						<span>待办事项</span>
+					</div>
+					<!--
+						批改试卷
+						div.schedule-body>(div.schedule-item>(span.icon-small.icon-small-message+a.schedule-title[title="11月3日不值得2013级三年3班 物理作业还有一个小时截止"]{11月3日不值得2013级三年3班 物理作业还有一个小时截止}+span.schedule-todo{催作业}+span.schedule-time{2015/11/4 9:35}))*18
+					-->
+					<div class="schedule-body">
+						<div class="schedule-empty" ng-if="schedules.length<=0">
+							<span class="icon-empty"></span>
+							<div class="empty-text">
+							暂时没有待办事项
+							</div>
+						</div>
+					
+						<div class="schedule-item">
+							<span class="icon-small icon-small-exercise"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止11月3日不值得2013级三年3班 物理作业还有一个小时截止11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-message"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">批改试卷</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-exam"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-message"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-exam"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-message"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-exercise"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-exam"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-exercise"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-exam"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-exercise"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-message"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-exercise"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-exam"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-exercise"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-message"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-exercise"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+						<div class="schedule-item">
+							<span class="icon-small icon-small-exam"></span>
+							<a href="" class="schedule-title" title="11月3日不值得2013级三年3班 物理作业还有一个小时截止">11月3日不值得2013级三年3班 物理作业还有一个小时截止</a>
+							<span class="schedule-todo">催作业</span>
+							<span class="schedule-time">2015/11/4 9:35</span>
+						</div>
+					</div>
+
+				</div>
+				<div class="right-box">
+					<div class="news-box">
+						<div class="news-header">
+							<div class="line"></div>
+							<span>动态</span>
+						</div>
+						<div class="empty-container">
+							<div class="empty-icon empty-icon-news"></div>
+							<div class="empty-text">班级动态将实时显示在这里...</div>
+
+						</div>
+						<div class="new-body" style="display:none;">
+							<div class="news-item">
+								<div class="news-bubble">
+									<span class="y-axis"></span>
+									<span class="news-time">
+										<div class="arrow"></div>
+										一个小时截止
+									</span>
+								</div>
+								<div class="news-detail">
+									<span class="news-user">XX老师</span>
+									<span class="news-info">物理作业还有一个小时截止</span>
+								</div>
+								
+							</div>
+							
+							<div class="news-item">
+								<div class="news-bubble">
+									<span class="y-axis"></span>
+									<span class="news-time">
+										<div class="arrow"></div>
+										一个小时截止
+									</span>
+								</div>
+								<div class="news-detail">
+									<span class="news-user">XX老师</span>
+									<span class="news-info">物理作业还有一个小时截止</span>
+								</div>
+								
+							</div>
+							<div class="news-item">
+								<div class="news-bubble">
+									<span class="y-axis"></span>
+									<span class="news-time">
+										<div class="arrow"></div>
+										一个小时截止
+									</span>
+								</div>
+								<div class="news-detail">
+									<span class="news-user">XX老师</span>
+									<span class="news-info">物理作业还有一个小时截止</span>
+								</div>
+								
+							</div>
+							<div class="news-item">
+								<div class="news-bubble">
+									<span class="y-axis"></span>
+									<span class="news-time">
+										<div class="arrow"></div>
+										一个小时截止
+									</span>
+								</div>
+								<div class="news-detail">
+									<span class="news-user">XX老师</span>
+									<span class="news-info">物理作业还有一个小时截止</span>
+								</div>
+								
+							</div>
+							<div class="news-item">
+								<div class="news-bubble">
+									<span class="y-axis"></span>
+									<span class="news-time">
+										<div class="arrow"></div>
+										一个小时截止
+									</span>
+								</div>
+								<div class="news-detail">
+									<span class="news-user">XX老师</span>
+									<span class="news-info">物理作业还有一个小时截止</span>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+
+					<div class="banner">
+						<a href="http://www.zuoyezhushou.com">
+							<img src="img/web/banner.png" alt="" />
+						</a>
+					</div>
+					
+
+				</div>
+
+				<div class="clearfix"></div>
+			</div>
+
+
+
+		</div>
+	</div>
+	<div class="footer">
+		<div class="w980">
+			 <p class="about-us">
+			 	<span><a href="/helpGuide/aboutUs" class="link">关于我们</a></span>|<span><a href="/helpGuide/aboutUs#contact"  class="link">联系我们</a></span>|<span><a href="http://www.lagou.com/gongsi/64333.html"  class="link">加入我们</a></span>
+			 </p>
+  		<p class="copyright">&copy;&nbsp;2015 JingYouMath Team | 增值电信业务经营许可证：湘B2-20100081 | 邮箱地址： <a href="mailto:jingyou@talkweb.com.cn">jingyou@talkweb.com.cn</a>
+  		</p>
+		</div>
+	</div>
+</body>
+</html>

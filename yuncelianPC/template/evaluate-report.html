@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="keywords" content="云测练，在线练习，家校互动平台，yunzuoye" />
+		<meta name="description" content="云测练是面向老师、学生和家长的智能在线练习平台，云测练拥有一千万的优质练习资源，与各大教辅运营商合作，覆盖小初高全部学科。家长一键关注云测练微信，同步了解学生学习进展" />
+
+		<title>学能评测</title>
+		<link rel="stylesheet" href="css/web/evaluate.css" />
+	</head>
+
+	<body ng-controller="TeacherController">
+		<div class="header">
+			<div class="w980">
+				<a href="http://www.zuoyezhushou.com/" title="云测练">
+					<span class="logo"></span>
+				</a>
+
+				<!--
+				ul>(a[href="javascript:void(0);"]>li.nav{老师备课})*8
+			-->
+				<ul>
+					<a href="javascript:void(0);">
+						<li class="nav">首页</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">老师备课</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav ">在线练习</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">套卷测试</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">消息通知</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">班级</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">学生报告</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav selected">入学测评</li>
+					</a>
+				</ul>
+
+				<!--
+			div.account-box>(span.icon.icon-account+span{杨晓歪老师}+a.logout{退出})
+			-->
+				<div class="account-box">
+					<span class="icon icon-account"></span>
+					<a href="/account/center" ng-bind="teacherName">未登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="/account/logout" class="logout">退出</a>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<div class="w980 eval">
+				
+				<div class="eval-left">
+					<ul>
+						<li>学能测评</li>
+						<li>知识测评</li>
+						<li class="selected">测评报告</li>
+					</ul>
+				</div>
+				
+				<div class="eval-right">
+					
+							<table class="table table-bordered report-table">
+
+                            <thead>
+                                <tr>
+                                    <th class="width163 report-head">测试</th>
+                                    <th class="width163 report-head">电话</th>
+                                    <th class="width162 report-head">年级</th>
+                                    <th class="width163 report-head">学校</th>
+                                    <th class="width163 report-head">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                	<td>
+										<div>张三三</div>
+										<div>男 12岁</div>
+                                	</td>
+                                	<td>15900000000</td>
+                                	<td>3年级</td>
+                                	<td>安德路小学</td>
+                                	<td>
+										<div><a href="">学能报告</a></div>
+										<div><a href="">知识报告</a></div>
+                                	 </td>
+                                </tr>
+								<tr>
+                                	<td>
+										<div>张三三</div>
+										<div>男 12岁</div>
+                                	</td>
+                                	<td>15900000000</td>
+                                	<td>3年级</td>
+                                	<td>安德路小学</td>
+                                	<td>
+										<div><a href="" class="eval-start">开始学能测评</a></div>
+										<div><a href="">知识报告</a></div>
+                                	 </td>
+                                </tr>
+                                <tr>
+                                	<td>
+										<div>张三三</div>
+										<div>男 12岁</div>
+                                	</td>
+                                	<td>15900000000</td>
+                                	<td>3年级</td>
+                                	<td>安德路小学</td>
+                                	<td>
+										<div><a href="">学能报告</a></div>
+										<div><a href="">知识报告</a></div>
+                                	 </td>
+                                </tr>
+								<tr>
+                                	<td>
+										<div>张三三</div>
+										<div>男 12岁</div>
+                                	</td>
+                                	<td>15900000000</td>
+                                	<td>3年级</td>
+                                	<td>安德路小学</td>
+                                	<td>
+										<div><a href="" class="eval-start">开始学能测评</a></div>
+										<div><a href="">知识报告</a></div>
+                                	 </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>			
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+</html>

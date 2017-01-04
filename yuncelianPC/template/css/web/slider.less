@@ -1,0 +1,123 @@
+
+@import url('lib.less');
+.slider{
+
+	&-wrap{
+		position: relative;
+		margin: 0 auto 60px;
+
+
+
+		 .bx-prev {
+ 		 	left: -1px;
+  			top: 10px;
+  			width: 36px;
+  			height: 126px;
+  			float: left;
+  			position: absolute;
+  			background: url(../../img/web/microclass-left-default.png) no-repeat;
+  			z-index: 8888;
+
+		}
+
+		 .bx-next {
+  			right: -1px;
+  			top: 10px;
+  			width: 36px;
+  			height: 126px;
+  			float: right;
+  			position: absolute;
+  			background: url(../../img/web/microclass-right-default.png) no-repeat;
+  			z-index: 8888;
+		}
+
+	}
+
+
+	&-viewport{
+		width: 100%;
+		overflow: hidden;
+	}
+
+	&{
+		width: 225px;
+		margin-right: 22px;
+		height: 162px;
+		float: left;
+		position: relative;
+	}
+	
+	img{
+		width: 100%;
+		height: 100%;
+	}
+
+	.tips-bar {
+  		position: absolute;
+  		bottom: 0px;
+  		left: 0px;
+  		width: 100%;
+  		height: 36px;
+  		background-color: rgba(0, 0, 0, 0.6);
+	}
+    .tips-bar .icon-message-delete{
+        margin-top: 4px;
+    }
+	 .tips-bar a {
+  		float: left;
+  		height: 36px;
+  		line-height: 36px;
+  		vertical-align: middle;
+  		margin-left: 12px;
+  		font-size: 12px;
+  		color: #ffffff;
+  		width: 170px;
+  		text-overflow:ellipsis;
+	}
+
+
+	.message-btn{
+		margin:4px 15px 0 0;
+	}
+
+
+	.play-btn {
+  		cursor: pointer;
+  		position: absolute;
+  		width: 50px;
+  		height: 50px;
+  		margin-left: 87.5px;
+  		top: 50px;
+  		background-image: url(../../img/web/icon-videoplay-in.png);
+  		&:hover{
+  		    background-image: url(../../img/web/icon-videoplay-click.png);
+  		}
+	}
+
+	&-page{
+		background: #CCCCCC ;
+  		width: 10px;
+  		height: 10px;
+  		.radius(5px);
+		display: inline-block;
+		margin: 0 2px;
+
+  		&.active{
+  			background: #3c7ae3 ;
+  		}
+	}
+
+
+	&-list{
+
+		width: 1200px;
+		height: 162px;
+	}
+
+	&-controls{
+		position: absolute;
+		bottom: -25px;
+		text-align: center;
+		width: 100%;
+	}
+}

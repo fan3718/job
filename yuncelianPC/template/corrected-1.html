@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="keywords" content="云测练，在线练习，家校互动平台，yunzuoye" />
+        <meta name="description" content="云测练是面向老师、学生和家长的智能在线练习平台，云测练拥有一千万的优质练习资源，与各大教辅运营商合作，覆盖小初高全部学科。家长一键关注云测练微信，同步了解学生学习进展" />
+
+        <title>套卷测试</title>
+
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+        <script src="js/swiper-3.2.7.jquery.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="css/swiper-3.2.7.min.css"/>
+        <link rel="stylesheet" href="css/web/exercise-assign.css" />
+        <link rel="stylesheet" href="css/web/class.css" />
+        <link rel="stylesheet" href="css/web/exam.css" />
+        <link rel="stylesheet" href="css/web/report.css" />
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                
+                $('.tabs-branch').click(function(){
+                    $('.tabs-branch').each(function(){
+                        $(this).removeClass('cur');
+                    })
+                    $(this).addClass('cur');
+                });
+                
+                
+                var length=$('.q-list li').length;
+                var WIDTH=$('.question-list').width();
+                
+                if(length>11){
+                    var w=(length-11)*80+WIDTH;
+                    $('.q-list').css('width',w);
+                }
+                 
+            });
+        </script>
+
+    </head>
+
+    <body ng-controller="TeacherController">
+        <div class="header">
+            <div class="w980">
+                <a href="http://www.zuoyezhushou.com/" title="云测练">
+                    <span class="logo"></span>
+                </a>
+
+                <!--
+                ul>(a[href="javascript:void(0);"]>li.nav{老师备课})*8
+            -->
+                <ul>
+                    <a href="javascript:void(0);">
+                        <li class="nav">首页</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">老师备课</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">在线练习</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav selected">套卷测试</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">消息通知</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">班级</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">学生报告</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">入学测评</li>
+                    </a>
+                </ul>
+
+                <!--
+            div.account-box>(span.icon.icon-account+span{杨晓歪老师}+a.logout{退出})
+            -->
+                <div class="account-box">
+                    <span class="icon icon-account"></span>
+                    <a href="/account/center" ng-bind="teacherName">未登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="/account/logout" class="logout">退出</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="w980 online">
+
+                <div class="assign-box-title">
+                    <div class="assign-title">
+                        <a class="title-text-a" href="javascript:void(0);">在线练习</a>
+                        <span class="icon-current-position"></span>
+                        <a class="title-text-a" href="javascript:void(0);">单次试卷报告</a>
+                        <span class="icon-current-position"></span>
+                        <a class="title-text-a" href="javascript:void(0);">批改试卷</a>
+
+                    </div>
+                </div>
+
+                <div class="class-title paper-caption caption-corrcted">
+                    <div class="caption-top">
+                        <div class="class-title-left fl">
+                            <span class='icon-paper'></span>
+                            <div class="paper-msg">
+                                <p class='paper-msg-title'>2015年上海市高考数学试卷（文科）</p>
+                                <span>学生姓名：杨宇辉 </span>
+                                <span>用时：117分34秒</span>
+                            </div>
+                        </div>
+                        <div class="deadline fr">
+                            <span>截止时间：2014/8/15 17:00</span>
+                        </div>
+                    </div>
+
+                    <div class="report-stu">
+                        <div class="report report-data">
+
+                            <div class="report-list exer-report-right">
+                                <span class='text-title'>得分</span>
+                                <span class='text-num text-right'>135</span>
+                            </div>
+                            <div class="report-list exer-report-wrong">
+                                <span class='text-title'>错题数</span>
+                                <span class='text-num text-wrong'>5/24</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-correct paper-corrected">
+
+                    <div class="types-title">
+                        <span class='type-left'></span>
+                        <span class='type-right'></span>
+                        <ul class="tabs">
+                            <li class="tabs-branch type-choice cur"><a href="javascript:void(0);">一、选择题</a></li>
+                            <li class="tabs-branch type-blank"><a href="javascript:void(0);">二、填空题</a></li>
+                            <li class="tabs-branch type-calculate"><a href="javascript:void(0);">三、计算题</a></li>
+                            <li class="tabs-branch type-geometry"><a href="javascript:void(0);">四、几何证明题</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="analysis">
+                        <p class='analysis-title'>共5题（每题8分，共40分）</p>
+                        <div class="question-num">
+                            <span class='question-left'></span>
+                            <span class='question-right'></span>
+                            <div class="question-list">
+                                <ul class='q-list'>
+                                    <li class="q-right q-select-r">1</li>
+                                    <li class="q-wrong">2</li>
+                                    <li class="q-right">3</li>
+                                    <li class="q-right">4</li>
+                                    <li class="q-right">5</li>
+                                    <li class="q-wrong q-select-w">6</li>
+                                    <li class="q-right">7</li>
+                                    <li class="q-right">8</li>
+                                    <li class="q-right">9</li>
+                                    <li class="q-right">10</li>
+                                    <li class="q-right">11</li>
+                                    <li class="q-right">12</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="content-area choice-content border-box-r">
+                        <div class="cap-right cap-corrected">已批改</div>
+                        <span class='content-left'></span>
+                        <span class='content-right'></span>
+                        <div class="content-area-q corrected-q">
+                            6、已知：两个正方形ABCD、DEFG，角HAF=45度，求证AH与HF垂直？
+                        </div>
+
+                        <div class="content-answer-hide">
+                            <div class="exer-content">
+                                <div class="exer-options">
+                                    <span>A. 你说你说</span>
+                                    <span class="correct-answer">B. 我说我听</span>
+                                    <span>C. 你说你说</span>
+                                    <span>D. 你说你说</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-answer-show">
+                            <div><span>【答案】</span>
+                                <p>B</p>
+                            </div>
+                            <div><span>【分析】</span>
+                                <p>一般来说三种素质达标意外着每个人至少有一个达标一门</p>
+                            </div>
+                            <div><span>【解答】</span>
+                                <p>来看，文化课达标35人，意味着40-35=5人没有达标身体素质，未达标如果这之中没有重复，那么 的人最多为7+8+7=22人注意这个不一定一直是对的，但是算出来的是小于40的，所以是有可能的，但是算出来的是小于40的，所以是有可能的， 至少三样有一样没达标
+                                </p>
+                            </div>
+                            <div><span>【点评】</span>
+                                <p>这道题有点难呢，加油！</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
+                    
+                    <div class="content-area choice-content border-box-w">
+                        <div class="cap-right cap-corrected">已批改</div>
+                        <span class='content-left'></span>
+                        <span class='content-right'></span>
+                        <div class="content-area-q corrected-q">
+                            6、已知：两个正方形ABCD、DEFG，角HAF=45度，求证AH与HF垂直？
+                        </div>
+
+                        <div class="content-answer-hide">
+                            <div class="exer-content">
+                                <div class="exer-options">
+                                    <span>A. 你说你说</span>
+                                    <span class="correct-answer">B. 我说我听</span>
+                                    <span class='chosen-answer'>C. 你说你说</span>
+                                    <span>D. 你说你说</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-answer-show">
+                            <div><span>【答案】</span>
+                                <p>B</p>
+                            </div>
+                            <div><span>【分析】</span>
+                                <p>一般来说三种素质达标意外着每个人至少有一个达标一门</p>
+                            </div>
+                            <div><span>【解答】</span>
+                                <p>来看，文化课达标35人，意味着40-35=5人没有达标身体素质，未达标如果这之中没有重复，那么 的人最多为7+8+7=22人注意这个不一定一直是对的，但是算出来的是小于40的，所以是有可能的，但是算出来的是小于40的，所以是有可能的， 至少三样有一样没达标
+                                </p>
+                            </div>
+                            <div><span>【点评】</span>
+                                <p>这道题有点难呢，加油！</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="w980">
+                <p class="about-us">
+                    <span><a href="/helpGuide/aboutUs" class="link">关于我们</a></span>|<span><a href="/helpGuide/aboutUs#contact"  class="link">联系我们</a></span>|<span><a href="http://www.lagou.com/gongsi/64333.html"  class="link">加入我们</a></span>
+                </p>
+                <p class="copyright">&copy;&nbsp;1 9 9 7 - 2 0 1 5 北京拓欣菁优 . 中国&nbsp;&nbsp;|&nbsp;&nbsp;自豪地采用 W o r d P r e s s
+                </p>
+            </div>
+        </div>
+
+    </body>
+
+</html>

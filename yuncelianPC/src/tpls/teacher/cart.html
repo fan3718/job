@@ -1,0 +1,173 @@
+<div class="main" >
+            <div class="w980 online">
+                <div class="assign-box-title">
+                    <div class="assign-title">
+                        <a class="title-text-a" href="/exercise">在线练习</a>
+                        <span class="icon-current-position"></span>
+                        <a class="title-text-a" href="javascript:history.go(-1);">布置练习</a>
+                        <span class="icon-current-position"></span>
+                        <a class="title-text-a" href="javascript:void(0);">试题篮</a>
+                    </div>
+                </div>
+
+                <div class="exer-basket" >
+                    <div class="border-box microclass" ng-if="cart.videos.length>0" >
+                        <div class="microclass-title">
+                            <span class="icon icon-microclass"></span>
+                            <span class="txt-14 txt-microclass">微课</span>
+                        </div>
+                        <div class="slide-microclass">
+                             <div ng-video-slider ng-videos="cart.videos" slider-width="225" slider-margin="10" max-sliders ="4" ng-play="play"  ng-hide-checkbox="true" ng-show-del-box="true"  ng-slider-init="initVideoSlider"></div>
+                        </div>
+                    </div>
+
+                    <div class="choice-box" ng-if="cart.questions.length>0">
+                        <div class="choice-exercise">
+                            <span class="icon icon-choice-exer"></span>
+                            <span class="txt-14 txt-choice">选择题</span>
+                        </div>
+
+
+
+                        <div class="border-box border-box-radius" ng-repeat="question in cart.questions" ng-cloak>
+                            <div class="exer-content">
+                                <!-- <p class="exer-num">{{$index+1}}.</p> -->
+                                <div class="exer-text">
+                                    <div class="exer-question"><span class="exer-num">{{$index+1}}.</span><span style="color:#eb8f3c;" ng-if="question.type==3">[多选题]</span><span ng-bind-html="question.content | trusted"></span></div>
+                                    <div class="exer-options" ng-if="question.options.length>0">
+                                        <p ng-repeat="option in question.options" ng-class="{'correct-answer': showAnswer && question.answer.indexOf(getAnswer($index))>=0}"><span>{{$index | charCode}}. </span><span ng-bind-html="option | trusted"></span></p>
+                                    </div>
+
+                                </div>
+                                <div class="exer-answer" ng-if="question.showAnalysis">
+                                    <p ng-if="isDefined(question.answer)" >【答案】 <span ng-bind-html="question.answer | trusted"></span></p>
+                                    <p ng-if="isDefined(question.analysis)" >【解析】 <span ng-bind-html="question.analysis | trusted"></span></p>
+                                    <p ng-if="isDefined(question.method)&&question.method.length>0" >【解答】 <span ng-bind-html="question.method | trusted"></span></p>
+                                    <p ng-if="isDefined(question.discuss)&&question.discuss.length>0">【点评】 <span ng-bind-html="question.discuss | trusted"></span></p>
+                                    <p ng-if="isDefined(question.knowledge)">【考点】 <span ng-bind-html="question.knowledge | trusted"></span></p>
+                                </div>
+
+                            </div>
+                            <div class="exer-message">
+                                <span class="source-text">来源：{{question.title}}</span>
+                                <div class="exer-message-menu">
+                                    <div class="icon-msg icon-message-delete fr"  ng-click="remove($index,question,'1')" title="删除"></div>
+
+                                    <div class="icon-msg icon-message-down fr"  ng-click="down($index,question,'1')" title="下移"></div>
+
+                                    <div class="icon-msg icon-message-up fr" ng-click="up($index,question,'1')" title="上移"></div>
+
+                                    <div class="message-answer fr">
+                                        <a ng-click="getCarQuestionDetail(question)" ng-if="!question.showAnalysis">查看解析</a>
+                                        <a ng-click="getCarQuestionDetail(question)" ng-if="question.showAnalysis">收起解析</a>
+                                    </div>
+                                    <span style="font-size:14px;color:#ffac47;" >难度</span>
+                                    <div class="message-diff fr" ng-rate ng-difficulty="question.difficulty" ></div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="basket">
+            <div class="w980">
+                <div class="basket-title fl">
+                    <span class="icon icon-basket-left"></span>
+                    <span class="icon icon-basket"></span>
+                    <span class="txt-14 txt-basket">试题篮</span>
+                    <span class="icon icon-basket-right"></span>
+                </div>
+
+                <div class="basket-chosen-exers fl" style="width:470px;">
+                    <div>
+                        <span class="text-14 chosen-text1">已选 :</span><span class="txt-18"><span ng-bind="cart.questions.length || 0">0</span>题</span><span class="text-14 chosen-text2">( 选择题</span><span class="txt-18"><span ng-bind="cart.questions.length || 0">0</span>题</span><span class="text-14">, 微课视频</span><span class="txt-18"><span ng-bind="cart.videos.length|| 0">0</span>个</span><span class="text-14 chosen-text3">)</span>
+                    </div>
+
+                    <div style="margin-top:5px;">
+                        <span ng-click="toggleShowAnswer()" class="btn-switch">
+                            <span class="icon icon-answer"></span>
+                            <span class="text-14 text-empty" ng-if="!showAnswer">显示答案</span>
+                            <span class="text-14 text-empty" ng-if="showAnswer" ng-cloak>隐藏答案</span>
+                        </span>
+
+                        <span class="btn-switch">
+                            <span class="icon icon-paper-download"></span>
+                            <span class="text-14 text-empty" ng-click="downLoad()">下载</span>
+                        </span>
+
+                        <span ng-click="clearAll();" class="btn-switch">
+                            <span class="icon icon-empty"></span>
+                            <span class="text-14 text-empty">清空</span>
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="basket-done fr" style="width: auto;">
+                    <span ng-click="continueFilter()">继续选题</span>
+                    <button class="basket-btn" ng-click="openDialogBox()">确认出题</button>
+                </div>
+            </div>
+
+        </div>
+
+
+<!-- 对话框 -->
+
+
+
+
+<div class="dialog" ng-show="showDialog">
+        <div class="dialog-box">
+            <div class="dialog-title">
+                <p>布置练习</p>
+                <span class="icon-dialog-close" ng-click="closeDialogBox()"></span>
+            </div>
+
+            <div class="dialog-content">
+                <div class="exer-name">
+                    <p>名 称</p>
+                    <input type="text" class="input-name" ng-class="{'border-red':form.name.length>40}" name="exer-name" ng-model="form.name"/>
+                    <div class="exer-name-limit" ng-if="form.name.length>40">*标题长度超过限制</div>
+                </div>
+                <div class="time-begin">
+                    <p>开始时间</p>
+                    <input id="calendar " class="date date-start fl"  ng-model="form.startDate" ng-calendar />
+
+                    <div class="timepick timepick-wrap" ng-timepick ng-model="form.startTime" >
+                            <div class="timepick-up" id="add"></div>
+                            <div class="timepick-down" id="sub"></div>
+                            <input type="text" readonly="readonly" id="timepick" class="timepick-input" ng-model="form.startTime"/>
+                      </div>
+                </div>
+                <div class="time-end">
+                    <p>结束时间</p>
+
+                    <input id="calendar2" class="date date-end fl" ng-model="form.endDate" ng-calendar/>
+                                        <div class="timepick timepick-wrap" ng-timepick ng-model="form.endTime" >
+                                                <div class="timepick-up" id="add"></div>
+                                                <div class="timepick-down" id="sub"></div>
+                                                <input type="text" readonly="readonly" id="timepick" class="timepick-input" ng-model="form.endTime" />
+                                          </div>
+                </div>
+            </div>
+             <div class="basket-done">
+                    <button class="basket-btn publish-exer-btn" ng-click="assign()">确认发布</button>
+                </div>
+         </div>
+</div>
+<div class="alert-bg" ng-show="isShowTipBox" ng-cloak>
+    <div class="alert-dialog delete-dialog">
+        <p>{{alert.message}}</p>
+        <div class="alert-btn" style="text-align:center;">
+            <span class='box-btn tip-ensure-btn'  ng-click="showTip(true)">确定</span>
+        </div>
+    </div>
+</div>

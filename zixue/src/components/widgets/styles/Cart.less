@@ -1,0 +1,118 @@
+.cart{
+  height:100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.cart-title{
+  height:1.1111111111111112rem;
+  width:10rem;
+  line-height: 1.1111111111111112rem;
+  margin: 0 auto;
+  min-height: 1.1111111111111112rem;
+  background-color: #e2ebfb;
+  text-indent: 0.6944444444444444rem;
+  font-size: 0.4166666666666667rem;
+  border-top-right-radius: 0.2777777777777778rem;
+  border-top-left-radius: 0.2777777777777778rem;
+  color: #444;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cart-catalog{
+  flex-grow: 1;
+  background-color: #fff;
+  overflow-y:auto;
+}
+.cart-ques-group{
+  margin: 0 0.5555555555555556rem;
+  display: flex;
+  flex-direction: column;
+}
+.cart-ques-group-title{
+  font-size: 0.3611111111111111rem;
+  margin-top: 0.4722222222222222rem;
+  color:#666;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+.cart-ques-group-title>span{
+  display: inline-flex;
+}
+.cart-ques-group-title-time{
+  align-self: flex-end;
+  color: #666;
+  text-align: right;
+}
+.cart-ques-group-title-icon{
+  display: inline-flex;
+  width: 0.041666666666666664rem;
+  height:0.3611111111111111rem;
+  margin-right: 0.06944444444444445rem;
+  background-image: url(/img/zixue/icon-title.png);
+}
+.cart-ques-group-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.cart-ques-group-item{
+  display: inline-flex;
+  height:0.9722222222222222rem;
+  width:0.9722222222222222rem;
+  margin-top: 0.4166666666666667rem;
+  margin-right: 0.3611111111111111rem;
+  margin-left: 0.3611111111111111rem;
+  border-radius: 50%;
+  color: #b8bcc3;
+  border: 1px solid #e2ebfb;
+  align-items: center;
+  justify-content: center;
+}
+.cart-ques-group-item-answered{
+  border-color: #37aefb;
+}
+.cart-paper-title{
+  font-size: 0.5rem;
+  color: #333333;
+  margin-top: 0.8333333333333334rem;
+  margin-bottom: 0.5555555555555556rem;
+  display:flex;
+  justify-content: center;
+}
+.cart-submit{
+  height: 2.4166666666666665rem;
+  min-height: 2.4166666666666665rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+.cart-submit-button{
+  height:1.3055555555555556rem;
+  width: 4.583333333333333rem;
+  border-radius: 0.6527777777777778rem;
+  background-color:#ccc;
+  color: #fff;
+  font-size: 0.3333333333333333rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart-submit-button::after{
+  content: '提交答案'
+}
+.cart-submit-button-start{
+  background: #98d20b;
+}
+.cart-submit-button-start::after{
+  content: '开始答题'
+}
+.cart-submit-button-active{
+  background-color: #feb86c;
+}

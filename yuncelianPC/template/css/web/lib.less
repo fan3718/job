@@ -1,0 +1,105 @@
+
+//Set Font Size
+.font(@font: 12px){
+	font-size: @font;
+}
+
+//Set Font Size And Color
+.font-color(@font: 12px,@color: #ffffff){
+	font-size: @font;
+	color: @color;
+}
+
+.radius(@radius:5px){
+	border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-ms-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-o-border-radius: @radius;
+}
+.radius-all(@topleft,@topright,@bottomright,@bottomleft){
+    border-radius: @topleft @topright @bottomright @bottomleft;
+    -webkit-border-radius: @topleft @topright @bottomright @bottomleft;
+    -ms-border-radius:  @topleft @topright @bottomright @bottomleft;
+    -moz-border-radius:  @topleft @topright @bottomright @bottomleft;
+    -o-border-radius:  @topleft @topright @bottomright @bottomleft;
+}
+//Set Border Style
+.border(@color,@width: 1px){
+	border: @width solid @color;
+}
+
+.border-bottom(@color,@width: 1px){
+	border-bottom: @width solid @color;
+}
+
+.border-left(@color,@width: 1px){
+    border-left: @width solid @color;
+}
+.border-right(@color,@width: 1px){
+    border-right: @width solid @color;
+}
+.border-top(@color,@width: 1px){
+    border-top: @width solid @color;
+}
+
+.box-shadow(@x,@y,@blur,@color){
+	box-shadow: @x @y @blur @color;
+	-webkit-box-shadow: @x @y @blur @color;
+	-moz-box-shadow: @x @y @blur @color;
+	-o-box-shadow: @x @y @blur @color;
+	-ms-box-shadow: @x @y @blur @color;
+}
+
+.box-shadow-all(@x,@y,@blur,@color){
+	box-shadow: -1*@x 0px @blur @color, 
+	@x 0px @blur @color, 
+	0 -1*@y @blur @color,
+              0 @y @blur @color;
+              -webkit-box-shadow: -1*@x 0px @blur @color, 
+	@x 0px @blur @color, 
+	0 -1*@y @blur @color,
+              0 @y @blur @color;
+              -moz-box-shadow: -1*@x 0px @blur @color, 
+	@x 0px @blur @color, 
+	0 -1*@y @blur @color,
+              0 @y @blur @color;
+              -ms-box-shadow: -1*@x 0px @blur @color, 
+	@x 0px @blur @color, 
+	0 -1*@y @blur @color,
+              0 @y @blur @color;
+              -o-box-shadow: -1*@x 0px @blur @color, 
+	@x 0px @blur @color, 
+	0 -1*@y @blur @color,
+              0 @y @blur @color;
+}
+
+.rotate(@x){
+    transform: rotate(@x);
+    -webkit-transform: rotate(@x);
+    -moz-transform: rotate(@x);
+    -o-transform: rotate(@x);
+    -ms-transform: rotate(@x);
+} 
+.box-sizing(@x){
+    box-sizing: @x;
+    -webkit-box-sizing: @x;
+    -moz-box-sizing: @x;
+    -o-box-sizing: @x;
+    -ms-box-sizing: @x;
+} 
+
+
+.appear(@style:none){
+	appearance:@style;
+    	-moz-appearance:@style;
+    	-webkit-appearance:@style;
+}
+
+.opacity(@a){
+    @per:@a*100;
+    filter:alpha(opacity=@per); 
+    opacity:@a;  
+    -moz-opacity:@a;
+    -khtml-opacity: @a;
+}

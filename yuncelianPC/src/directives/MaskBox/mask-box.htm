@@ -1,0 +1,17 @@
+<div class="alert-bg" ng-show="isShowTipBox" ng-cloak>
+	<div class="alert-dialog delete-dialog">
+		<p ng-bind="maskBox.message"></p>
+		<div class="alert-btn" style="text-align: center;"
+			ng-if="maskBox.type==1">
+			<span class='box-btn tip-ensure-btn' ng-click="showTip(true)">确定</span>
+		</div>
+		<div class="alert-btn" style="text-align: center;"
+			ng-if="maskBox.type=='ok'">
+			<span class='box-btn tip-ensure-btn' ng-click="showTip(false)">确定</span>
+		</div>
+		<div class="alert-btn" ng-if="maskBox.type==2">
+			<span class='box-btn cancel-btn' ng-click="showTip(false)">取消</span>
+			<span class='box-btn ensure-btn' ng-click="showTip(true)">确定</span>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,35 @@
+<div class="slider-wrap">
+  <a href="javascript:void(0);" class="bx-prev" ng-click="showPrev()"></a>
+  <a href="javascript:void(0);" class="bx-next" ng-click="showNext()"></a>
+  <div class="slider-viewport">
+    <div class="slider-list">
+      <div class="slider" style="margin-right:{{sliderMargin}}px;width:{{sliderWidth}}px;"
+           ng-repeat="video in videos"
+           ng-class="{'slider-clone':video.clone}">
+        <img ng-src="{{video.thumbnail}}" ng-if="video.thumbnail.length !=0"
+             alt="{{video.title}}" onerror="this.src='/img/web/video-defult.png';this.onerror=null;"/> <img
+        ng-src="/img/web/video-defult.png"
+        ng-if="video.thumbnail.length ==0" alt="{{video.title}}"/>
+        <div class="tips-bar">
+          <a href="javascript:void(0);" title="{{video.title}}">{{video.title}}</a>
+          <div class="icon-msg icon-message-delete fr" ng-if="ngShowDelBox"
+               ng-click="removeVideo(video,$index)" title="删除"></div>
+          <div class="message-btn fr" ng-hide="ngHideCheckbox">
+            <input class="checkbox-select" type="checkbox" name="select"
+                   id="slider-inner-check-{{$index}}" ng-model="video.checked">
+            <label ng-class='{"selected":video.checked}'
+                   ng-click="video.checked=!video.checked;change(video,$index)"></label>
+          </div>
+        </div>
+        <div class="play-btn" ng-click="playVideo($index)"></div>
+      </div>
+    </div>
+    <div>
+      <div class="slider-controls">
+        <a href="javascript:void(0)" ng-repeat="page in pages"
+           class="slider-page" ng-class="{'active':pindex==$index}"
+           ng-click="changeIndex($index)"></a>
+      </div>
+    </div>
+  </div>
+</div>

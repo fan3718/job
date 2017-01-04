@@ -1,0 +1,296 @@
+<style>
+    /*.version:hover {
+        background-color: #e9f0ff;
+    }*/
+    .version:hover .grade {
+        display: block;
+    }
+    .grade .radioSelected{
+        color: #ffffff;
+        background: #6a9cf0;
+    }
+    .title-text-p{
+        cursor: context-menu;
+    }
+    .filetree>li>span.file{background: url(/img/web/unfold-default.png) 0 0 no-repeat !important;}
+</style>
+<div class="main">
+           <div class="w980 online">
+
+                <div class="assign-box-title">
+                    <div class="assign-title">
+                        <span class="title-text-p"><a class="title-text-a" href="/exercise">在线练习</a></span>
+                        <span class="icon-current-position"></span>
+                        <a class="title-text-a" href="javascript:void(0);">布置练习</a>
+                    </div>
+                    <div class="control-box">
+                        <div class="chose-class-box">
+                            <span class="label-chose-class">选择班级</span>
+                            <span class="checkbox-class" ng-repeat="class in userInfo.classes" ng-cloak>
+                                <input type="checkbox" name="classId" id="class-id-{{class.classId}}" ng-disabled="disabledCheckbox(class)" ng-model="class.checked"/>
+                                <label ng-class="{'disabled':disabledCheckbox(class),'selected':isSelected(class)}" for="class-id-{{class.classId}}" ng-click="toggleSelectClass(class)">{{class.className|className}}</label>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="exer-menu fl">
+                    <ul class="tabs">
+                        <li class="tabs-branch material-version" ng-class="{'cur':showType ==1}" ng-click="changeShowType(1)"><span class="column-line" >同步教材</span></li>
+                        <li class="tabs-branch knowledge-point"  ng-class="{'cur':showType ==2}"  ng-click="changeShowType(2)">知识点</li>
+                    </ul>
+                   <div class="tab-menu materials" ng-class="{'on':showType ==1}">
+                        <div>
+                            <div class="version material-title" ng-click="toggleMaterial()" style="position:relative;">
+                                <span ng-if="!switcher.hasChosenGrade">选择同步教材版本</span>
+                                <span ng-if="switcher.hasChosenGrade" style="width: 210px;display: inline-block;overflow: hidden;height: 36px;">{{basket.book.name}}/{{basket.grade.Name}}</span>
+                                <span class="icon-arrow icon-spread"  style="position:absolute;right:0;top:0" ng-class="{'icon-pack':material.open}" ng-click="material.open=!material.open"></span>
+                            </div>
+
+                            <ul class="books" ng-cloak ng-show="switcher.showMaterial">
+                                <li class="version" ng-repeat="book in books">
+                                    <div class="material-v fl">
+                                        <span>{{book.name}}</span>
+                                        <span class="icon-arrow icon-rightarrow "></span>
+                                    </div>
+                                    <div class="grade" ng-if="book.grades.length>0">
+                                        <span class="radio-class" ng-repeat="grade in book.grades" ng-class="{'radio-middle':$index %3 ==1}">
+                                            <input type="radio" name="grade" id="grade-{{book.id}}-{{grade.ID}}" value="{{grade.ID}}" ng-checked="basket.grade.ID==grade.ID && basket.book.id==book.id" ng-model="isRadioChecked" >
+                                            <label ng-class="{'radioSelected':isLabelChecked(book,grade)}"  ng-click="changeGrade(book,grade)">{{grade.Name}}</label>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="space" ng-if="switcher.showChapter"></div>
+                            <div  ng-if="switcher.showChapter">
+                                <div ng-chapter-treeview ng-chapters="chapterTree" ng-chapter-click="changeChapter" ng-chapter-id="basket.catelog.ID"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="tab-menu points" ng-class="{'on':showType ==2}" >
+                        <div ng-chapter-treeview ng-chapters="knowledgeTree" ng-chapter-click="changeKnowledge" ng-chapter-id="basket.knowledge.ID"></div>
+                    </div>
+                </div>
+
+
+                <div class="exer-select-box" ng-if="showType ==1">
+                    <div class="select-title" ng-cloak>
+                        <span  ng-repeat="chapter in chapterPath">
+                            <span ng-if="!$last">
+                                <a class="title-text-a" href="javascript:void(0);" ng-click="changeChapter(chapter,$event)" ng-bind="chapter.Name|substr:10:'...'"></a>
+                                <span class="icon-current-position"></span>
+                            </span>
+                            <span ng-if="$last">
+                                <a class="title-text-p" href="javascript:void(0);" ng-bind="chapter.Name"></a>
+                            </span>
+                        </span>
+                    </div>
+                   <div class="empty-container" ng-cloak ng-if="videos.length<=0 && questions.length<=0 && isRequestFinished">
+                        <div class="empty-icon empty-icon-chapter"></div>
+                        <div class="empty-text">编辑老师正在录入题目<br />您可以切换其他教材版本查看对应章节的题目~</div>
+                    </div>
+                    <div class="border-box microclass" ng-cloak ng-if="videos.length>0">
+                        <div class="microclass-title">
+                            <span class="icon icon-microclass"></span>
+                            <span class="txt-14 txt-microclass">微课</span>
+                        </div>
+                        <div class="slide-microclass">
+                            <div ng-video-slider ng-videos="videos" slider-width="225" slider-margin="22" max-sliders ="3" ng-play="play" ng-hide-delbox="true" ng-slider-init="initSlider"></div>
+                        </div>
+                    </div>
+                    <div class="choice-box" ng-cloak ng-if="questions.length>0">
+                        <div class="choice-exercise">
+                            <span class="icon icon-choice-exer"></span>
+                            <span class="txt-14 txt-choice">选择题</span>
+                        </div>
+                        <div>
+                            <div class="border-box border-box-radius" ng-repeat = "question in questions" >
+                            <div class="exer-content">
+                                <!-- <p class="exer-num">{{(basket.p-1)*basket.ps+$index + 1}}.</p> -->
+                                <div class="exer-text">
+                                    <div class="exer-question"><span class="exer-num">{{(basket.p-1)*basket.ps+$index + 1}}.</span><span style="color:#eb8f3c;" ng-if="question.Type==3">[多选题]</span><span ng-bind-html="question.Content | trusted"></span></div>
+
+                                    <div class="exer-options" ng-if="question.Options.length>0">
+                                        <p ng-repeat="option in question.Options track by $index"><span>{{$index | charCode}}. </span><span ng-bind-html="option | trusted"></span></p>
+                                    </div>
+                                </div>
+
+                                <div class="exer-answer  bl" ng-if="question.showAnalysis">
+                                    <p ng-if="isDefined(question.Answer)" >【答案】 <span ng-bind-html="question.Answer | trusted"></span></p>
+                                    <p ng-if="isDefined(question.Analysis)" >【解析】 <span ng-bind-html="question.Analysis | trusted"></span></p>
+                                    <p ng-if="isDefined(question.Method)&&question.Method.length>0" >【解答】 <span ng-bind-html="question.Method | trusted"></span></p>
+                                    <p ng-if="isDefined(question.Discuss)&&question.Discuss.length>0">【点评】 <span ng-bind-html="question.Discuss | trusted"></span></p>
+                                    <p ng-if="isDefined(question.Knowledge)">【考点】 <span ng-bind-html="question.Knowledge | trusted"></span></p>
+                                </div>
+
+                            </div>
+                            <div class="exer-message">
+                                <span class="source-text">来源：{{question.Title}}</span>
+                                <div class="exer-message-menu">
+                                    <div class="message-btn fr">
+                                        <label ng-class="{'selected':question.InCart}" ng-click="handleCart(question,false)"   ></label>
+                                    </div>
+                                    <div class="message-answer fr">
+                                        <a ng-click="getQuestionDetail(question)" ng-if="!question.showAnalysis">查看解析</a>
+                                        <a ng-click="getQuestionDetail(question)" ng-if="question.showAnalysis">收起解析</a>
+                                    </div>
+                                    <span style="font-size:14px;color:#ffac47;" >难度</span>
+                                    <div class="message-diff fr" ng-rate ng-difficulty="question.Difficulty" ></div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <!--分页-->
+                        <div class="pagination" ng-if="basket.pagination.length>1" ng-cloak>
+                                <ul>
+                                    <li ng-if="basket.p != 1" ng-click="redirect('exercise','first')">首页</li>
+                                    <li class="prev gray" ng-if="basket.p != 1" ng-click="redirect('exercise','prev')">上一页</li>
+                                    <li ng-repeat="p in basket.pagination" ng-class="{'active':basket.p ==p.code,'none':p.type==2}" >
+                                        <span ng-click="redirect('exercise','none',p)" ng-if="p.type!=2" style="display:block;">{{p.code}}</span>
+                                        <span ng-if="p.type==2">{{p.code}}</span>
+                                    </li>
+                                    <li class="next gray" ng-click="redirect('exercise','next')" ng-if="basket.p != basket.maxPage">下一页</li>
+                                    <li class="none">
+                                        <span> 到第</span>
+                                        <input type="text" value="1" ng-value="basket.p" ng-model="basket.input"/>
+                                        <span> 页</span>
+                                        <span class="btn-sure" ng-click="redirect('exercise','redirect')">确定</span>
+                                    </li>
+                                </ul>
+
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- knowledge -->
+                <div class="exer-select-box" ng-cloak ng-if="showType ==2">
+                    <div class="select-title" ng-cloak>
+                        <span  ng-repeat="chapter in knowledgePath">
+                            <span ng-if="!$last">
+                                <a class="title-text-a" href="javascript:void(0);" ng-click="changeKnowledge(chapter,$event)" ng-bind="chapter.Name|substr:10:'...'"></a>
+                                <span class="icon-current-position"></span>
+                            </span>
+                            <span ng-if="$last">
+                                <a class="title-text-p" href="javascript:void(0);" ng-bind="chapter.Name"></a>
+                            </span>
+                        </span>
+                    </div>
+                   <div class="empty-container" ng-cloak ng-if="knowledge.videos.length<=0 && knowledge.questions.length<=0 && isRequestFinished ">
+                        <div class="empty-icon empty-icon-chapter"></div>
+                        <div class="empty-text">编辑老师正在录入题目<br />您可以切换其他教材版本查看对应章节的题目~</div>
+                    </div>
+                    <div class="border-box microclass" ng-cloak ng-if="knowledge.videos.length>0">
+                        <div class="microclass-title">
+                            <span class="icon icon-microclass"></span>
+                            <span class="txt-14 txt-microclass">微课</span>
+                        </div>
+                        <div class="slide-microclass">
+                            <div ng-video-slider ng-videos="knowledge.videos" slider-width="225" slider-margin="22" max-sliders ="3" ng-play="play" ng-hide-delbox="true" ng-slider-init="initSlider"></div>
+                        </div>
+                    </div>
+                    <div class="choice-box" ng-cloak ng-if="knowledge.questions.length>0">
+                        <div class="choice-exercise">
+                            <span class="icon icon-choice-exer"></span>
+                            <span class="txt-14 txt-choice">选择题</span>
+                        </div>
+                        <div >
+                            <div class="border-box border-box-radius" ng-repeat = "question in knowledge.questions" >
+                            <div class="exer-content">
+                                <!-- <p class="exer-num">{{(knowledge.p-1)*knowledge.ps+$index + 1}}.</p> -->
+                                <div class="exer-text">
+                                    <div class="exer-question"><span class="exer-num">{{(knowledge.p-1)*knowledge.ps+$index + 1}}.</span><span ng-bind-html="question.Content | trusted"></span></div>
+                                    <div class="exer-options" ng-if="question.Options.length>0">
+                                        <p ng-repeat="option in question.Options track by $index"><span>{{$index | charCode}}. </span><span ng-bind-html="option | trusted"></span></p>
+                                    </div>
+                                </div>
+
+                                <div class="exer-answer  bl" ng-if="question.showAnalysis">
+                                    <p ng-if="isDefined(question.Answer)" >【答案】 <span ng-bind-html="question.Answer | trusted"></span></p>
+                                    <p ng-if="isDefined(question.Analysis)" >【分析】 <span ng-bind-html="question.Analysis | trusted"></span></p>
+                                    <p ng-if="isDefined(question.Method)" >【解答】 <span ng-bind-html="question.Method | trusted"></span></p>
+                                    <p ng-if="isDefined(question.Discuss)">【点评】 <span ng-bind-html="question.Discuss | trusted"></span></p>
+                                    <p ng-if="isDefined(question.Knowledge)">【考点】 <span ng-bind-html="question.Knowledge | trusted"></span></p>
+                                </div>
+
+                            </div>
+                            <div class="exer-message">
+                                <span class="source-text">来源：{{question.Title}}</span>
+                                <div class="exer-message-menu">
+                                    <div class="message-btn fr">
+                                        <label ng-class="{'selected':question.InCart}" ng-click="handleCart(question,true)"   ></label>
+                                    </div>
+                                    <div class="message-answer fr">
+                                        <a ng-click="getQuestionDetail(question)" ng-if="!question.showAnalysis">查看解析</a>
+                                        <a ng-click="getQuestionDetail(question)" ng-if="question.showAnalysis">收起解析</a>
+                                    </div>
+                                    <span style="font-size:14px;color:#ffac47;" >难度</span>
+                                    <div class="message-diff fr" ng-rate ng-difficulty="question.Difficulty" ></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 分页 -->
+                       <div class="pagination" ng-if="knowledge.pagination.length>1" ng-cloak>
+                                <ul>
+                                    <li ng-if="knowledge.p != 1" ng-click="redirect('knowledge','first')">首页</li>
+                                    <li class="prev gray" ng-if="knowledge.p != 1" ng-click="redirect('knowledge','prev')">上一页</li>
+                                    <li ng-repeat="p in knowledge.pagination" ng-class="{'active':knowledge.p ==p.code,'none':p.type==2}" ng-click="redirect('knowledge','none',p)">{{p.code}}</li>
+                                    <li class="next gray" ng-click="redirect('knowledge','next')" ng-if="knowledge.p != knowledge.maxPage">下一页</li>
+                                    <li class="none">
+                                        <span> 到第</span>
+                                        <input type="text" value="1" ng-value="knowledge.p" ng-model="knowledge.input"/>
+                                        <span> 页</span>
+                                        <span class="btn-sure" ng-click="redirect('knowledge','redirect')">确定</span>
+                                    </li>
+                                </ul>
+
+                        </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        <div class="basket">
+            <div class="w980" >
+                <div class="basket-title fl">
+                    <span class="icon icon-basket-left"></span>
+                    <span class="icon icon-basket" ng-click="completeFilter()"></span>
+                    <span class="txt-14 txt-basket">试题篮</span>
+                    <span class="icon icon-basket-right"></span>
+                </div>
+                <div class="basket-chosen-exers fl" style="width:590px;line-height: 60px;">
+                    <span class="text-14 chosen-text1">已选 :</span>
+                    <span class="txt-18"><span ng-bind="basket.cart.questions.length || 0">0</span>题</span>
+                    <span class="text-14 chosen-text2">( 选择题</span>
+                    <span class="txt-18"><span ng-bind="basket.cart.questions.length|| 0">0</span>题</span>
+                    <span class="text-14">, 微课视频</span>
+                    <span class="txt-18"><span ng-bind="basket.cart.videos.length|| 0">0</span>个</span>
+                    <span class="text-14 chosen-text3">)</span>
+
+                    <div ng-click="clearCart()" style="margin-top:5px;display: inline-block;">
+                         <span class="icon icon-empty"></span>
+                         <span class="text-14 text-empty">清空</span>
+                    </div>
+
+                </div>
+
+                <div class="basket-done fr" style="margin-top: 10px;">
+                    <button class="basket-btn" ng-click="completeFilter()">完成选题</button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+</div>

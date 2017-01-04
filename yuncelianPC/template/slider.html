@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Slider Demo</title>
+    <link rel="stylesheet" href="css/web/exercise-assign.css" />
+    <link rel="stylesheet" href="css/web/silder.css" />
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+    <script src="http://cdn.bootcss.com/angular.js/1.4.8/angular.js"></script>
+    <script type="text/javascript">
+        var app=angular.module('app',[]);
+        app.directive('ngVideoSlider',[function(){
+            return {
+            restrict:'A',
+            replace:true,
+            scope:{
+                sliderWidth: '=',
+                minSlides: '=',
+                maxSliders: '=',
+                sliderMargin: '=',
+                ngVideos:'=',
+                ngPlay: '=',
+                ngSliderInit:'='
+            },
+            template:'<div class="slider-wrap">'+
+                    '<a href="javascript:void(0);" class="bx-prev" ng-click="showPrev()"></a>'+
+                    '<a href="javascript:void(0);" class="bx-next"  ng-click="showNext()"></a>'+
+                    '<div class="slider-viewport" >'+
+                    '<div class="slider-list">'+
+                                '<div class="slider" ng-repeat="video in videos" ng-class="{\'slider-clone\':video.clone}">'+
+                                '<img ng-src="{{video.thumbnail}}"alt="{{video.title}}" />'+
+                                '<div class="tips-bar">'+
+                                    '<a href="javascript:void(0);" title="{{video.title}}">{{video.title}}</a>'+
+                                     '<div class="message-btn fr">'+
+                                                                        '<input class="checkbox-select" type="checkbox" name="select" id="slider-inner-check-{{$index}}" ng-model="video.checked" ng-change="change(video,$index)">'+
+                                                                        '<label for="slider-inner-check-{{$index}}"></label>'+
+                                                                    '</div>'+
+                                '</div>'+
+                                 '<div class="play-btn" ng-click="playVideo($index)"></div>'+
+                                 '</div>'+
+                                  '</div>'+
+                                  '<div>'+
+                                  '<div class="slider-controls">'+
+                                    '<a href="javascript:void(0)" ng-repeat="page in pages" class="slider-page" ng-class="{\'active\':pindex==$index}" ng-click="changeIndex($index)"></a>'+
+                                  '</div>'+
+                                '</div>',
+            link:function(scope,element,attrs){
+                
+                scope.ngVideos = scope.ngVideos || [];
+                scope.videos = [];
+                scope.sliderMargin = scope.sliderMargin || 0;
+                scope.sliderWidth  = scope.sliderWidth || 0;
+                scope.maxSliders = scope.maxSliders||3;
+                var wrapWidth = scope.sliderWidth * scope.maxSliders + scope.sliderMargin*(scope.maxSliders-1);
+                
+                element.css('max-width',wrapWidth);
+                var listElement = element.find('.slider-list');
+                
+                var viewport = element.find('.slider-viewport');
+                var btnPrev = element.find('.bx-prev');
+                var btnNext = element.find('.bx-next');
+                scope.pindex = 0;
+                
+                var totalPage = 0;
+                
+                var overCount = 0;
+                var initOffsetX = 0;
+                var hasCloneItem = false;
+                init (scope.ngVideos);
+                scope.setChecked = function(index,checked){
+                    scope.videos[index].checked = checked;
+                }
+                var silder = {
+                    setVideoChecked : function(index,checked){
+                        console.log('=====>');
+                        if(hasCloneItem){
+                            scope.videos[index+scope.maxSliders].checked = checked;
+                            if(index<scope.maxSliders){ 
+                                scope.videos[index+scope.ngVideos.length+scope.maxSliders].checked = checked;
+                            }else if(index >= scope.ngVideos.length - scope.maxSliders){
+                                var ri = index - scope.maxSliders-1;
+                                scope.videos[ri].checked = checked;
+                            }
+                        }else{
+                            scope.videos[index].checked = checked;
+                        }
+                        
+                    },
+                    toggleVideoChecked:function(index){
+                        var result;
+                        if(hasCloneItem){
+                            result = !scope.videos[index+scope.maxSliders].checked;
+                        }else{
+                            result = !scope.videos[index].checked;
+                        }
+                        this.setVideoChecked(index,result);
+                    },
+                    setIndex: function(index){
+                        setCurrentIndex(index);
+                    }
+                };
+                function init(videos){
+                        hasCloneItem = false;
+                        scope.pindex = 0;
+                        if(scope.videos.length>0){
+                            scope.videos.splice(0,scope.videos.length);
+                        }
+                        
+                        scope.videos=angular.copy(videos);
+                        listElement.css('margin-left',"0px"); 
+                        if(scope.maxSliders>0 && videos.length >=scope.maxSliders){
+                            hasCloneItem = true;
+                            var clone = null;
+                            for(var i=0;i<scope.maxSliders;i++){
+                                clone = angular.copy(videos[i]);
+                                //console.log(clone);
+                                clone.clone=true;
+                                scope.videos.push(clone);
+                                //前面追加
+                                clone = angular.copy(scope.ngVideos[scope.ngVideos.length-1-i]);
+                                clone.clone=true;
+                                scope.videos.splice(0,0,clone);
+                            }
+                        }else{
+                        }
+                        var listWidth =  scope.sliderWidth * scope.videos.length + scope.sliderMargin*(scope.videos.length);
+                        listElement.css('width',listWidth);
+                
+                        
+                        if(scope.maxSliders!=0){
+                            totalPage = Math.ceil(scope.ngVideos.length/scope.maxSliders);
+                            overCount = scope.ngVideos.length%scope.maxSliders;
+                        }
+                        
+                        if(totalPage>1){
+                            btnPrev.show();
+                            btnNext.show();
+                            initOffsetX = wrapWidth+scope.sliderMargin;
+                            listElement.css('margin-left',"-"+initOffsetX+"px"); 
+                            scope.pages = [];
+                            for(var page = 1;page<=totalPage;page++){
+                                scope.pages.push(page);
+                            }
+                        }else{
+                            scope.pages = [];
+                            btnPrev.hide();
+                            btnNext.hide();
+                        }
+                        if(typeof(scope.ngSliderInit) == 'function'){
+                            scope.ngSliderInit(silder);
+                        }
+                }
+                
+                
+                
+                
+                
+                /**
+                 *  获取真实的index
+                 */
+                function getRellayIndex(index){
+                    if(index < scope.maxSliders){
+                        return scope.ngVideos.length - index;
+                    }else if(index >= scope.ngVideos.length+scope.maxSliders){
+                        return index - scope.ngVideos.length - scope.maxSliders;
+                    }else{
+                        return index - scope.maxSliders;
+                    }
+                }
+                
+                function setCurrentIndex(index){
+                    if(listElement.is(':animated') || index == scope.pindex){
+                        return false;
+                    }
+                    if(index >= totalPage){
+                        scope.pindex = 0;
+                    }else if(index<0){
+                        scope.pindex = totalPage -1;
+                    }else{
+                        scope.pindex = index;
+                    }
+                    
+                    
+                    var offsetX = 0;
+                    if(index >= totalPage && overCount > 0){
+                        offsetX = overCount*scope.sliderWidth + (overCount)*scope.sliderMargin + Math.abs(parseFloat(listElement.css('margin-left')));
+                    }else if(index<0 && overCount>0){
+                        offsetX = (scope.maxSliders-overCount)*(scope.sliderWidth+scope.sliderMargin);
+                    }else{
+                        offsetX = (wrapWidth+scope.sliderMargin)*(index+1);
+                    }
+                    listElement.animate({
+                        marginLeft:'-'+offsetX+'px'
+                    },function(){
+                        if(index>=totalPage){
+                            listElement.css('margin-left',"-"+initOffsetX+"px"); 
+                        }else if(index<0){
+                            offsetX = (totalPage)*(wrapWidth+scope.sliderMargin);
+                            listElement.css('margin-left',"-"+offsetX+"px"); 
+                        }
+                    });
+                }
+                scope.$watchCollection('ngVideos',function(newValue,oldValue){
+                    init(newValue);
+                });
+        
+                scope.showPrev = function(){
+                    var index = scope.pindex -1;
+                    setCurrentIndex(index);
+                };
+                scope.showNext = function(){
+                    var index = scope.pindex +1;
+                    setCurrentIndex(index);
+                };
+        
+                scope.changeIndex = function(index){
+                    setCurrentIndex(index);
+                };
+                scope.playVideo = function(index){
+                    var realIndex = getRellayIndex(index);
+                    if(typeof(scope.ngPlay) == 'function'){
+                        scope.ngPlay(scope.ngVideos[realIndex],realIndex);
+                    }
+                }
+                scope.change = function(video,index){
+                    console.log(angular.toJson(video)+"====>"+index);
+                    var realIndex = getRellayIndex(index);
+                    silder.setVideoChecked(realIndex,video.checked);
+                }
+                
+                
+            }
+        };
+        }]);
+        app.controller('VideoController',['$scope',function($scope){
+            var data = '{"total":3,"quests":[{"html":"http://yangcong345.com/home","video":"http://7xaw4c.com2.z0.glb.qiniucdn.com/%E7%9B%B8%E4%BA%A4%E7%BA%BF%E5%B9%B3%E8%A1%8C%E7%BA%BF_1a_%E5%87%A0%E4%BD%95%E5%AD%A6%E7%9A%84%E5%88%9B%E5%A7%8B%E4%BC%A0%E8%AF%B4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E5%92%8C%E5%87%A0%E4%BD%95%E5%8E%9F%E6%9C%AC.mp4","thumbnail":"http://img4.imgtn.bdimg.com/it/u=446512898,775354706&fm=21&gp=0.jpg","title":"洋葱教你做数学题1"},{"html":"http://www.jx101.cn/html/cxxxjxsp/9708.html","video":"http://www.56.com/u61/v_MTA4MjEzNzM4.html#fromoutpvid=MTA4MjEzNzM4","thumbnail":"http://img3.imgtn.bdimg.com/it/u=745984498,248855075&fm=21&gp=0.jpg","title":"野生郭冬临有两条腿2..."},{"html":"http://www.jx101.cn/html/cxxxjxsp/2347.html","video":"http://www.56.com/u18/v_NzA3OTYwOTU.html","thumbnail":"http://img0.imgtn.bdimg.com/it/u=1623134076,4069421452&fm=21&gp=0.jpg","title":"兔儿爷历险记3"},{"html":"http://yangcong345.com/home","video":"http://7xaw4c.com2.z0.glb.qiniucdn.com/%E7%9B%B8%E4%BA%A4%E7%BA%BF%E5%B9%B3%E8%A1%8C%E7%BA%BF_1a_%E5%87%A0%E4%BD%95%E5%AD%A6%E7%9A%84%E5%88%9B%E5%A7%8B%E4%BC%A0%E8%AF%B4_%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E5%92%8C%E5%87%A0%E4%BD%95%E5%8E%9F%E6%9C%AC.mp4","thumbnail":"http://img4.imgtn.bdimg.com/it/u=446512898,775354706&fm=21&gp=0.jpg","title":"洋葱教你做数学题4"},{"html":"http://www.jx101.cn/html/cxxxjxsp/9708.html","video":"http://www.56.com/u61/v_MTA4MjEzNzM4.html#fromoutpvid=MTA4MjEzNzM4","thumbnail":"http://img3.imgtn.bdimg.com/it/u=745984498,248855075&fm=21&gp=0.jpg","title":"野生郭冬临有两条腿5..."},{"html":"http://www.jx101.cn/html/cxxxjxsp/2347.html","video":"http://www.56.com/u18/v_NzA3OTYwOTU.html","thumbnail":"http://img0.imgtn.bdimg.com/it/u=1623134076,4069421452&fm=21&gp=0.jpg","title":"兔儿爷历险记6"},{"html":"http://www.jx101.cn/html/cxxxjxsp/2347.html","video":"http://www.56.com/u18/v_NzA3OTYwOTU.html","thumbnail":"http://img0.imgtn.bdimg.com/it/u=1623134076,4069421452&fm=21&gp=0.jpg","title":"兔儿爷历险记7"}],"code":1,"msg":"success"}';
+            $scope.videos = JSON.parse(data).quests;
+            var count = 8;
+            $scope.addItem = function(){
+                var item = {"html":"http://www.jx101.cn/html/cxxxjxsp/2347.html","video":"http://www.56.com/u18/v_NzA3OTYwOTU.html","thumbnail":"http://img0.imgtn.bdimg.com/it/u=1623134076,4069421452&fm=21&gp=0.jpg","title":"兔儿爷历险记"};
+                item.title = item.title+count;
+                $scope.videos.push(item);
+                console.log($scope.videos.length);
+                count++;
+            };
+            $scope.replace = function(){
+                var item = {"html":"http://www.jx101.cn/html/cxxxjxsp/2347.html","video":"http://www.56.com/u18/v_NzA3OTYwOTU.html","thumbnail":"http://img0.imgtn.bdimg.com/it/u=1623134076,4069421452&fm=21&gp=0.jpg","title":"兔儿爷历险记"};
+                $scope.videos.splice(0,$scope.videos.length);
+                $scope.videos.push(item);
+            }
+            $scope.play = function(video,index){
+                console.log(angular.toJson(video)+"====>"+index);
+            }
+            $scope.slider = null;
+            $scope.initSlider = function(slider){
+                console.log(slider)
+                $scope.slider = slider;
+            }
+            var checkIndex = 0;
+            $scope.checkOne = function(){
+                if($scope.slider != null){
+                    if(checkIndex < $scope.videos.length){
+                        $scope.slider.toggleVideoChecked(checkIndex);
+                        checkIndex++;
+                    }else{
+                        checkIndex=0;
+                    }
+                    
+                }
+            }
+        }]);
+    </script>
+</head>
+<body ng-app="app" ng-controller="VideoController">
+    <div class="exer-select-box">
+
+                    <div class="select-title">
+                        <span class="title-text-p title-left">当前</span>
+                        <span class="icon-current-position"></span>
+                        <a class="title-text-a" href="javascript:void(0);">第一章 有理数</a>
+                        <span class="icon-current-position"></span>
+                        <a class="title-text-p" href="javascript:void(0);">1.1 正数与负数</a>
+                    </div>
+
+                    <div class="border-box microclass">
+                        <div class="microclass-title">
+                            <span class="icon icon-microclass"></span>
+                            <span class="txt-14 txt-microclass">微课</span>
+                        </div>
+                        <div class="slide-microclass">
+
+        <div ng-video-slider ng-videos="videos" slider-width="225" slider-margin="22" max-sliders ="3" ng-play="play" ng-slider-init="initSlider"></div>
+
+
+
+
+
+
+
+        <button class="btn-add" ng-click="addItem()">添加</button>
+        <button class="btn-add" ng-click="replace()">替换</button>
+        <button class="btn-add" ng-click="checkOne()">勾选</button>
+
+<!--
+        <div class="slider-wrap">
+            <a href="javascript:void(0);" class="bx-prev"></a>
+                    <a href="javascript:void(0);" class="bx-next"></a>
+            <div class="slider-controls">
+                <div class="slider-controls-direction">
+                </div>
+            </div>
+            <div class="slider-list">
+                <div class="slider">
+                <img src="img/web/test-big1.png" />
+                <div class="tips-bar">
+                    <a href="javascript:void(0);" title="初二数学第一章 有理数1">初二数学第一章 有理数1</a>
+                     <div class="message-btn fr">
+                                                        <input class="checkbox-select" type="checkbox" name="select" id="check-7">
+                                                        <label for="check-7"></label>
+                                                    </div>
+                </div>
+                 <div class="play-btn"></div>
+            </div>
+            
+            <div class="slider">
+                <img src="img/web/test-big1.png" />
+                <div class="tips-bar">
+                    <a href="javascript:void(0);" title="初二数学第一章 有理数1">初二数学第一章 有理数1</a>
+                     <div class="message-btn fr">
+                                                        <input class="checkbox-select" type="checkbox" name="select" id="check-7">
+                                                        <label for="check-7"></label>
+                                                    </div>
+                </div>
+                 <div class="play-btn"></div>
+            </div>
+            <div class="slider">
+                <img src="img/web/test-big1.png" />
+                <div class="tips-bar">
+                    <a href="javascript:void(0);" title="初二数学第一章 有理数1">初二数学第一章 有理数1</a>
+                     <div class="message-btn fr">
+                                                        <input class="checkbox-select" type="checkbox" name="select" id="check-7">
+                                                        <label for="check-7"></label>
+                                                    </div>
+                </div>
+                 <div class="play-btn"></div>
+            </div>
+            <div class="slider">
+                <img src="img/web/test-big1.png" />
+                <div class="tips-bar">
+                    <a href="javascript:void(0);" title="初二数学第一章 有理数1">初二数学第一章 有理数1</a>
+                     <div class="message-btn fr">
+                                                        <input class="checkbox-select" type="checkbox" name="select" id="check-7">
+                                                        <label for="check-7"></label>
+                                                    </div>
+                </div>
+                 <div class="play-btn"></div>
+            </div>
+            </div>
+            -->
+
+        </div>
+
+                        </div>
+                    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+
+<style>
+    .radio-class{
+        margin: 0;
+        padding:0;
+    }
+</style>
+<div class="grade-create">
+                        <div class="grade-title">
+                            <span class='school-dir' ng-if="form.stage==1">小学</span>
+                            <span class='school-dir' ng-if="form.stage==2">初中</span>
+                            <span class='school-dir' ng-if="form.stage==3">高中</span>
+                        </div>
+                        <div class="grade-radio">
+                            <div class="grade">
+                            
+                                <span class="radio-class" ng-repeat="grade in grades[form.stage]" ng-class="{'radio-middle':($index+1) % 3 == 2}">
+                                    <input type="radio" name="classId1" id="filter-class-id-{{grade.id}}">
+                                    <label for="filter-class-id-{{grade.id}}" ng-click="choseGrade(grade)">{{grade.name}}</label>
+                                </span>
+                            </div>
+                        </div>
+                    </div>

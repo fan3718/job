@@ -1,0 +1,13 @@
+<div class="exer-course">
+    <div class="exer-course-title"><div  class="exer-icon exer-icon-vedio"></div>待学习微课（{{videos.length}}）</div>
+    <div class="exer-course-container" >
+        <div class="exer-course-item" ng-repeat="video in videos">
+            <div class="exer-video">
+                <img ng-src="{{video.thumbnail}}" alt="">
+                <div class="play-btn" ng-click="playVideo($index)"></div>
+            </div>
+            <div class="exer-course-info">{{video.title}}</div>
+            <div class="exer-course-status" ng-class="{true:'exer-course-status-yes',false:'exer-course-status-no'}[!!video.site]"></div>
+        </div>
+    </div>
+</div>

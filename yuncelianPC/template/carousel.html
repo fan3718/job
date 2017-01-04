@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="keywords" content="云测练，在线练习，家校互动平台，yunzuoye" />
+		<meta name="description" content="云测练是面向老师、学生和家长的智能在线练习平台，云测练拥有一千万的优质练习资源，与各大教辅运营商合作，覆盖小初高全部学科。家长一键关注云测练微信，同步了解学生学习进展" />
+
+		<title>消息通知</title>
+		<link rel="stylesheet" href="css/web/index.css" />
+		<link rel="stylesheet" href="css/web/message.css" />
+		<!--<script data-main="js/app-exer.js" src="js/require.js" type="text/javascript"></script>-->
+		<script src="http://cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				var carousel = $('.carousel');
+				var list = $('.pic-list');
+				var thumbnail_list=$('.thumbnail-list');
+				var buttons = $('.thumbnail-list img');
+				var prev = $('.prev-bar');
+				var next = $('.next-bar');
+				var left = $('.view-left');
+				var right = $('.view-right');
+				var index = 1;
+				var len = 9;
+				var num = 0;
+				
+				function animate(offset) {
+					var left = parseInt(list.css('left')) + offset;
+					if (offset > 0) {
+						offset = '+=' + offset;
+					} else {
+						offset = '-=' + Math.abs(offset);
+					}
+					list.animate({
+						'left': offset
+					}, 300);
+					if (index == 1) {
+						prev.css("background-image", "url(img/web/view-prev-default.png)");
+					} else if (index == len) {
+						next.css("background-image", "url(img/web/view-next-default.png)");
+					} else {
+						prev.css("background-image", "url(img/web/view-prev.png)");
+						next.css("background-image", "url(img/web/view-next.png)");
+					}
+				}
+				
+				function animate_thumb(){
+					thumbnail_list.animate({
+						'left': -140*num
+					}, 300);
+					if (num == 0) {
+						left.css("background-image", "url(img/web/view-leftbar-default.png)");
+					} else if (num == 3) {
+						right.css("background-image", "url(img/web/view-rightbar-default.png)");
+					} else {
+						left.css("background-image", "url(img/web/view-leftbar.png)");
+						right.css("background-image", "url(img/web/view-rightbar.png)");
+					}
+				}
+
+				function showButton() {
+					buttons.eq(index - 1).addClass('on').siblings().removeClass('on');
+				}
+
+				function stop() {
+					clearTimeout(timer);
+				}
+				next.bind('click', function() {
+					if (list.is(':animated')) {
+						return;
+					}
+					if (index == len) {
+						return;
+					} else {
+						index += 1;
+					}
+					animate(-552);
+					showButton();
+				});
+				prev.bind('click', function() {
+					if (list.is(':animated')) {
+						return;
+					}
+					if (index == 1) {
+						return;
+					} else {
+						index -= 1;
+					}
+					animate(552);
+					showButton();
+				});
+				left.bind('click', function() {
+					if (num == 0) {
+						return;
+					} else {
+						num -= 1;	
+						animate_thumb();			
+					}
+					
+					if(num-index==-7){
+						index--;
+						animate(552);
+						showButton();
+					}
+				});
+				right.bind('click', function() {
+					if (num == 3) {
+						return;
+					} else {
+						num += 1;	
+						animate_thumb();
+					}
+					
+					if(num==index){
+						index++;
+						animate(-552);
+						showButton();
+					}
+				});
+				buttons.each(function() {
+					$(this).bind('click', function() {
+						if (list.is(':animated') || $(this).attr('class') == 'on') {
+							return;
+						}
+						var myIndex = parseInt($(this).attr('index'));
+						var offset = -552 * (myIndex - index);
+						animate(offset);
+						index = myIndex;
+						showButton();
+					})
+				});
+			});
+		</script>
+
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="w980">
+				<a href="http://www.zuoyezhushou.com/" title="云测练">
+					<span class="logo"></span>
+				</a>
+
+				<!--
+				ul>(a[href="javascript:void(0);"]>li.nav{老师备课})*8
+			-->
+				<ul>
+					<a href="javascript:void(0);">
+						<li class="nav">首页</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">老师备课</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">在线练习</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">套卷测试</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav selected">消息通知</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">班级</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">学生报告</li>
+					</a>
+					<a href="javascript:void(0);">
+						<li class="nav">入学测评</li>
+					</a>
+				</ul>
+
+				<!--
+			div.account-box>(span.icon.icon-account+span{杨晓歪老师}+a.logout{退出})
+			-->
+				<div class="account-box">
+					<span class="icon icon-account"></span>
+					<a>杨晓歪老师</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+					<a href="/account/logout" class="logout">退出</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="main">
+			<div class="w980 online">
+				<div class="send-message-box">
+					<div class="det-title">
+						<p>消息通知><a href="message-detail.html">消息详情</a> </p>
+
+					</div>
+
+					<div class="show-boxes">
+						<div class="message-box">
+							<div class="show-message detail-show-message">
+								<div class="detail-title title ">
+									<span class="title-class detail-class-num">四年二班</span>
+									<span class="title-subject">数学</span>
+								</div>
+								<div class="content-text">这里是一条消息，消息的内容最多可以放500个字吧，不过谁会写这么长呢 ，也许复制粘贴也说不定，不过在首页，只展示两行应该就够了，更多的话，点击查看吧更多的话，点击查看吧！
+								</div>
+
+								<div class="carousel">
+									<div class="pictureshow-box">
+
+										<div class="pic-content">
+											<div class="pic-list">
+												<img src="img/web/test-big1.png" alt="大图展示" />
+												<img src="img/web/test-big2.png" alt="大图展示" />
+												<img src="img/web/test-big3.png" alt="大图展示" />
+												<img src="img/web/test-big1.png" alt="大图展示" />
+												<img src="img/web/test-big2.png" alt="大图展示" />
+												<img src="img/web/test-big3.png" alt="大图展示" />
+												<img src="img/web/test-big1.png" alt="大图展示" />
+												<img src="img/web/test-big2.png" alt="大图展示" />
+												<img src="img/web/test-big3.png" alt="大图展示" />
+											</div>
+										</div>
+										<div class="pic-buttons">
+											<span class="icon-bar prev-bar"></span>
+											<span class="icon-bar next-bar"></span>
+										</div>
+										<span class="icon-bar prev-bar"></span>
+										<span class="icon-bar next-bar"></span>
+			
+									</div>
+
+									<div class="picturectrl-box">
+										<span class="view-left"></span>
+
+										<div class="thumbnails">
+											<div class="thumbnail-list">
+												<img index="1" class="on" src="img/web/test1-130.png" alt="滑动小图" />
+												<img index="2" src="img/web/test2-130.png" alt="滑动小图" />
+												<img index="3" src="img/web/test3-130.png" alt="滑动小图" />
+												<img index="4" src="img/web/test1-130.png" alt="滑动小图" />
+												<img index="5" src="img/web/test2-130.png" alt="滑动小图" />
+												<img index="6" src="img/web/test3-130.png" alt="滑动小图" />
+												<img index="7" src="img/web/test1-130.png" alt="滑动小图" />
+												<img index="8" src="img/web/test2-130.png" alt="滑动小图" />
+												<img index="9" src="img/web/test3-130.png" alt="滑动小图" />
+											</div>
+										</div>
+
+										<span class="view-right"></span>
+
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class=" message-box">
+						<div class="detail-correct detail-box">
+							<span class="icon icon-answersheet"></span>
+							<span class="icon-text">答题纸</span>
+						</div>
+
+						<div class="answer-sheet"></div>
+
+					</div>
+
+					<div class="message-box comment-box">
+						<div class="comment-tool">
+							<span class="icon icon-pen"></span>
+							<span class="icon icon-return"></span>
+							<span class="icon icon-forward"></span>
+
+						</div>
+
+						<textarea class="comment-input" placeholder="请在此输入评语..."></textarea>
+
+						<button class="btn-corrected">完成批改</button>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="footer">
+				<div class="w980">
+					<p class="about-us">
+						<span><a href="/helpGuide/aboutUs" class="link">关于我们</a></span>|<span><a href="/helpGuide/aboutUs#contact"  class="link">联系我们</a></span>|<span><a href="http://www.lagou.com/gongsi/64333.html"  class="link">加入我们</a></span>
+					</p>
+					<p class="copyright">&copy;&nbsp;1 9 9 7 - 2 0 1 5 北京拓欣菁优 . 中国&nbsp;&nbsp;|&nbsp;&nbsp;自豪地采用 W o r d P r e s s
+					</p>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+	</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="keywords" content="云测练，在线练习，家校互动平台，yunzuoye" />
+        <meta name="description" content="云测练是面向老师、学生和家长的智能在线练习平台，云测练拥有一千万的优质练习资源，与各大教辅运营商合作，覆盖小初高全部学科。家长一键关注云测练微信，同步了解学生学习进展" />
+
+        <title>班级</title>
+
+        <!--<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>-->
+        <link rel="stylesheet" type="text/css" href="css/web/exercise-assign.css"/> 
+        <link rel="stylesheet" href="css/web/class.css" />
+  
+    </head>
+
+    <body ng-controller="TeacherController">
+        <div class="header">
+            <div class="w980">
+                <a href="http://www.zuoyezhushou.com/" title="云测练">
+                    <span class="logo"></span>
+                </a>
+
+                <!--
+                ul>(a[href="javascript:void(0);"]>li.nav{老师备课})*8
+            -->
+                <ul>
+                    <a href="javascript:void(0);">
+                        <li class="nav">首页</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">老师备课</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">在线练习</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">套卷测试</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">消息通知</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav selected">班级</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">学生报告</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">入学测评</li>
+                    </a>
+                </ul>
+
+                <!--
+            div.account-box>(span.icon.icon-account+span{杨晓歪老师}+a.logout{退出})
+            -->
+                <div class="account-box">
+                    <span class="icon icon-account"></span>
+                    <a href="/account/center" ng-bind="teacherName">未登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="/account/logout" class="logout">退出</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="w980 online">
+
+                <div class="class-title">
+                    <div class="class-title-left fl">
+                    	<span class='icon icon-manager-class'></span>
+                        <span class='class-title-text'>我的班级</span>
+                    </div>
+                    
+                    <div class='class-title-msg'>
+                        <span class='icon icon-class-msg'></span>
+                        <span>请老师将班级号告诉学生或其他任课老师，加入到班级。</span>
+                    </div>
+                </div>
+
+                <div class="class-list">
+                    <div class="class-boxes">
+                        <div class="class-boxes-title">
+                            <p class='class-name'>2011级4年1班</p>
+                            <p class='class-num'>C123456789</p>
+                        </div>
+                        <div class="class-boxed-content">
+                            <div class="class-boxes-stu">
+                                <p>学生：31人</p>
+                                
+                                <div class="class-invite">
+                                    <!--<span class='icon-invite'></span>-->
+                                    <a href="javascript:void(0);">邀请</a>
+                                    
+                                </div>
+                                
+                                <div class="class-manager">
+                                    <!--<span class='icon-manager'></span>-->
+                                	<a href="javascript:void(0);">管理</a>
+                                	
+                                </div>
+                                                                
+                            </div>
+                            <div class="class-boxes-teacher">
+                                <p class='tch-text'>老师</p>
+                                <ul class='teacher'>
+                                    <li class='teacher-list teacher-admin'>
+                                        <span class='icon-teacher icon-teacher-en icon-teacher-admin'></span>
+                                        <span class='teacher-name'>英语</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-math'></span>
+                                        <span class='teacher-name'>数学</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-ch'></span>
+                                        <span class='teacher-name'>语文</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-geo'></span>
+                                        <span class='teacher-name'>地理</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-chemi'></span>
+                                        <span class='teacher-name'>化学</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-bio'></span>
+                                        <span class='teacher-name'>生物</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-phy'></span>
+                                        <span class='teacher-name'>物理</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-history'></span>
+                                        <span class='teacher-name'>物理</span>
+                                    </li>
+
+                                     <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-politics'></span>
+                                        <span class='teacher-name'>物理</span>
+                                    </li>
+                                    <li class='teacher-list teacher-invite'>
+                                        <p>邀请</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="class-boxes">
+                        <div class="class-boxes-title">
+                            <p class='class-name'>2011级4年1班</p>
+                            <p class='class-num'>C123456789</p>
+                        </div>
+                        <div class="class-boxed-content">
+                            <div class="class-boxes-stu">
+                                <p>学生：31人</p>
+                                <div class="class-invite">
+                                    <!--<span class='icon-invite'></span>-->
+                                    <a href="javascript:void(0);">邀请</a>
+                                    
+                                </div>
+                                
+                                <div class="class-manager">
+                                    <!--<span class='icon-manager'></span>-->
+                                    <a href="javascript:void(0);">管理</a>
+                                    
+                                </div>
+                            </div>
+                            <div class="class-boxes-teacher">
+                            	<p class='tch-text'>老师</p>
+                            	<ul class='teacher'>
+                            		<li class='teacher-list teacher-admin'>
+                            		    <span class='icon-teacher icon-teacher-en icon-teacher-admin'></span>
+                            		    <span class='teacher-name'>英语</span>
+                            		</li>
+                            		<li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-math'></span>
+                                        <span class='teacher-name'>数学</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-ch'></span>
+                                        <span class='teacher-name'>语文</span>
+                                    </li>
+                            		<li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-geo'></span>
+                                        <span class='teacher-name'>地理</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-chemi'></span>
+                                        <span class='teacher-name'>化学</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-bio'></span>
+                                        <span class='teacher-name'>生物</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-phy'></span>
+                                        <span class='teacher-name'>物理</span>
+                                    </li>
+                            		<li class='teacher-list teacher-invite'>
+                                        <p>邀请</p>
+                                    </li>
+                            	</ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="class-boxes">
+                        <div class="class-boxes-title">
+                            <p class='class-name'>2011级4年1班</p>
+                            <p class='class-num'>C123456789</p>
+                        </div>
+                        <div class="class-boxed-content">
+                            <div class="class-boxes-stu">
+                                <p>学生：31人</p>
+                                <div class="class-invite">
+                                    <!--<span class='icon-invite'></span>-->
+                                    <a href="javascript:void(0);">邀请</a>
+                                    
+                                </div>
+                                
+                                <div class="class-manager">
+                                    <!--<span class='icon-manager'></span>-->
+                                    <a href="javascript:void(0);">管理</a>
+                                    
+                                </div>
+                            </div>
+                            <div class="class-boxes-teacher">
+                                <p class='tch-text'>老师</p>
+                                <ul class='teacher'>
+                                    <li class='teacher-list teacher-admin'>
+                                        <span class='icon-teacher icon-teacher-en icon-teacher-admin'></span>
+                                        <span class='teacher-name'>英语</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-math'></span>
+                                        <span class='teacher-name'>数学</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-ch'></span>
+                                        <span class='teacher-name'>语文</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-geo'></span>
+                                        <span class='teacher-name'>地理</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-chemi'></span>
+                                        <span class='teacher-name'>化学</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-bio'></span>
+                                        <span class='teacher-name'>生物</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-phy'></span>
+                                        <span class='teacher-name'>物理</span>
+                                    </li>
+                                    <li class='teacher-list teacher-invite'>
+                                        <p>邀请</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="class-boxes">
+                        <div class="class-boxes-title">
+                            <p class='class-name'>2011级4年1班</p>
+                            <p class='class-num'>C123456789</p>
+                        </div>
+                        <div class="class-boxed-content">
+                            <div class="class-boxes-stu">
+                                <p>学生：31人</p>
+                                <div class="class-invite">
+                                    <!--<span class='icon-invite'></span>-->
+                                    <a href="javascript:void(0);">邀请</a>
+                                    
+                                </div>
+                                
+                                <div class="class-manager">
+                                    <!--<span class='icon-manager'></span>-->
+                                    <a href="javascript:void(0);">管理</a>
+                                    
+                                </div>
+                            </div>
+                            <div class="class-boxes-teacher">
+                                <p class='tch-text'>老师</p>
+                                <ul class='teacher'>
+                                    <li class='teacher-list teacher-admin'>
+                                        <span class='icon-teacher icon-teacher-en icon-teacher-admin'></span>
+                                        <span class='teacher-name'>英语</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-math'></span>
+                                        <span class='teacher-name'>数学</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-ch'></span>
+                                        <span class='teacher-name'>语文</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-geo'></span>
+                                        <span class='teacher-name'>地理</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-chemi'></span>
+                                        <span class='teacher-name'>化学</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-bio'></span>
+                                        <span class='teacher-name'>生物</span>
+                                    </li>
+                                    <li class='teacher-list'>
+                                        <span class='icon-teacher icon-teacher-phy'></span>
+                                        <span class='teacher-name'>物理</span>
+                                    </li>
+                                    <li class='teacher-list teacher-invite'>
+                                        <p>邀请</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    
+                    <div class="class-boxes manager-box">
+                        <div class='class-btn create-class'>
+                            <a href="javascript:void(0);">创建班级</a>
+                        </div>
+                        <div class='class-btn join-class'>
+                            <a href="javascript:void(0);">加入班级</a>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+
+                <div class="invite-box">
+                	<div class="invite-box-title">
+                		<span class='box-title-text'>2011级4年1班  邀请学生</span>
+                		<span class='icon-close'></span>
+                	</div>
+                	<div class="invite-box-content">
+                		<div class="invite-text">
+                			<span class='num'>1.</span>
+                			<span>老师把班级号C123456告诉学生</span><br />
+                			<span class='num'>2.</span>
+                			<span>学生手机注册学生身份</span><br />
+                			<span class='num'>3.</span>
+                			<span>分享</span>
+                		</div>
+                		<div class="invite-icon">
+                			<span class='icon-share icon-qq'></span>
+                			<span class='icon-share icon-qzone'></span>
+                			<span class='icon-share icon-wechat'></span>
+                		</div>
+                	</div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="w980">
+                <p class="about-us">
+                    <span><a href="/helpGuide/aboutUs" class="link">关于我们</a></span>|<span><a href="/helpGuide/aboutUs#contact"  class="link">联系我们</a></span>|<span><a href="http://www.lagou.com/gongsi/64333.html"  class="link">加入我们</a></span>
+                </p>
+                <p class="copyright">&copy;&nbsp;1 9 9 7 - 2 0 1 5 北京拓欣菁优 . 中国&nbsp;&nbsp;|&nbsp;&nbsp;自豪地采用 W o r d P r e s s
+                </p>
+            </div>
+        </div>
+
+    </body>
+
+</html>

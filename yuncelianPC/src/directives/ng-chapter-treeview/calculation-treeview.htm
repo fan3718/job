@@ -1,0 +1,31 @@
+<ul ng-class="{'filetree':!ngNotRoot,'treeview':!ngNotRoot}"
+	ng-hide="collapsable(ngParent)">
+	<li  ng-repeat="chapter in ngChapters"
+		 ng-class="{'expandable':chapter.expandable && chapter.children.length > 0 ,'leaf':chapter.children.length <= 0,'collapsable':!chapter.expandable  && chapter.children.length > 0,'last':$index ==ngChapters.length-1}">
+		<div class="hitarea"
+			ng-class="{'expandable-hitarea':chapter.expandable,'collapsable-hitarea':!chapter.expandable}"
+			ng-if="chapter.children.length > 0">
+		</div> 
+		<span class="folder"
+			ng-click="expandChapter(chapter)" ng-if="chapter.children.length > 0"><span
+		data-code="{{chapter.id}}" ng-click="changeChapter(chapter,$event)"
+		style="width: 100%; display: inline-block; height: 100%; overflow: hidden;"
+		title="{{chapter.name}}"
+		ng-class="{'selected':ngChapterId==chapter.id}">{{chapter.name}}</span></span>
+		<span  data-code="{{chapter.id}}" style="display:inline-block;"
+		    ng-if="chapter.children.length <= 0"
+		    title="{{chapter.name}}"
+		    
+		    > <span  ng-class="{'file_select':true,'selected':chapter.isSelected}"  ng-click="checkboxClick(chapter,'')"></span> <span style="float:left;">{{chapter.name}}</span><span class="control"><i class="left" ng-click="checkboxClick(chapter,'sum')">-</i><b>{{chapter.count || (chapter.count = 10)}}</b><i class="right" ng-click="checkboxClick(chapter,'add')">+</i></span></span>
+		<!-- <div ng-if="!!ngLiteracy && (!chapter.children ||chapter.children.length<=0)"  ng-class="{'checkbox':true,'isShow':chapter.isShowLiteracy}" >
+			<label ng-repeat="q in chapter.ques" ><input type="checkbox" value="{{q.id}}" ng-modle="chapter.selques"   ng-click="checkboxClick(chapter,q.id,$event)"/>{{q.name}}</label>
+			<label><input type="checkbox" value="10" ng-modle="chapter.selques"   ng-click="checkboxClick(chapter,10,$event,chapter.WordQuesCount||0)"/>生字学习（共{{chapter.WordQuesCount}}题）</label>
+			<label><input type="checkbox" value="11" ng-modle="chapter.selques"   ng-click="checkboxClick(chapter,11,$event,chapter.WordQuesCount||0)"/>听写生词（共{{chapter.WordQuesCount}}题）</label>
+			<label><input type="checkbox" value="12" ng-modle="chapter.selques"   ng-click="checkboxClick(chapter,12,$event,chapter.PoemQuesCount ||5)"/>古诗默写（共{{chapter.PoemQuesCount||5}}题）</label>
+		</div> -->
+		<div ng-chapters="chapter.children" ng-calculation-chapter-treeview
+			ng-not-root="true" ng-if="chapter.children.length>0"
+			ng-parent="chapter" ng-chapter-click="ngChapterClick"
+			ng-chapter-id="ngChapterId"  ng-literacy="ngLiteracy" ></div>
+	</li>
+</ul>

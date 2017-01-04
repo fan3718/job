@@ -1,0 +1,124 @@
+<div class="w980 exam">
+                
+                <div class="exam-left">
+                    <ul>
+                        <li class="selected">全部试卷</li>
+                        <li>我的收藏</li>
+                    </ul>
+                </div>
+                
+                <div class="exam-right">
+                    <div class="exam-filter-box">
+                        <div class="exam-filter-group">
+                            <span class="exam-filter-name">地 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;区：</span>
+                            
+                            <div class="">
+                                <span class="filter-radio">
+                                    <input type="radio" id="area-all" checked="checked" name="area" ng-model="filter.area" value="-1" ng-click="changeArea(-1)"/>
+                                    <label for="area-all">全部</label>
+                                </span>
+                                #if($!{locations})
+                                    #foreach($loc in ${locations})
+                                        <span class="filter-radio" #if($velocityCount>8)style="display:none"#end>
+                                            <input type="radio" id="area-$!{loc.code}" name="area"  ng-model="filter.area" value="$!{loc.code}"  ng-click="changeArea('$!{loc.code}')"/>
+                                            <label for="area-$!{loc.code}">$!{StringUtils.shortProvinceName($!{loc.province})}</label>
+                                     </span>
+                                    #end
+                                #end
+                                <span class="more">更多&nbsp;&nbsp;＋</span>
+                            </div>
+                            
+                        </div>
+                        <div class="exam-filter-group">
+                            <span class="exam-filter-name">年 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;份：</span>
+
+                            <div class="">
+                                <span class="filter-radio">
+                                    <input type="radio" id="year-all" checked="checked" name="year" value="-1" ng-click="changeYear(-1)"/>
+                                    <label for="year-all">全部</label>
+                                </span>
+                                #foreach($y in [$year .. 2011])
+                                <span class="filter-radio">
+                                    <input type="radio" id="year-$y" name="year" value="$y"  ng-click="changeYear($y)"/>
+                                    <label for="year-$y">$y年</label>
+                                </span>
+                                #end
+                                
+                                <span class="filter-radio">
+                                    <input type="radio" id="year-other" name="year" ng-click="changeYear('other')"/>
+                                    <label for="year-other">其他年份</label>
+                                </span>
+
+                                
+                            </div>
+
+                        </div>
+                        <div class="exam-filter-group">
+                            <span class="exam-filter-name">年 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级：</span>
+                            <div class="">
+                                <span class="filter-radio">
+                                    <input type="radio" id="grade-all" checked="checked" name="grade" value="-1" ng-click="changeGrade(-1)"/>
+                                    <label for="grade-all">全部</label>
+                                </span>
+                                
+                                 #foreach($grade in [$minGrade..$maxGrade])
+                                        <span class="filter-radio">
+                                            <input type="radio" id="grade-$grade" name="grade" value="$grade" ng-click="changeGrade($grade)"/>
+                                            <label for="grade-$grade">#getGradeName($grade)</label>
+                                        </span>
+                                #end
+                            </div>
+
+                        </div>
+
+                        <div class="exam-filter-group">
+                            <span class="exam-filter-name">试卷类型：</span>
+
+                            <div class="">
+                                <span class="filter-radio">
+                                    <input type="radio" id="type-all" checked="checked" name="type" value="-1" ng-click="chagePaperType(-1)"/>
+                                    <label for="type-all">全部</label>
+                                </span>
+                                
+                                #if($!{examTypes})
+                                    #foreach($examType in $!{examTypes})
+                                        <span class="filter-radio">
+                                             <input type="radio" id="exam-type-${examType.code}" name="type" value="${examType.code}"  ng-click="chagePaperType(${examType.code})" />
+                                            <label for="exam-type-${examType.code}">$!{examType.name}</label>
+                                        </span>
+                                    #end
+                                #end
+                                
+                            </div>
+                        </div>
+
+                    </div> <!--end filter box-->
+
+
+                    <div class="exam-filter-result" ng-cloak>
+                    
+                    
+                        
+                    
+                        <a href="javascript:void(0);" ng-repeat="paper in papers" ng-click="loadPaperDetail(paper)">
+                            <span class="exam-filter-item">
+                                <div class="exam-top">
+                                    <div class="exam-title">{{paper.title}}</div>
+                                </div>
+                                <div class="exam-bottom">
+                                    <span><span class="icon-exam icon-eye"></span>浏览数：{{paper.viewTimes || 0}}</span>
+                                    <span><span class="icon-exam icon-used"></span>在线测试：{{paper.examTimes || 0}}</span>
+                                    <span><span class="icon-exam icon-download"></span>下载数：{{paper.downloadTimes || 0}}</span>
+                                    <span><span class="icon-exam icon-favor"></span>收藏数：{{paper.favorTimes || 0}}</span>
+                                </div>
+                            </span>
+                        </a>
+
+                        
+                    </div>
+                    
+                    <div ng-pagination ng-total="1000" ng-page-size="20" ng-change-page="changePage"></div>
+                   
+                </div>
+
+            </div>

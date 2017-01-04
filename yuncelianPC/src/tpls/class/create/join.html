@@ -1,0 +1,45 @@
+<div class="class-create">
+                    <div class="grade-title">
+                            <span class='school-dir' ng-if="form.stage==1">小学</span>
+                            <span class='school-dir' ng-if="form.stage==2">初中</span>
+                            <span class='school-dir' ng-if="form.stage==3">高中</span>
+                            <span class='grade-dir'>{{form.grade.name}}</span>                      
+                        </div>
+                    <div class="empty-container" ng-cloak ng-if="joinClasses.length<=0">
+                        <div class="empty-icon empty-icon-class"></div>
+                        <div class="empty-text">本年级下没有可加入的班，请先创建班级~</div>
+                    </div>
+                        <div class="classes" ng-if="joinClasses.length>0">
+                            <div class="class-exist" >
+                                <div class="class-boxes class-box-min" ng-repeat="clazz in joinClasses">
+                                    <input type="checkbox" name="class-exist" id="class-exist-{{clazz.id}}" ng-model="clazz.selected" ng-change="changeJoinClass(clazz)" style="display:inline-block;position:absolute;top:-9999px;"/>
+                                    <label for="class-exist-{{clazz.id}}"  >
+                                        <div class="class-boxes-title">
+                                            <p class='class-name'>{{clazz.name}}</p>
+                                            <p class='class-num'>{{clazz.classNumber}}</p>
+                                            <span class='icon-class-check'></span>
+                                        </div>
+                                        <div class="box-content">
+                                            <div class="box-teacher">
+                                                <p>老师</p>
+                                                <p><span ng-repeat="teacher in clazz.teachers">{{teacher.nickName}} </span></p>
+                                            </div>
+                                            <div class="box-stu">
+                                                <p>学生：{{clazz.studentSize}}人</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="class-chosen" style="border-top:1px solid #2F65C0;">
+                                <span class="checkbox-class" ng-repeat="clazz in form.classes"  ng-class="{'checkbox-define':clazz.type ==1}">
+                                    <input type="checkbox" name="classId" id="class-id-{{clazz.code}}" value="{{clazz.code}}" ng-model="clazz.selected" ng-change="changeClass(clazz)"  style="display:inline-block \9;position:absolute \9;top:-9999px \9;"  >
+                                    <label for="class-id-{{clazz.code}}">{{clazz.name}}</label>
+                                </span>
+                            </div>
+                            <div class="class-btn class-join-btn class-create-btn" ng-click="joinClass(1)" ng-class="{'disabled':form.classes.length<=0}">
+                                <a href="javascript:void(0);">加入班级</a>
+                            </div>
+
+                        </div>
+                    </div>

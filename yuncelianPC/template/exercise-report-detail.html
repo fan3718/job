@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="keywords" content="云测练，在线练习，家校互动平台，yunzuoye" />
+        <meta name="description" content="云测练是面向老师、学生和家长的智能在线练习平台，云测练拥有一千万的优质练习资源，与各大教辅运营商合作，覆盖小初高全部学科。家长一键关注云测练微信，同步了解学生学习进展" />
+
+        <title>单次练习报告-题目分析</title>
+
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+        <script src="js/progressbar.js" type="text/javascript"></script>
+
+        <link rel="stylesheet" href="css/web/exercise-assign.css" />
+        <link rel="stylesheet" href="css/web/exam.css" />
+        <link rel="stylesheet" href="css/web/class.css" />
+        <link rel="stylesheet" href="css/web/report.css" />
+ <link rel="stylesheet" href="css/jingyou.css" />
+        <script type="text/javascript">
+            $(function () {
+                
+                var height=$('.options').height();
+                var per=$('.option-per');
+        
+                $('.option-rect').each(function(index){
+                    var perH=per[index].innerHTML;
+                    var h=parseInt(perH)/100*height;
+                    $(this).css('height',h);
+                });
+                
+                
+                
+                
+                
+                // body...
+        
+                var item = $('.exer-progress .exer-chart'); //jQuey对象
+                var percent_num = 9/30;
+                var percent_rate=14/100;
+                
+                var element1=item[0];
+                var element2=item[1];
+        
+        //      item.each(function(){
+        
+        //          var element = $(this)[1]; //DOM 对象
+                   
+                //调用ProgressBar插件
+                var circle1 = new ProgressBar.Circle(element1, {
+                    color: 'rgba(255,172,71,0.4)',
+                    strokeWidth: 15,
+                    trailWidth: 15,
+                    trailColor: 'transparent',
+                    duration: 500,
+                    fill: 'transparent',
+                    svgStyle: {
+                        display: 'block',
+                        width: '100%'
+                    },
+                    text:{
+                        style:{
+                            color: '#ffffff'
+                        }
+                    },
+                    step: function(state, bar) {
+                        bar.setText("9/30");
+                        
+                    }
+                });
+                
+                var circle2 = new ProgressBar.Circle(element2, {
+                    color: 'rgba(255,138,113,0.4)',
+                    strokeWidth: 15,
+                    trailWidth: 15,
+                    trailColor: 'transparent',
+                    duration: 500,
+                    fill: 'transparent',
+                    svgStyle: {
+                        display: 'block',
+                        width: '100%'
+                    },
+                    text:{
+                        style:{
+                            color: '#ffffff'
+                        }
+                    },
+                    step: function(state, bar) {
+                        bar.setText("14");
+                        
+                    }
+                });
+                
+                circle1.animate(percent_num);
+                circle2.animate(percent_rate);
+                
+        //      });
+                
+        
+            });
+        </script>
+
+    </head>
+
+    <body ng-controller="TeacherController">
+        <div class="header">
+            <div class="w980">
+                <a href="http://www.zuoyezhushou.com/" title="云测练">
+                    <span class="logo"></span>
+                </a>
+
+                <!--
+                ul>(a[href="javascript:void(0);"]>li.nav{老师备课})*8
+            -->
+                <ul>
+                    <a href="javascript:void(0);">
+                        <li class="nav">首页</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">老师备课</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">在线练习</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav selected">套卷测试</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">消息通知</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">班级</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">学生报告</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">入学测评</li>
+                    </a>
+                </ul>
+
+                <!--
+            div.account-box>(span.icon.icon-account+span{杨晓歪老师}+a.logout{退出})
+            -->
+                <div class="account-box">
+                    <span class="icon icon-account"></span>
+                    <a href="/account/center" ng-bind="teacherName">未登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="/account/logout" class="logout">退出</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="w980 online">
+
+                <div class="assign-box-title">
+                    <div class="assign-title">
+                        <a class="title-text-a" href="javascript:void(0);">在线练习</a>
+                        <span class="icon-current-position"></span>
+                        <a class="title-text-a" href="javascript:void(0);">单次练习报告</a>
+
+                    </div>
+                </div>
+
+                <div class="class-title">
+                    <div class="class-title-left fl">
+                        <span class='icon icon-homework-report'></span>
+                        <span class='class-title-text'>练习报告&nbsp;·&nbsp;有理数的排序</span>
+                    </div>
+                    <div class="deadline fr">
+                        <span>截止时间：2014/8/15 17:00</span>
+                    </div>
+                </div>
+
+                <div class="stu-report">
+                    <div class="exam-left">
+                        <ul>
+                            <li class="selected">学生完成情况</li>
+                            <li>题目分析</li>
+                        </ul>
+                    </div>
+                    <div class="stu-report-right">
+
+                        <div class="stu-caption">
+                            <div class="caption-left fl">
+                                <span class='icon icon-stu-book'></span>
+                                <span class='text-stu-num'>错题数（4/15）</span>
+                            </div>
+
+                        </div>
+
+                        <div class="notebook exer-notebook">
+
+                            <div class="border-box border-box-radius">
+                                <div class="exer-content">
+                                    <p class="exer-num">1.</p>
+                                    <div class="exer-text">
+
+                                        <div class="exer-question">
+                                            张大妈在超市买了一袋奶粉，发现包装上标有这样的文字:净重:(500+5)g. 张大妈怎么也看不明白是什么意思，你能给她解释清楚吗？
+                                        </div>
+
+                                        <div class="exer-options">
+                                            <div class="exer-option">
+                                                <span class="exer-option-code">A. </span>
+                                                <div>
+                                                    <span class="MathJye" mathtag="math" style="whiteSpace:nowrap;wordSpacing:normal;wordWrap:normal"><table cellpadding="-1" cellspacing="-1" style="margin-right:1px"><tbody><tr><td style="border-bottom:1px solid black">1</td></tr><tr><td>2</td></tr></tbody></table></span>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                            <div class="exer-option correct-answer">
+                                                <span class="exer-option-code">B. </span>
+                                                 张大妈在张大妈在超市买了一袋奶粉，发张大妈在超市买了一袋奶粉，发</div>
+                                            <div class="exer-option">
+                                                <span class="exer-option-code">C. </span>
+
+                                            张大妈在超市买了一袋奶粉，发现d张大妈在超市买了一袋奶粉，发</div>
+                                            <div class="exer-option">
+                                                <span class="exer-option-code">D. </span>
+
+                                            你说你说张大妈在超市买了一袋奶粉，发</div>
+
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="exer-answer">
+                                        <div class="answer-comment">
+                                            <p>【答案】 1234</p>
+                                            <p>【解析】 1234</p>
+                                            <p>【点评】 1234</p>
+                                            <p>【考点】 1234</p>
+                                        </div>
+
+                                        <div class="distribution">
+                                            <div class="wrong-num fl">
+                                                <p>答错人数</p>
+                                                <div class="exer-wrong-num exer-progress">
+                                                    <div class="exer-chart-show"></div>
+                                                    <div class="exer-chart"></div>
+                                                </div>
+                                            </div>
+                                            <div class="wrong-rate fl">
+                                                <p>错误率</p>
+                                                <div class="exer-wrong-rate exer-progress">
+                                                    <div class="exer-chart-show">
+                                                        <span>%</span>
+                                                    </div>
+                                                    <div class="exer-chart"></div>
+                                                </div>
+                                            </div>
+                                            <div class="option-division fl">
+                                                    <p>选项分布</p>
+                                                    <div class="rect-chart">
+                                                        <span class='rect-per fl'>%</span>
+                                                        <div class='per-num fl'>
+                                                            <p>100</p>
+                                                            <p>75</p>
+                                                            <p>50</p>
+                                                            <p>25</p>
+                                                            <p>0</p>
+                                                        </div>
+                                                        <div class="chart-bg fl">
+                                                            <div class="options option-a option-correct">
+                                                                
+                                                                <span class='option-rect'>
+                                                                    <span class='option-per'>80%</span>
+                                                                    <span class='option-num'>A</span>
+                                                                </span>
+                                                                
+                                                            </div>
+                                                            <div class="options option-b">
+                                                                
+                                                                <span class='option-rect'>
+                                                                    <span class='option-per'>1%</span>
+                                                                    <span class='option-num'>B</span>
+
+                                                                </span>
+                                                                
+                                                                
+                                                            </div>
+                                                            <div class="options option-c">
+                                                                
+                                                                <span class='option-rect'>
+                                                                    <span class='option-per'>7%</span>
+                                                                    <span class='option-num'>C</span>
+                                                                    <span class='option-msg'>
+                                                                        <span>B.</span>
+                                                                        <span>4人</span>
+                                                                        <p>杨依依、杨依依</p>
+                                                                        
+                                                                        <span class='msg-triangle'>
+                                                                            <span class='triangle-right'></span>
+                                                                        </span>
+                                                                        
+                                                                    </span>
+                                                                </span>
+                                                                
+                                                            </div>
+                                                            <div class="options option-d">
+                                                                
+                                                                <span class='option-rect'>
+                                                                    <span class='option-per'>12%</span>
+                                                                    <span class='option-num'>D</span>
+                                                                </span>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <!--<div class="chart-options">
+                                                            <span>A</span>
+                                                            <span>B</span>
+                                                            <span>C</span>
+                                                            <span>D</span>
+                                                        </div>-->
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="exer-message">
+                                    <span class='stu-wrong-rate'>错误学生：4/30</span>
+                                    <div class="exer-message-menu">
+                                        <div class="message-answer fr">
+                                            <a href="javascript:void(0);">查看解析</a>
+                                        </div>
+
+                                        <div class="message-diff fr">
+                                            <span class="icon-difficulty-fill"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                        </div>
+                                        <div class='diff-text fr'>难度</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="border-box border-box-radius">
+                                <div class="exer-content">
+                                    <p class="exer-num">1.</p>
+                                    <div class="exer-text">
+
+                                        <div class="exer-question">
+                                            张大妈在超市买了一袋奶粉，发现包装上标有这样的文字:净重:(500+5)g. 张大妈怎么也看不明白是什么意思，你能给她解释清楚吗？
+                                        </div>
+
+                                        <div class="exer-options">
+                                            <span>A. 你说你说</span>
+                                            <span>B. 我说我听</span>
+                                            <span>C. 你说你说</span>
+                                            <span>D. 你说你说</span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="exer-message">
+                                    <span class='stu-wrong-rate'>错误学生：4/30</span>
+                                    <div class="exer-message-menu">
+                                        <div class="message-answer fr">
+                                            <a href="javascript:void(0);">查看解析</a>
+                                        </div>
+                                        <div class="message-diff fr">
+                                            <span class="icon-difficulty-fill"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                        </div>
+                                        <div class='diff-text fr'>难度</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="border-box border-box-radius">
+                                <div class="exer-content">
+                                    <p class="exer-num">1.</p>
+                                    <div class="exer-text">
+
+                                        <div class="exer-question">
+                                            张大妈在超市买了一袋奶粉，发现包装上标有这样的文字:净重:(500+5)g. 张大妈怎么也看不明白是什么意思，你能给她解释清楚吗？
+                                        </div>
+
+                                        <div class="exer-options">
+                                            <span>A. 你说你说</span>
+                                            <span>B. 我说我听</span>
+                                            <span>C. 你说你说</span>
+                                            <span>D. 你说你说</span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="exer-message">
+                                    <span class='stu-wrong-rate'>错误学生：4/30</span>
+                                    <div class="exer-message-menu">
+                                        <div class="message-answer fr">
+                                            <a href="javascript:void(0);">查看解析</a>
+                                        </div>
+                                        <div class="message-diff fr">
+                                            <span class="icon-difficulty-fill"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                        </div>
+                                        <div class='diff-text fr'>难度</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="border-box border-box-radius">
+                                <div class="exer-content">
+                                    <p class="exer-num">1.</p>
+                                    <div class="exer-text">
+
+                                        <div class="exer-question">
+                                            张大妈在超市买了一袋奶粉，发现包装上标有这样的文字:净重:(500+5)g. 张大妈怎么也看不明白是什么意思，你能给她解释清楚吗？
+                                        </div>
+
+                                        <div class="exer-options">
+                                            <span>A. 你说你说</span>
+                                            <span>B. 我说我听</span>
+                                            <span>C. 你说你说</span>
+                                            <span>D. 你说你说</span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="exer-message">
+                                    <span class='stu-wrong-rate'>错误学生：4/30</span>
+                                    <div class="exer-message-menu">
+                                        <div class="message-answer fr">
+                                            <a href="javascript:void(0);">查看解析</a>
+                                        </div>
+                                        <div class="message-diff fr">
+                                            <span class="icon-difficulty-fill"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                            <span class="icon-difficulty-blank"></span>
+                                        </div>
+                                        <div class='diff-text fr'>难度</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="noterbook-pagination">
+                            <div class="exam-filter-pagination">
+                                <ul>
+                                    <li class="prev">上一页</li>
+                                    <li>1</li>
+                                    <li class="active">2</li>
+                                    <li>3</li>
+                                    <li>4</li>
+                                    <li>5</li>
+                                    <li>6</li>
+                                    <li>7</li>
+                                    <li>8</li>
+                                    <li>9</li>
+                                    <li>10</li>
+                                    <li class="none">...</li>
+                                    <li>500</li>
+                                    <li class="next">下一页</li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+
+</html>

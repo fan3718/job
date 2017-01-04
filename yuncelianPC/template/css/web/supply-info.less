@@ -1,0 +1,180 @@
+@import url('var.less');
+@import url('lib.less');
+.supply{
+	
+	width: 100%;
+	height: 100%;
+	position:fixed;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+	left: 0;
+	z-index: 100;
+	display: none;
+	min-height: 1000px;
+	&-show{
+		display: block!important;
+	}
+	&-box{
+		width:408px;
+		padding: 20px;
+		background-color: #fff;
+		.radius(5px);
+		left: 50%;
+		position: relative;
+		margin-left:-204px; 
+		margin-top: 80px;
+	}
+
+	&-title{
+		margin-bottom: 10px;
+		padding-bottom: 10px;
+		.font-color(16px,#4a5c7a);
+		border-bottom: 1px solid #4a5c7a;
+		padding-left: 10px;
+	}
+
+	&-row{
+		padding-left: 10px;
+		padding-right: 10px;
+		.font-color(16px,#333);
+		margin-bottom: 15px;
+		background-color: #f7f7f7;
+		min-height: 30px;
+		line-height: 30px;
+		position: relative;
+
+		&.row-group{
+			padding: 0!important;
+		}
+
+		&.row-class{
+			padding-left: 55px;
+			word-break: break-all;
+		}
+	}
+	&-label{
+
+
+		&.label-format{
+			width: 94px;
+			text-align: right;
+			display: inline-block;
+		}
+
+		&.label-float{
+			position: absolute;
+			left: 10px;
+			top: 0px;
+		}
+	}
+
+	&-warn{
+		.font-color(12px,#f36c5a);
+		margin-bottom: 10px;
+		background-image: url('../../img/web/supply/supply-tips.png');
+		background-repeat: no-repeat;
+		padding-left: 20px;
+		height: 16px;
+		line-height: 16px;
+
+		&.inline{
+			display: inline-block;
+		}
+	}
+	&-input{
+		border:1px solid #3c7ae3;
+		height: 24px;
+		line-height: 24px;
+		outline: none;
+		padding-left: 10px;
+		padding-right: 10px;
+		width:174px;
+
+		&.status-error{
+			border:1px solid #f36c5a;
+		}
+	}
+	&-input-large{
+		width: 234px;
+	}
+	&-verify-img{
+		width: 60px;
+		height: 24px;
+		vertical-align: middle;
+		border:0;
+		margin-left: -5px;
+		left: 0;
+		cursor: pointer;
+	}
+
+	&-send-code{
+		text-align: center;
+		.font-color(12px,#fff);
+		display: inline-block;
+		width: 60px;
+		margin-left: -5px;
+		background-color: #3c7ae3;
+		height: 24px;
+		line-height: 24px;
+		cursor: pointer;
+		&.disabled{
+			.font-color(12px,#666);
+			background-color: #dcdcdc;
+		}
+	}
+	&-edit{
+		cursor: pointer;
+		background-image: url('../../img/web/supply/supply-edit.png');
+		width:20px;
+		height: 20px;
+		right: 5px;
+		top: 5px;
+		display: inline-block;
+		position: absolute;
+	}
+
+	&-toolbar{
+		text-align: center;
+		margin-top: 10px;
+	}
+
+	&-confirm{
+		.font-color(16px,#fff);
+		text-align: center;
+		display: inline-block;
+		height: 40px;
+		cursor: pointer;
+		line-height: 40px;
+		min-width: 126px;
+		background-color: #3c7ae3;
+	}
+
+	.icon{
+		width: 16px;
+		height: 16px;
+		display: inline-block;
+		background-repeat: no-repeat;;
+		background-size: 100% 100%;
+		&-ok{
+			background-image: url('../../img/web/supply/status-code-ok.png');
+			&.status-default{
+				background-image: url('../../img/web/supply/status-default-ok.png');
+			}
+		}
+		&-error{
+			background-image: url('../../img/web/supply/status-code-error.png');
+		}
+	}
+
+
+	&-class{
+		display: inline-block;
+		margin-right: 10px;
+	}
+
+	&-bind{
+		.font-color(12px,#3c7ae3);
+		cursor: pointer;
+		text-decoration:underline
+	}
+}

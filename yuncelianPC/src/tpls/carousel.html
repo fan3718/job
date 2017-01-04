@@ -1,0 +1,28 @@
+<div class="carousel">
+    <div class="pic-box" ng-if="!isCarouselShow">
+        <img ng-repeat="image in images"  ng-src="{{image.latestUrl}}" alt="" ng-click="showGallery($index)">
+    </div>
+    <div class="carousel-container" ng-if="isCarouselShow" >
+        <div class="pic-slider" ng-click="hideGallery()" ng-style = "{height:SliderHeightNow}">
+            <div class="pic-slider-icon pic-slider-icon-left pic-slider-icon-left-prevent" ng-class="{true:'pic-slider-icon-left-active',false:'pic-slider-icon-left-prevent'}[hasMorePrev]" ng-click="prev($event)"></div>
+            <div class="pic-slider-icon pic-slider-icon-right pic-slider-icon-right-prevent" ng-class="{true:'pic-slider-icon-right-active',false:'pic-slider-icon-right-prevent'}[hasMoreNext]" ng-click="next($event)"></div>
+            <div class="pic-slider-show" style="height: 100%;">
+                <div class="pic-slider-imgs"  ng-style="{width:SliderWidth,left:SliderLeft}">
+                    <div class="img-box" ng-repeat="image in images" style="float:left;text-align:center;width:552px;">
+                        <img ng-src="{{image.latestUrl}}" alt="" style="max-width:552px;width:auto;height: auto;float: none;float: initial;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pic-info">
+            <div class="pic-info-left" ng-click="prevBundle($event)"></div>
+            <div class="pic-info-right" ng-click="nextBundle($event)"></div>
+            <div class="pic-info-show" >
+                <div class="pic-info-imgs" ng-style="{width:InfoImgsWidth,left:InfoImgsLeft}">
+                    <img ng-click="setIndex($index)" ng-class="{'active':isActive($index)}" ng-repeat="image in images"  ng-src="{{image.latestUrl}}" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

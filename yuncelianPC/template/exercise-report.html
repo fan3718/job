@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="keywords" content="云测练，在线练习，家校互动平台，yunzuoye" />
+        <meta name="description" content="云测练是面向老师、学生和家长的智能在线练习平台，云测练拥有一千万的优质练习资源，与各大教辅运营商合作，覆盖小初高全部学科。家长一键关注云测练微信，同步了解学生学习进展" />
+
+        <title>单次练习报告</title>
+
+        <!--<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>-->
+        <link rel="stylesheet" href="css/web/exercise-assign.css" />
+        <link rel="stylesheet" href="css/web/class.css" />
+        <link rel="stylesheet" href="css/web/exam.css" />
+        <link rel="stylesheet" href="css/web/report.css" />
+        <link rel="stylesheet" href="css/web/calendar.css" />
+        <link rel="stylesheet" href="css/web/timepick.css" />
+    </head>
+
+    <body ng-controller="TeacherController">
+        <div class="header">
+            <div class="w980">
+                <a href="http://www.zuoyezhushou.com/" title="云测练">
+                    <span class="logo"></span>
+                </a>
+
+                <!--
+                ul>(a[href="javascript:void(0);"]>li.nav{老师备课})*8
+            -->
+                <ul>
+                    <a href="javascript:void(0);">
+                        <li class="nav">首页</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">老师备课</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav selected">在线练习</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">套卷测试</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">消息通知</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">班级</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">学生报告</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">入学测评</li>
+                    </a>
+                </ul>
+
+                <!--
+            div.account-box>(span.icon.icon-account+span{杨晓歪老师}+a.logout{退出})
+            -->
+                <div class="account-box">
+                    <span class="icon icon-account"></span>
+                    <a href="/account/center" ng-bind="teacherName">未登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="/account/logout" class="logout">退出</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="w980 online">
+
+                <div class="assign-box-title">
+                    <div class="assign-title">
+                        <a class="title-text-a" href="javascript:void(0);">在线练习</a>
+                        <span class="icon-current-position"></span>
+                        <a class="title-text-a" href="javascript:void(0);">单次练习报告</a>
+
+                    </div>
+                </div>
+
+                <div class="class-title">
+                    <div class="class-title-left fl">
+                        <span class='icon icon-homework-report'></span>
+                        <span class='class-title-text'>练习报告&nbsp;·&nbsp;有理数的排序</span>
+                    </div>
+                    <div class="deadline fr">
+                        <span>截止时间：2014/8/15 17:00</span>
+                        <span class="icon icon-edit"></span>
+                    </div>
+                </div>
+
+                <div class="stu-report">
+                    <div class="exam-left">
+                        <ul>
+                            <li class="selected">学生完成情况</li>
+                            <li>题目分析</li>
+                        </ul>
+                    </div>
+                    <div class="stu-report-right exer-report">
+
+                        <div class="report">
+                            <div class="report-list exer-report-unfinish">
+                                <span class='text-title'>未完成学生</span>
+                                <span class='text-num text-stu'>3/30</span>
+                            </div>
+                            <div class="report-list exer-report-wrong">
+                                <span class='text-title'>平均错题数</span>
+                                <span class='text-num text-wrong'>3</span>
+                            </div>
+                            <div class="report-list exer-report-accuracy">
+                                <span class='text-title'>正确率</span>
+                                <span class='text-num text-rate'>69%</span>
+                            </div>
+                            <div class="report-list exer-report-time">
+                                <span class='text-title'>平均用时</span>
+                                <span class='text-num text-time'>15分40秒</span>
+                            </div>
+                        </div>
+
+                        <table class="table table-bordered stu-table">
+
+                            <thead>
+                                <tr>
+                                    <th class='width116 report-head'>姓名</th>
+                                    <th class='width116 report-head'>答题时间</th>
+                                    <th class='width116 report-head'>答对数</th>
+                                    <th class='width116 report-head'>答错数</th>
+                                    <th class='width233 report-head'>错题详情</th>
+                                    <th class='width123 report-oper'>
+                                        <span class='icon icon-remind'></span>
+                                        <span>一键催交</span>
+    
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>张三三</td>
+                                    <td>未完成</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td class='remind-btn'>
+                                        
+                                        <span class='text-remind text-reminded'>已催交</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>张三三</td>
+                                    <td>23分16秒</td>
+                                    <td>13</td>
+                                    <td>5</td>
+                                    <td>2、3、4、5、9</td>
+                                    <td class='view-detail'>
+                                        
+                                        <a href="javascript:void(0);" class='text-check'>查看详情</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>张三三</td>
+                                    <td>未完成</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td class='remind-btn'>
+                                        
+                                        <span class='text-remind'>催作业</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>张三三</td>
+                                    <td>未完成</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td class='remind-btn'>
+                                        
+                                        <a href="javascript:void(0);" class='text-check'>查看详情</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>张三三</td>
+                                    <td>未完成</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td class='remind-btn'>
+                                        
+                                        <a href="javascript:void(0);" class='text-check'>查看详情</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="w980">
+                <p class="about-us">
+                    <span><a href="/helpGuide/aboutUs" class="link">关于我们</a></span>|<span><a href="/helpGuide/aboutUs#contact"  class="link">联系我们</a></span>|<span><a href="http://www.lagou.com/gongsi/64333.html"  class="link">加入我们</a></span>
+                </p>
+                <p class="copyright">&copy;&nbsp;1 9 9 7 - 2 0 1 5 北京拓欣菁优 . 中国&nbsp;&nbsp;|&nbsp;&nbsp;自豪地采用 W o r d P r e s s
+                </p>
+            </div>
+        </div>
+
+
+         <div class="dialog" style="display:none">
+            <div class="dialog-box" style="height:226px;margin-top:-113px;">
+                <div class="dialog-title">
+                    <p>修改时间</p>
+                    <span class="icon-dialog-close"></span>
+                </div>
+                <div class="dialog-content">
+                    <div class="time-begin">
+                        <p>开始时间</p>
+                        <input id="calendar" class="date date-start fl" />
+                        <!--<input type="text" class="time-picker" />-->
+                        <div class="timepick timepick-wrap fl">
+                            <div class="timepick-up" id="add"></div>
+                            <div class="timepick-down" id="sub"></div>
+                            <input type="text" readonly="readonly" value="14:18" id="timepick" class="timepick-input" />
+                        </div>
+                        <!--<button id="add">添加</button>
+                        <button id="sub">添加</button>-->
+                    </div>
+                    <div class="time-end">
+                        <p>结束时间</p>
+                        <input id="calendar2" class="date date-end fl" />
+                        <!--<input type="text" class="time-picker" />-->
+                        <div class="timepick timepick-wrap fl">
+                            <div class="timepick-up" id="add"></div>
+                            <div class="timepick-down" id="sub"></div>
+                            <input type="text" readonly="readonly" value="14:18" id="timepick" class="timepick-input" />
+                        </div>
+                    </div>
+
+                    <div class="basket-done" style="margin-top:20px;">
+                        <button class="basket-btn publish-exer-btn ">确认</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="dialog">
+            <div class="dialog-box" style="height:180px;margin-top:-90px;">
+                <div class="dialog-title">
+                    <p>修改时间</p>
+                    <span class="icon-dialog-close"></span>
+                </div>
+                <div class="dialog-content">
+                    <div class="time-begin">
+                        <p>截止时间</p>
+                        <input id="calendar" class="date date-start fl" />
+                        <!--<input type="text" class="time-picker" />-->
+                        <div class="timepick timepick-wrap fl">
+                            <div class="timepick-up" id="add"></div>
+                            <div class="timepick-down" id="sub"></div>
+                            <input type="text" readonly="readonly" value="14:18" id="timepick" class="timepick-input" />
+                        </div>
+                        <!--<button id="add">添加</button>
+                        <button id="sub">添加</button>-->
+                    </div>
+
+
+                    <div class="basket-done" style="margin-top:20px;">
+                        <button class="basket-btn publish-exer-btn ">确认</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+</html>

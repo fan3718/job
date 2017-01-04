@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="keywords" content="云测练，在线练习，家校互动平台，yunzuoye" />
+        <meta name="description" content="云测练是面向老师、学生和家长的智能在线练习平台，云测练拥有一千万的优质练习资源，与各大教辅运营商合作，覆盖小初高全部学科。家长一键关注云测练微信，同步了解学生学习进展" />
+
+        <title>单次试卷报告</title>
+
+        <!--<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>-->
+        <link rel="stylesheet" href="css/web/exercise-assign.css" />
+        <link rel="stylesheet" href="css/web/class.css" />
+        <link rel="stylesheet" href="css/web/exam.css" />
+        <link rel="stylesheet" href="css/web/report.css" />
+
+    </head>
+
+    <body ng-controller="TeacherController">
+        <div class="header">
+            <div class="w980">
+                <a href="http://www.zuoyezhushou.com/" title="云测练">
+                    <span class="logo"></span>
+                </a>
+
+                <!--
+                ul>(a[href="javascript:void(0);"]>li.nav{老师备课})*8
+            -->
+                <ul>
+                    <a href="javascript:void(0);">
+                        <li class="nav">首页</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">老师备课</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">在线练习</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav selected">套卷测试</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">消息通知</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">班级</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">学生报告</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">入学测评</li>
+                    </a>
+                </ul>
+
+                <!--
+            div.account-box>(span.icon.icon-account+span{杨晓歪老师}+a.logout{退出})
+            -->
+                <div class="account-box">
+                    <span class="icon icon-account"></span>
+                    <a href="/account/center" ng-bind="teacherName">未登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="/account/logout" class="logout">退出</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="w980 online">
+
+                <div class="assign-box-title">
+                    <div class="assign-title">
+                        <a class="title-text-a" href="javascript:void(0);">在线练习</a>
+                        <span class="icon-current-position"></span>
+                        <a class="title-text-a" href="javascript:void(0);">单次试卷报告</a>
+
+                    </div>
+                </div>
+
+                <div class="class-title">
+                    <div class="class-title-left fl">
+                        <span class='icon icon-homework-report'></span>
+                        <span class='class-title-text'>2014级4年3班&nbsp;·&nbsp;2015年上海市高考数学试卷（文科）</span>
+                    </div>
+                    <div class="deadline fr">
+                        <span>截止时间：2014/8/15 17:00</span>
+                    </div>
+                </div>
+
+                <div class="stu-report">
+                    <div class="exam-left">
+                        <ul>
+                            <li class="selected">学生完成情况</li>
+                            <li>题目分析</li>
+                        </ul>
+                    </div>
+                    <div class="stu-report-right exer-report exam-report">
+                        
+                        <div class="exam-report-title">
+                        	
+                        
+                        <div class="report fl">
+                            <div class="report-list exer-report-unfinish">
+                                <span class='text-title'>未完成学生</span>
+                                <span class='text-num text-stu'>3/30</span>
+                            </div>
+                            <div class="report-list exer-report-correct">
+                                <span class='text-title'>待批改</span>
+                                <span class='text-num text-correct'>7人</span>
+                            </div>
+                            <div class="report-list exer-report-corrected">
+                                <span class='text-title'>已批改</span>
+                                <span class='text-num text-corrected'>12人</span>
+                            </div>
+                     
+                        </div>
+                        
+                        <div class="stu-caption fr">
+                            <div class="caption-left ">
+                                <span class='icon icon-stu-num'></span>
+                                <span class='text-stu-num'>学生30人</span>
+                            </div>
+                        </div>
+                        </div>
+
+                        <table class="table table-bordered stu-table">
+
+                            <thead>
+                                <tr>
+                                    <th class='width101 report-head'>姓名</th>
+                                    <th class='width101 report-head'>答题时间</th>
+                                    <th class='width101 report-head'>客观题得分</th>
+                                    <th class='width101 report-head'>主观题得分</th>
+                                    <th class='width101 report-head'>总分</th>
+                                    <th class='width202 report-head'>错题详情</th>
+                                    <th class='width105 report-head'>                                   
+                                        <span>操作</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>张三三</td>
+                                    <td>38分11秒</td>
+                                    <td>45</td>
+                                    <td>待批改</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td class='correct-btn'>
+                                        
+                                        <a href="javascript:void(0);" class='text-remind'>去批改</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>张三三</td>
+                                    <td>23分16秒</td>
+                                    <td>13</td>
+                                    <td>5</td>
+                                    <td>5</td>
+                                    <td>2、3、4、5、9</td>
+                                    <td class='view-detail'>
+                                        
+                                        <a href="javascript:void(0);" class='text-check'>查看详情</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>张三三</td>
+                                    <td>23分16秒</td>
+                                    <td>13</td>
+                                    <td>5</td>
+                                    <td>5</td>
+                                    <td>2、3、4、5、9</td>
+                                    <td class='view-detail'>
+                                        
+                                        <a href="javascript:void(0);" class='text-check'>查看详情</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>张三三</td>
+                                    <td>未完成</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td class='remind-btn'>
+                                        
+                                        <span class='text-remind'>催交试卷</span>
+                                    </td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="w980">
+                <p class="about-us">
+                    <span><a href="/helpGuide/aboutUs" class="link">关于我们</a></span>|<span><a href="/helpGuide/aboutUs#contact"  class="link">联系我们</a></span>|<span><a href="http://www.lagou.com/gongsi/64333.html"  class="link">加入我们</a></span>
+                </p>
+                <p class="copyright">&copy;&nbsp;1 9 9 7 - 2 0 1 5 北京拓欣菁优 . 中国&nbsp;&nbsp;|&nbsp;&nbsp;自豪地采用 W o r d P r e s s
+                </p>
+            </div>
+        </div>
+
+    </body>
+
+</html>

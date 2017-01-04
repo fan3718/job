@@ -1,0 +1,22 @@
+<ul ng-class="{'filetree':!ngNotRoot,'treeview':!ngNotRoot}"
+	ng-hide="collapsable(ngParent)">
+	<li ng-repeat="chapter in ngChapters"
+		ng-class="{'expandable':chapter.expandable && chapter.children.length > 0 ,'collapsable':!chapter.expandable  && chapter.children.length > 0,'last':$index ==ngChapters.length-1}">
+		<div class="hitarea"
+			ng-class="{'expandable-hitarea':chapter.expandable,'collapsable-hitarea':!chapter.expandable}"
+			ng-if="chapter.children.length > 0"></div> <span class="folder"
+		ng-click="expandChapter(chapter)" ng-if="chapter.children.length > 0"><span
+			data-code="{{chapter.ID}}" ng-click="changeChapter(chapter,$event)"
+			style="width: 100%; display: inline-block; height: 100%; overflow: hidden;"
+			title="{{chapter.Name}}"
+			ng-class="{'selected':ngChapterId==chapter.ID}">{{chapter.Name}}</span></span>
+		<span class="file" data-code="{{chapter.ID}}"
+		ng-if="chapter.children.length <= 0"
+		ng-click="changeChapter(chapter,$event)" title="{{chapter.Name}}"
+		ng-class="{'selected':ngChapterId==chapter.ID}">{{chapter.Name}}</span>
+		<div ng-chapters="chapter.children" ng-chapter-treeview
+			ng-not-root="true" ng-if="chapter.children.length>0"
+			ng-parent="chapter" ng-chapter-click="ngChapterClick"
+			ng-chapter-id="ngChapterId"></div>
+	</li>
+</ul>

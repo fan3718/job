@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="keywords" content="云测练，在线练习，家校互动平台，yunzuoye" />
+        <meta name="description" content="云测练是面向老师、学生和家长的智能在线练习平台，云测练拥有一千万的优质练习资源，与各大教辅运营商合作，覆盖小初高全部学科。家长一键关注云测练微信，同步了解学生学习进展" />
+
+        <title>个人中心-基本信息</title>
+
+        <link rel="stylesheet" href="css/web/exam.css" />
+        <link rel="stylesheet" type="text/css" href="css/web/center.css" />
+    </head>
+
+    <body ng-controller="TeacherController">
+        <div class="header">
+            <div class="w980">
+                <a href="http://www.zuoyezhushou.com/" title="云测练">
+                    <span class="logo"></span>
+                </a>
+
+                <!--
+                ul>(a[href="javascript:void(0);"]>li.nav{老师备课})*8
+            -->
+                <ul>
+                    <a href="javascript:void(0);">
+                        <li class="nav selected">首页</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">老师备课</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav ">在线练习</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">套卷测试</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">消息通知</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">班级</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">学生报告</li>
+                    </a>
+                    <a href="javascript:void(0);">
+                        <li class="nav">入学测评</li>
+                    </a>
+                </ul>
+
+                <!--
+            div.account-box>(span.icon.icon-account+span{杨晓歪老师}+a.logout{退出})
+            -->
+                <div class="account-box">
+                    <span class="icon icon-account"></span>
+                    <a href="/account/center" ng-bind="teacherName">未登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="/account/logout" class="logout">退出</a>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="w980 center">
+
+                <div class="exam-left center-left">
+                    <ul>
+                        <li class="selected">基本信息</li>
+                        <li>我的账户</li>
+                        <li>我的收藏</li>
+                    </ul>
+                </div>
+
+                <div class="center-right">
+
+                    <div class="info-title">
+                        <span class='icon icon-info icon-info-user'></span>
+                        <span class='info-title-text'>个人信息</span>
+                        <span class='info-edit'>编辑</span>
+                    </div>
+                    
+                    <div class="info-teacher">
+                    	<div class="info-image">
+                    		<div class='info-pic'></div>
+                    	</div>
+                    	<div class="info-text">
+                    		<div>姓名：吴昊</div>
+                    		<div>性别：男</div>
+                    		<div>学校：宣武区回民小学</div>
+                    		<div>学校所在地：北京市 宣武区</div>
+                    		<div>教授科目：英语</div>            
+                    	</div>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="center-right">
+
+                    <div class="info-title">
+                        <span class='icon icon-info icon-info-user'></span>
+                        <span class='info-title-text'>个人信息</span>
+                        <span class='info-edit'>保存</span>
+                    </div>
+                    
+                    <div class="info-teacher">
+                        
+                        <div class="info-image info-image-edit">
+                            <div class='info-pic'>修改头像</div>
+                        </div>
+                        
+                        <div class="info-text">
+                            <div class='info-name'><span>姓名：</span>
+                                <input type="text" name="info-name" id="info-name" value="吴昊" />
+                            </div>
+                            <div class='info-sex'><span>性别：</span>   
+                                <span class='radio-sex radio-sex-male'>
+                                    <input type="radio" name="sex" id="info-male" value="男" checked="checked"/>
+                                    <label for="info-male">
+                                        <span class='icon icon-sex'></span>
+                                        <span class='sex-text'>男</span>
+                                    </label>
+                                </span>
+                                
+                                <span class='radio-sex radio-sex-female'>
+                                    <input type="radio" name="sex" id="info-female" value="女" />
+                                    <label for="info-female">
+                                        <span class='icon icon-sex'></span>
+                                        <span class='sex-text'>女</span>
+                                    </label>
+                                </span>
+                                
+                            </div>
+                            <div>学校：宣武区回民小学</div>
+                            <div>学校所在地：北京市 宣武区</div>
+                            <div>教授科目：英语</div>
+            
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+
+            </div>
+        </div>
+    </body>
+
+</html>

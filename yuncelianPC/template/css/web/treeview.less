@@ -1,0 +1,93 @@
+
+//tree
+.filetree{
+    width:243px;
+    border:1px solid #EEEEEE;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    color:#4a5c7a;
+}
+
+.filetree .selected,.treeview .selected{
+    color:#3c7ae3;
+}
+
+
+.folder:hover,.file:hover{
+    color:#3c7ae3;
+    cursor: pointer;
+}
+.treeview ul{
+    margin:0px;
+}
+.treeview .hitarea{
+   width: 0px;
+   height: 0px;
+   display: none;
+}
+.treeview li.collapsable, .treeview li.expandable{
+    background-position: -1000px 0px;
+}
+.treeview li li.collapsable, .treeview li li.expandable{
+    background-position: 2px -200px;
+    background:url(../../img/web/tree-line-column.png) 9px 0px repeat-y;
+}
+.treeview li.last{
+    background-position: -100px 0px;
+}
+.treeview li li{
+    background-position: 2px -1756px;
+}
+.treeview li li.last{
+    background: url(../../img/web/tree-one-last.png) no-repeat;
+    background-position: 9px 0px;
+}
+.treeview li li li{
+    background: url(../../img/web/tree-middle.png) no-repeat;
+    background-position: 9px -12px;
+}
+.treeview li li{
+    background: url(../../img/web/tree-middle.png) no-repeat;
+    background-position: 9px -12px;
+}
+
+.treeview li li li.last{
+    background-image: url(../../img/web/tree-one-last.png);
+    background-position: 9px -2px;
+}
+
+.filetree span.folder{
+    background: url(../../img/web/unfold-default.png) 0px 0px no-repeat;
+  /*  width: 19px;*/
+    // height: 19px;
+    margin-right: 10px;
+}
+.filetree li.expandable span.folder{
+    background: url(../../img/web/unfold-default.png) 0px 0px no-repeat;
+}
+.filetree li.collapsable span.folder{
+    background: url(../../img/web/fold-default.png) 0px 0px no-repeat;
+}
+.filetree li,.treeview li{
+    margin: 0px;
+    padding: 0px;
+}
+.filetree li li,.treeview li li{
+    margin: 0px;
+    padding-left: 16px;
+}
+.filetree span.folder, .filetree span.file{
+    display: inline-block;
+    margin-top: 16px;
+    padding:0px 0px 0px 25px;  
+}
+.filetree li li .file{
+    padding:0px 0px 0px 20px; 
+    background: url(../../img/web/13px.png) 3px 4px no-repeat;
+}
+.filetree li li li .file{
+    padding:0px 0px 0px 20px; 
+    background: url(../../img/web/9px.png) 3px 4px no-repeat; 
+}

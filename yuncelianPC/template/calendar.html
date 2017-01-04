@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历demo</title>
+    <link rel="stylesheet" href="css/web/calendar.css" />
+    <link rel="stylesheet" href="css/web/timepick.css" />
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.calendar.js" type="text/javascript"></script>
+    <script src="js/jquery.timepick.js" type="text/javascript"></script>
+    <style type="text/css">
+        body{
+            width: 100%;
+            height: 100%;
+            background-color: #f7f7f7;
+        }
+        ::selection{
+            background-color: black;
+            color: white;
+        }
+        ::-moz-selection{
+            background-color: black;
+            color: white;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+    $(function() {
+    
+        $('#calendar').calendar({
+            minDate: new Date(),
+            //maxDate: new Date('2016/01/08'),
+            format:'yyyy/MM/dd',
+            onPicked:function(date){
+                //alert(date);
+            },
+            onError:function(type){
+                alert('不能选择该日期');
+            }
+        });
+        
+        $(".timepick").TimePick({
+        });
+    });
+    </script>
+
+
+</head>
+<body>
+    
+    <div class="timepick timepick-wrap">
+        <div class="timepick-up" id="add"></div>
+        <div class="timepick-down" id="sub"></div>
+        <input type="text" readonly="readonly" value="16:18" id="timepick" class="timepick-input"/>
+
+    </div>
+
+    <input id="calendar" style="margin-top:300px;margin-left:200px;" />
+
+    <button id="add">添加</button>
+    <button id="sub">添加</button>
+
+    <input id="calendar2" style="margin-top:350px;margin-left:200px;position:absolute;left:20px" />
+    
+
+    
+    <div id="test"></div>
+    
+    <div class="calendar" style="top:10px;left:200px;">
+        <div class="calendar-header">
+            <span class="btn-calendar-prev" style="top:8px;"></span>
+            <span class="btn-calendar-next" style="top:8px;"></span>
+            <div class="calendar-title" style="display:none">
+                <span class="comp-month">11</span>
+                <span> / </span>
+                <span class="comp-year">2015</span>
+            </div>
+            
+            <div class="calendar-large-title">
+                <span class="year">2015</span>
+                <span class="year-range">2015-2020</span>
+            </div>
+
+            <div class="calendar-week" style="opacity:0;">
+                <table>
+                    <tr>
+                        <td>日</td>
+                        <td>一</td>
+                        <td>二</td>
+                        <td>三</td>
+                        <td>四</td>
+                        <td>五</td>
+                        <td>六</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="calendar-content">
+            <div class="enabled">
+            </div>
+        </div>
+    </div>
+    
+<!--
+    
+    <div class="calendar" style="top:300px;">
+        <div class="calendar-header">
+            <span class="btn-calendar-prev"></span>
+            <span class="btn-calendar-next"></span>
+            <div class="calendar-title">
+                <span>
+                    <span class="year">2015</span>
+                </span>
+            </div>
+            
+        </div>
+        <div class="content">
+            <div class="enabled">
+                <table class="table-month">
+                <tbody>
+                    <tr>
+                        <td><span>1月</span></td>
+                        <td><span>2月</span></td>
+                        <td><span>3月</span></td>
+                        <td><span>4月</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>5月</span></td>
+                        <td><span>6月</span></td>
+                        <td><span>7月</span></td>
+                        <td><span>8月</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>9月</span></td>
+                        <td><span>10月</span></td>
+                        <td><span class="current">11月</span></td>
+                        <td><span>12月</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <div class="reserve">
+                
+            </div>
+            
+        </div>
+    </div>
+<!--
+    <div class="calendar" style="top:600px;">
+        <div class="title title-month">
+            <span class="btn-calendar-prev"></span>
+            <span class="btn-calendar-next"></span>
+            <span>
+                2005 - 2016
+            </span>
+        </div>
+        <div class="content">
+            <table class="table-month">
+                <tbody>
+                    <tr>
+                        <td><span>2005</span></td>
+                        <td><span>2006</span></td>
+                        <td><span>2007</span></td>
+                        <td><span>2008</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>2009</span></td>
+                        <td><span>2010</span></td>
+                        <td><span>2011</span></td>
+                        <td><span>2012</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>2013</span></td>
+                        <td><span>2014</span></td>
+                        <td><span class="current">2015</span></td>
+                        <td><span>2013</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="calendar" style="top:900px;">
+        <div class="title title-month">
+            <span class="btn-calendar-prev"></span>
+            <span class="btn-calendar-next"></span>
+            <span>
+                2005 - 2016
+            </span>
+        </div>
+        <div class="content">
+            <table class="table-year-range">
+                <tbody>
+                    <tr>
+                        <td><span>2005</span></td>
+                        <td><span>2006</span></td>
+                        <td><span>2007</span></td>
+                        <td><span>2008</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>2009</span></td>
+                        <td><span>2010</span></td>
+                        <td><span>2011</span></td>
+                        <td><span>2012</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>2013</span></td>
+                        <td><span>2014</span></td>
+                        <td><span class="current">2005-2016</span></td>
+                        <td><span>2013</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    -->
+</body>
+</html>
