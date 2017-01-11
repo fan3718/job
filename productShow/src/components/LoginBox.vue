@@ -45,7 +45,7 @@ export default {
   props: ['pageName'],
   methods: {
     changeChecked: function () {
-      var remName = 'remembered_resource'
+      let remName = 'remembered_resource'
       if (this.pageName !== '0') {
         remName = 'remembered_system'
       }
@@ -69,12 +69,12 @@ export default {
         this.isError = true
         return false
       }
-      var data = {
+      let data = {
         'username': this.userName,
         'password': this.passWord
       }
-      var url = '/accounts/api/v1/login/'
-      var hrefUrl = ''
+      let url = '/accounts/api/v1/login/'
+      let hrefUrl = ''
       if (this.pageName !== '0') {
         url = '/accounts/api/v1/login/'
         hrefUrl = '#'
